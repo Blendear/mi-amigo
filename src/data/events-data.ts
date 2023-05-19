@@ -1,5 +1,5 @@
 import exampleImage from "../../../../../public/images/examplePath.png";
-// https://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@github.com/Blendear/mi-amigo.git
+
 interface IToolTrapProtipObject {
   poziom: number;
   miejsce: string;
