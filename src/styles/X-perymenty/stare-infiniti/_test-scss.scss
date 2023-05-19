@@ -1,0 +1,38 @@
+.eksperymentalny {
+  background-color: rgb(224, 123, 60);
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  transition: all 2s;
+  background-color: rgb(115, 219, 157);
+
+  &--violet {
+    transition: all 2s;
+    background-color: rgb(125, 14, 97);
+  }
+  &--animated {
+    animation: mymove 2s;
+  }
+}
+
+@keyframes mymove {
+  0% {
+    height: 100px;
+  }
+  50% {
+    height: 200px;
+  }
+  100% {
+    height: 100px;
+  }
+}
+
+.navbar {
+  background-color: rgb(159, 37, 159);
+}
+
+.footer {
+  background-color: rgb(14, 163, 126);
+}

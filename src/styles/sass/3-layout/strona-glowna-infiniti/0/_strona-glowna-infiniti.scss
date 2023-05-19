@@ -1,0 +1,312 @@
+.layout {
+  // \/ fragment klasy (jak "layout" /\, dopisywane dla jasności "czego tyczy się ten css class", dla developera)
+  &__strona-glowna {
+    // \/ layout, w który zostana włożone "foty marketingowe i reszta podfragmnetó storny głównej
+    &__cala-strona {
+      display: grid;
+
+      grid-template-areas: //
+        "bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb" // baner startowy, shapey & ikonki
+        "ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc" // Galeria
+        "ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd" // Opis, shape i rysunek
+        "eee eee eee eee eee eee eee eee eee eee eee eee" // Poziomy
+        "fff fff fff fff fff fff fff fff fff fff fff fff" // Godziny Otwarcia, shape
+        "ggg ggg ggg ggg ggg ggg ggg ggg ggg ggg ggg ggg" // Rysunek osób i shape
+;
+      grid-template-rows:
+        minmax(5rem, max-content) minmax(5rem, max-content) minmax(
+          5rem,
+          max-content
+        )
+        repeat(3, minmax(5rem, max-content));
+      grid-template-columns: 1rem 1rem repeat(8, minmax(2rem, 14rem)) 1rem 1rem;
+    }
+
+    &__baner-startowy {
+      grid-area: bbb;
+
+      display: grid;
+      grid-template-areas: 
+      //
+        "bb1";
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+
+      background-color: #40afff7a;
+
+      position: relative;
+      &--fota-w-tle {
+        grid-area: bb1;
+        // align-self: start;
+
+        opacity: 0.5;
+        z-index: -10;
+      }
+      &--paski-i-ikonki {
+        //shapey, wszystkie przy banerze, w tym na górzenavbarowe
+        grid-area: bb1;
+        // position: relative;
+        z-index: -10;
+      }
+      &--napis-glowny {
+        grid-area: bb1;
+        z-index: 0;
+      }
+      &--napis-maly {
+        grid-area: bb1;
+        z-index: 0;
+      }
+    }
+
+    &__galeria {
+      grid-area: ccc;
+
+      display: grid;
+      grid-template-areas: "cc1"; // nakładane, z-index'owo inne foty/shapey
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+
+      // background-color: #219f97;
+      transform: translateY(-5rem);
+
+      &__carousel-fot {
+        grid-area: cc1;
+
+        display: grid;
+        grid-template-areas: "aaa bbb ccc"; // kształy nachodzące & ikonka menu
+        grid-template-rows: 1fr;
+        grid-template-columns: minmax(5rem, 10rem) minmax(5rem, max-content) minmax(
+            5rem,
+            10rem
+          );
+
+        &--slide-none {
+          grid-area: bbb;
+        }
+        &--slide-active {
+          grid-area: bbb;
+          position: relative;
+          z-index: 10;
+        }
+        &--strzalka-lewa {
+          grid-area: aaa;
+        }
+        &--strzalka-prawa {
+          grid-area: ccc;
+        }
+      }
+      &__ksztalty-kolorowe-w-tle {
+        &--lewy {
+          grid-area: cc1;
+
+          height: 10rem;
+          width: 10rem;
+          background-color: #7b219f;
+          border-radius: 20%;
+          z-index: 5;
+
+          justify-self: center;
+          align-self: center;
+          transform: translate(-10vw, -10vw);
+        }
+        &--prawy {
+          grid-area: cc1;
+
+          height: 10rem;
+          width: 10rem;
+          background-color: #7b219f;
+          border-radius: 20%;
+          z-index: 5;
+
+          justify-self: center;
+          align-self: center;
+          transform: translate(10vw, 10vw);
+        }
+      }
+    }
+
+    &__opis-i-rysunek {
+      grid-area: ddd;
+
+      display: grid;
+
+      grid-template-rows: [r-start] 1fr [r-end];
+      grid-template-columns: [c-1] 3fr [c-2] 1fr [c-3];
+
+      // grid-template-areas: "dd1"; // opis   &   rysunek
+      // grid-template-rows: 1fr;
+      // grid-template-columns: 1fr;
+
+      // background-color: #259f21;
+      position: relative;
+
+      &__shape {
+        grid-row: r-start / r-end;
+        grid-column: c-1 / c-3;
+      }
+      &__opis {
+        padding: 3vh 5vh 3vh 7vh;
+        grid-row: r-start / r-end;
+        grid-column: c-1 / c-2;
+
+        font-weight: bold;
+        font-size: 80%;
+
+        align-self: center;
+        justify-self: center;
+      }
+      &__rysunek {
+        grid-row: r-start / r-end;
+        grid-column: c-2 / c-3;
+
+        opacity: 0.3;
+        // background-color: yellow;
+      }
+    }
+
+    &__poziomy {
+      grid-area: eee;
+
+      display: grid;
+      grid-template-areas: //
+        "ee1 ee1 ee1 ee1" // instrukcja
+        "ee2 ee2 ee2 ee2" // mapa
+        "ee3 ee4 ee5 ee6" // prostokaty poziomów
+        "ee7 ee7 ee7 ee7" // shape nad godzinami
+;
+      grid-template-rows: repeat(3, minmax(0rem, max-content));
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      // background-color: #cf95e7;
+      &__napis-instruckja {
+        grid-area: ee1;
+
+        font-weight: bold;
+        font-size: 1.4rem;
+
+        align-self: center;
+        justify-self: center;
+        color: black;
+      }
+      &__mapa {
+        grid-area: ee2;
+        // background-color: #685e58;
+        &--nonactive-slide {
+          opacity: 0;
+          transition-duration: 1s ease;
+        }
+        &--active-slide {
+          opacity: 1;
+          transition-duration: 1s;
+          transform: scale(1.08);
+        }
+      }
+      &__prostokat {
+        @mixin prostokat-all {
+          align-self: center;
+          justify-self: center;
+          height: 10rem;
+          width: 60%;
+
+          background-color: #7b219f;
+          border: none;
+
+          cursor: pointer;
+        }
+        &--minus-1 {
+          grid-area: ee3;
+
+          @include prostokat-all;
+        }
+        &--0 {
+          grid-area: ee4;
+
+          @include prostokat-all;
+        }
+        &--1 {
+          grid-area: ee5;
+
+          @include prostokat-all;
+        }
+        &--2 {
+          grid-area: ee6;
+
+          @include prostokat-all;
+        }
+
+        &---aktywny {
+          background-color: #7b219f;
+        }
+      }
+      &__napis-poziomu {
+        @mixin napis-poziomu-all {
+          height: 100%;
+          width: 100%;
+          padding-top: 30%;
+
+          font-size: 3rem;
+          font-weight: bold;
+
+          color: #ffffff;
+        }
+        &--minus-1 {
+          @include napis-poziomu-all;
+        }
+        &--0 {
+          @include napis-poziomu-all;
+        }
+        &--1 {
+          @include napis-poziomu-all;
+        }
+        &--2 {
+          @include napis-poziomu-all;
+        }
+      }
+      &__shape-nad-godzinami {
+        grid-area: ee7;
+        transform: translateY(-7.5rem);
+      }
+    }
+    &__godziny-otwarcia {
+      grid-area: fff;
+
+      display: grid;
+      grid-template-areas: //
+        "ff1 ff1 ff1" // tytul
+        "ff2 ff2 ff2" // klub
+        "ff3 ff3 ff3"; // sauna
+      grid-template-rows: repeat (3, minmax(5rem, max-content));
+      grid-template-columns: 1fr 1fr 1fr;
+
+      background-color: #e39c40;
+    }
+    &__walczmy-razem {
+      grid-area: ggg;
+
+      display: grid;
+      grid-template-rows: [r-start] 1fr [r-end];
+      grid-template-columns: [c-1] 1fr [c-2];
+
+      // background-color: #abe31e;
+      position: relative;
+
+      &__shape {
+        grid-row: r-start / r-end;
+        grid-column: c-1 / c-2;
+        z-index: -5;
+      }
+
+      &__rysunek-z-napisem {
+        grid-row: r-start / r-end;
+        grid-column: c-1 / c-2;
+        align-self: end;
+        margin-bottom: 5rem;
+        z-index: 15;
+
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+//

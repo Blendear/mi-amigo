@@ -1,0 +1,38 @@
+.layout {
+  // \/ fragment klasy (jak "layout" /\, dopisywane dla jasności "czego tyczy się ten css class", dla developera)
+  &__fitness-grafik {
+    // \/ layout, w który zostana włożone fragmenty calej strony
+    &__cala-strona {
+      display: grid;
+
+      grid-template-rows: [r-start] minmax(5rem, max-content) [r-end];
+      grid-template-columns: [c-1] 3fr [c-2] 1fr [c-3];
+      // pierwszy fragment calej strony, z samej gory strony (ustaiwam zgodnie z ulozeniem na stornie, dla latwego szukania
+      &__aaa {
+        grid-row: r-start / r-end;
+        grid-column: c-1 / c-2;
+
+        display: grid;
+
+        grid-template-rows: [r-start] minmax(5rem, max-content) [r-end];
+        grid-template-columns: [c-1] 3fr [c-2] 1fr [c-3];
+
+        background-color: #40afff7a;
+        // pierwszy PODfragment pierwszego fragmentu...
+        &__shape {
+          grid-row: r-start / r-end;
+          grid-column: c-2 / c-3;
+
+          background-color: #79ff407a;
+        }
+      }
+      // drugi fragment calej strony, tóż pod tym pierwszym z samej gory strony
+      &__bbb {
+        // pierwszy PODfragment drugiego fragmentu...
+        &--fota-w-tle {
+          background-color: #e2ff407a;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,751 @@
+$wysokosc-min-wiersza-all: min-content;
+$wysokosc-max-wiersza-all: max-content;
+
+$wysokosc-min-wiersza-recepcja: 10rem;
+$wysokosc-max-wiersza-recepcja: 25rem;
+
+$wysokosc-min-wiersza-trenerzy: 10rem;
+$wysokosc-min-kolumny-trenerzy: 2.5rem;
+$wysokosc-max-wiersza-trenerzy: 15rem;
+
+$wysokosc-min-wiersza-manager: 10rem;
+$wysokosc-max-wiersza-manager: 25rem;
+
+$font-size: 1.6rem;
+$font-weight: bold;
+
+//
+
+//
+//
+////~~ A.  Variables
+////
+////       A.1. Tekst
+// //
+// //           A.1.1.
+////
+////       A.2. Foty
+// //
+// //           A.1.1.
+// //
+////       A.3. SVG
+// //
+// //           A.1.1.
+// //
+////~~ B. Mixins
+////
+////       B.1. Tekst
+// //
+// //           B.1.1.
+////
+////       B.2. Foty
+// //
+// //           B.1.1.
+// //
+////       B.3. SVG
+// //
+// //           B.1.1.
+//
+
+//
+
+@mixin wysrodkowanie-i-zmniejszenie-dzieci {
+  margin: auto;
+  width: 50%;
+}
+
+@mixin foto-container {
+  // height: 30%;
+  // width: 6rem;
+
+  // background-color: #ff0303;
+}
+
+@mixin foto-img-element {
+  border-radius: 50%;
+}
+
+.layout {
+  // \/ fragment klasy (jak "layout" /\, dopisywane dla jasności "czego tyczy się ten css class", dla developera)
+  &__fitness-kadra {
+    // \/ layout, w który zostana włożone fragmenty calej strony
+    &__cala-strona {
+      display: grid;
+
+      grid-template-rows:
+        [r-0] 4rem
+        [r-1] minmax($wysokosc-min-wiersza-all, $wysokosc-max-wiersza-all)
+        [r-2] minmax($wysokosc-min-wiersza-all, $wysokosc-max-wiersza-all)
+        [r-3] minmax($wysokosc-min-wiersza-all, $wysokosc-max-wiersza-all)
+        [r-4];
+      grid-template-columns:
+        [c-1] 1fr
+        [c-2] 1fr
+        [c-3] 1fr
+        [c-4];
+
+      // margin: 2rem;
+      &__shape-lisc-manager {
+        grid-row: r-1 / r-2;
+        grid-column: c-1 / c-4;
+
+        margin-left: 5%;
+        // margin-right: 10%;
+        // margin-top: 10%;
+        // margin-bottom: 5%;
+
+        // margin-top: 50%;
+        // transform: translateX(1.15rem);
+      }
+      &__shape-lisc-recepcja {
+        grid-row: r-2 / r-3;
+        grid-column: c-1 / c-4;
+
+        margin-top: -10%;
+        // transform: translateX(1.15rem);
+      }
+      &__shape-lisc-trenerzy {
+        grid-row: r-3 / r-4;
+        grid-column: c-1 / c-4;
+
+        // margin-bottom: 10%;
+        // transform: translateX(1.15rem);
+      }
+      &__tytulowy-opis-strony {
+        grid-row: r-0 / r-1;
+        grid-column: c-1 / c-4;
+
+        justify-self: center;
+        // align-self: end;
+        margin-top: 6%;
+        font-size: $font-size;
+        font-weight: $font-weight;
+      }
+
+      // pierwszy fragment calej strony, z samej gory strony (ustaiwam zgodnie z ulozeniem na stornie, dla latwego szukania
+      &__recepcja-wiersz {
+        grid-row: r-2 / r-3;
+        grid-column: c-1 / c-4;
+
+        display: grid;
+
+        grid-template-rows:
+          [r-1] $wysokosc-min-wiersza-recepcja
+          [r-2];
+        grid-template-columns:
+          [c-1] $wysokosc-min-wiersza-recepcja
+          [c-2] $wysokosc-min-wiersza-recepcja
+          [c-3] $wysokosc-min-wiersza-recepcja
+          [c-4];
+
+        // background-color: #40afff;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 6rem;
+        &--zero-napis {
+          grid-row: r-1 / r-2;
+          grid-column: c-1 / c-2;
+
+          // background-color: #ff40409a;
+
+          // position: relative;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+
+          font-size: $font-size;
+          font-weight: $font-weight;
+          margin-left: 0%;
+          // margin-right: 10%;
+          margin-top: 20%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+
+        &--jeden {
+          grid-row: r-1 / r-2;
+          grid-column: c-1 / c-2;
+
+          // background-color: #ff40409a;
+
+          // position: relative;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 130%;
+          // margin-right: 10%;
+          margin-top: 65%;
+          margin-bottom: 0%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--dwa {
+          grid-row: r-1 / r-2;
+          grid-column: c-2 / c-3;
+          // display: grid;
+          // background-color: #f940ff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+
+          // margin-left: 110%;
+          margin-right: -55%;
+          margin-top: 35%;
+          margin-bottom: -15%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--trzy {
+          grid-row: r-1 / r-2;
+          grid-column: c-3 / c-4;
+          // display: grid;
+          // background-color: #bcff407a;
+
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          // margin-left: 110%;
+          margin-right: -10%;
+          margin-top: -10%;
+          // margin-bottom: 0%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          // TRAP1 - \/ WSZYSTKIM TRENEROM DALEM TA KLASE, BO JEST ODPOWIEDZIALNA PO PROSTU ZA TO SAMO,
+          // CZYLI BORDERRADIUSOWANIE. NIE CHCIALO MI SIE ZIENAICKLA KAZDEMU ELEMENTOWI W JSX
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+
+          // /\
+        }
+      }
+      &__trenerzy-wiersz {
+        grid-row: r-3 / r-4;
+        grid-column: c-1 / c-4;
+
+        display: grid;
+
+        grid-template-rows:
+          [r-1] $wysokosc-min-wiersza-trenerzy
+          [r-2] $wysokosc-min-wiersza-trenerzy
+          [r-3] $wysokosc-min-wiersza-trenerzy
+          [r-4] $wysokosc-min-wiersza-trenerzy
+          [r-5];
+        grid-template-columns:
+          [c-1] $wysokosc-min-kolumny-trenerzy
+          [c-2] $wysokosc-min-kolumny-trenerzy
+          [c-3] $wysokosc-min-kolumny-trenerzy
+          [c-4] $wysokosc-min-kolumny-trenerzy
+          [c-5] $wysokosc-min-kolumny-trenerzy
+          [c-6] $wysokosc-min-kolumny-trenerzy
+          [c-7] $wysokosc-min-kolumny-trenerzy
+          [c-8] $wysokosc-min-kolumny-trenerzy
+          [c-9] $wysokosc-min-kolumny-trenerzy
+          [c-10] $wysokosc-min-kolumny-trenerzy
+          [c-11] $wysokosc-min-kolumny-trenerzy
+          [c-12] $wysokosc-min-kolumny-trenerzy
+          [c-13];
+
+        // background-color: #79ff40;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        &--napis {
+          grid-row: r-1 / r-2;
+          grid-column: c-9 / c-13;
+
+          font-size: $font-size;
+          font-weight: $font-weight;
+          margin-left: 25%;
+          // margin-right: 10%;
+          margin-top: 30%;
+          // margin-bottom: 5%;
+        }
+        &--jeden {
+          display: none;
+          grid-row: r-1 / r-2;
+          grid-column: c-1 / c-5;
+
+          // background-color: #ff40407a;
+
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 70%;
+          // margin-right: 10%;
+          margin-top: 10%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--dwa {
+          display: none;
+
+          grid-row: r-1 / r-2;
+          grid-column: c-5 / c-9;
+
+          // background-color: #f940ff7a;
+
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: -90%;
+          // margin-right: 10%;
+          margin-top: 60%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--trzy {
+          grid-row: r-1 / r-2;
+          grid-column: c-9 / c-13;
+
+          // background-color: #bcff407a;
+
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: -100%;
+          // margin-right: 10%;
+          margin-top: 70%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--cztery {
+          grid-row: r-1 / r-2;
+          grid-column: c-9 / c-13;
+
+          // background-color: #40ffb37a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+
+          margin-left: 65%;
+          margin-right: 0%;
+          margin-top: 130%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--piec {
+          display: none;
+
+          grid-row: r-2 / r-3;
+          grid-column: c-1 / c-5;
+
+          // background-color: #40dfff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 0%;
+          // margin-right: 120%;
+          margin-top: 30%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--szesc {
+          grid-row: r-2 / r-3;
+          grid-column: c-5 / c-9;
+
+          // background-color: #9c40ff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 100%;
+          // margin-right: 120%;
+          margin-top: 0%;
+          // margin-bottom: 5%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--siedem {
+          grid-row: r-3 / r-4;
+          grid-column: c-1 / c-5;
+
+          // background-color: #ff40407a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 5%;
+          // margin-right: 120%;
+          margin-top: 5%;
+          // margin-bottom: 5%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--osiem {
+          grid-row: r-3 / r-4;
+          grid-column: c-1 / c-5;
+
+          // background-color: #f940ff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 15%;
+          // margin-right: 120%;
+          margin-top: 75%;
+          // margin-bottom: 5%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--dziewiec {
+          grid-row: r-3 / r-4;
+          grid-column: c-9 / c-13;
+
+          // background-color: #bcff407a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 65%;
+          // margin-right: 120%;
+          margin-top: 0%;
+          // margin-bottom: 5%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--dziesiec {
+          grid-row: r-4 / r-5;
+          grid-column: c-1 / c-5;
+
+          // background-color: #40ffb37a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 70%;
+          // margin-right: 120%;
+          margin-top: 35%;
+          // margin-bottom: 5%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--jedenascie {
+          grid-row: r-4 / r-5;
+          grid-column: c-5 / c-9;
+
+          // background-color: #40dfff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 40%;
+          // margin-right: 120%;
+          margin-top: 60%;
+          // margin-bottom: 5%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--dwanascie {
+          grid-row: r-4 / r-5;
+          grid-column: c-9 / c-13;
+
+          // background-color: #9c40ff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 10%;
+          // margin-right: 120%;
+          // margin-top: 110%;
+          margin-bottom: 17%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--trzynascie {
+          grid-row: r-3 / r-4;
+          grid-column: c-9 / c-13;
+
+          // background-color: #9c40ff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 55%;
+          // margin-right: 120%;
+          margin-top: 70%;
+          margin-bottom: 0%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--czternascie {
+          grid-row: r-2 / r-3;
+          grid-column: c-6 / c-10;
+
+          // background-color: #9c40ff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 70%;
+          margin-right: 0%;
+          // margin-top: 110%;
+          margin-bottom: -15%;
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+
+        &--pietnascie {
+          grid-row: r-2 / r-3;
+          grid-column: c-1 / c-5;
+
+          // background-color: #40dfff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 130%;
+          // margin-right: 120%;
+          margin-top: 30%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--szestnascie {
+          grid-row: r-2 / r-3;
+          grid-column: c-1 / c-5;
+
+          // background-color: #40dfff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 70%;
+          // margin-right: 120%;
+          margin-top: 75%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--siedemnascie {
+          grid-row: r-2 / r-3;
+          grid-column: c-1 / c-5;
+
+          // background-color: #40dfff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 25%;
+          // margin-right: 120%;
+          margin-top: 20%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--osiemnascie {
+          grid-row: r-2 / r-3;
+          grid-column: c-1 / c-5;
+
+          // background-color: #40dfff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 135%;
+          // margin-right: 120%;
+          margin-top: 110%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--dziewietnascie {
+          grid-row: r-2 / r-3;
+          grid-column: c-1 / c-5;
+
+          // background-color: #40dfff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 195%;
+          // margin-right: 120%;
+          margin-top: 140%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--dwadziescia {
+          grid-row: r-2 / r-3;
+          grid-column: c-1 / c-5;
+
+          // background-color: #40dfff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 145%;
+          // margin-right: 120%;
+          margin-top: 190%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--dwa-jeden {
+          grid-row: r-2 / r-3;
+          grid-column: c-1 / c-5;
+
+          // background-color: #40dfff7a;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          margin-left: 80%;
+          // margin-right: 120%;
+          margin-top: 155%;
+          // margin-bottom: 5%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+      }
+      &__trenerzy-wiersz img:hover {
+        // background-color: aqua;
+        transform: scale(1.3);
+      }
+      &__manager-wiersz {
+        grid-row: r-1 / r-2;
+        grid-column: c-1 / c-4;
+
+        display: grid;
+
+        grid-template-rows:
+          [r-1] $wysokosc-min-wiersza-recepcja
+          [r-2];
+        grid-template-columns:
+          [c-1] $wysokosc-min-wiersza-recepcja
+          [c-2] $wysokosc-min-wiersza-recepcja
+          [c-3] $wysokosc-min-wiersza-recepcja
+          [c-4];
+        margin-left: 2rem;
+        margin-right: 2rem;
+        // margin-bottom: 2rem;
+
+        // background-color: #ff40bf;
+        &--jeden {
+          grid-row: r-1 / r-2;
+          grid-column: c-1 / c-2;
+
+          // height: 100%;
+          // width: 100%;
+
+          // background-color: #fd99db;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+          // margin-top: 0;
+          margin-left: 33%;
+          // margin-right: 2rem;
+          margin-bottom: 3%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+        &--napis {
+          grid-row: r-1 / r-2;
+          grid-column: c-3/ c-4;
+
+          // height: 100%;
+          // width: 100%;
+
+          // background-color: #fd99db;
+          @include wysrodkowanie-i-zmniejszenie-dzieci();
+
+          font-size: $font-size;
+          font-weight: $font-weight;
+
+          margin-left: 0%;
+          // margin-right: 100%;
+          margin-top: 40%;
+          margin-bottom: 0%;
+
+          &--foto-div-parent-element {
+            @include foto-container();
+          }
+
+          &--foto-img-element {
+            @include foto-img-element();
+          }
+        }
+      }
+    }
+  }
+}

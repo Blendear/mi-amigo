@@ -1,0 +1,462 @@
+// HOOK1 OGAR !!!!!!!!!!!!!!!
+
+//
+
+//
+
+//
+
+.layout {
+  &-strona-glowna {
+    &__cala-strona {
+      display: grid;
+
+      grid-template-areas: //
+        "ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc" //slide in animowanych fot
+        ". . bbb bbb bbb bbb bbb bbb bbb bbb . ." // dwie foty marketingowe
+        ". . eee eee eee eee eee eee eee eee . ." // poziomy infiniti 0 tytuł
+        ". . ddd ddd ddd ddd ddd ddd ddd ddd . ." // poziomy infiniti
+        "fff fff fff fff fff fff fff fff fff fff fff fff" // efitness app
+        ". . ggg ggg ggg ggg ggg ggg ggg ggg . ." // godziny otwarcia
+        ". . jjj jjj jjj jjj jjj jjj jjj jjj . ." // partnerzy tytuł górny
+        ". . hhh hhh hhh hhh hhh hhh hhh hhh . ." // partnerzy slide-in fot
+        "iii iii iii iii iii iii iii iii iii iii iii iii" // newsletter
+        ". foot . . . . . . . . nav .";
+      grid-template-rows: 100vh repeat(4, minmax(5rem, max-content)) 75vh repeat(
+          4,
+          minmax(5rem, max-content)
+        );
+      grid-template-columns: 1fr 0.5rem repeat(8, minmax(2rem, 14rem)) 0.5rem 1fr;
+    }
+    &__navbar-gorny {
+      grid-area: aaa;
+      background-color: #8ca0ff;
+
+      display: grid;
+
+      grid-template-areas: ". aa1 . aa2 aa3 aa4 aa5 aa6 aa7 aa8 aa9 .";
+      grid-template-rows: 5rem;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+      @mixin styl-tekstu-navbar {
+        // re-używalny styl dla dzieci, stąd napisany w parencie - hook1, good idea?
+        font-size: 1.4rem;
+        justify-self: center;
+        align-self: center;
+        color: #685e58;
+        font-weight: bold;
+      }
+      &__III {
+        &--open {
+          background-color: greenyellow;
+        }
+        &--closed {
+          display: none;
+        }
+      }
+      &__X {
+        &--open {
+          background-color: greenyellow;
+        }
+        &--closed {
+          display: none;
+        }
+      }
+
+      &--logo-infiniti {
+        grid-area: aa1;
+        background-color: #cfc7a7;
+        @include styl-tekstu-navbar;
+      }
+      &--o-nas {
+        grid-area: aa2;
+        background-color: #e5c131;
+        @include styl-tekstu-navbar;
+      }
+      &--infiniti-medical {
+        grid-area: aa3;
+        @include styl-tekstu-navbar;
+      }
+      &--galeria {
+        grid-area: aa4;
+        @include styl-tekstu-navbar;
+      }
+      &--kadra {
+        grid-area: aa5;
+        @include styl-tekstu-navbar;
+      }
+      &--cennik {
+        grid-area: aa6;
+        @include styl-tekstu-navbar;
+      }
+      &--grafik {
+        grid-area: aa7;
+        @include styl-tekstu-navbar;
+      }
+      &--do-pobrania {
+        grid-area: aa8;
+        @include styl-tekstu-navbar;
+      }
+      &--kontakt {
+        grid-area: aa9;
+        @include styl-tekstu-navbar;
+      }
+    }
+    &__animowany-slide-in-fot-infiniti {
+      grid-area: ccc;
+      background-color: #8cffb6;
+
+      position: relative;
+      &--miejsce-na-foty {
+        width: 100%;
+        height: 100%;
+        // background-color: #1a2c91;
+      }
+    }
+    &__foty-marketingowe {
+      grid-area: bbb;
+      // position: relative;
+      display: grid;
+      grid-template-areas: "bb1 bb2";
+      grid-template-rows: minmax(5rem, max-content);
+      grid-template-columns: 1fr 1fr;
+
+      transform: translate(0, -11rem);
+
+      &--lewa-fota {
+        grid-area: bb1;
+      }
+      &--prawa-fota {
+        grid-area: bb2;
+      }
+    }
+
+    &__poziomy-infiniti-tytul-gorny {
+      grid-area: eee;
+      // background-color: #deb3f3;
+
+      display: grid;
+      grid-template-areas: "eee1 eee2 eee3";
+      // grid-template-rows: 5rem;
+      grid-template-columns: 1fr max-content 1fr;
+      // padding-top: 6rem;
+      position: relative;
+      &--tlo-pattern-lewo {
+        grid-area: eee1;
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        transform: translate(-6rem, -6rem);
+      }
+      &--tlo-pattern-prawo {
+        grid-area: eee3;
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        transform: translate(6rem, -6rem);
+      }
+      &--napis {
+        grid-area: eee2;
+        color: #4d4d4d;
+        font-weight: 400;
+        font-size: 3rem;
+        padding-left: 1.7rem;
+        padding-right: 1.7rem;
+
+        z-index: 1;
+      }
+      &--pattern-w-tle-lewy {
+        grid-area: eee1;
+
+        background-image: url("https://infiniti-fit.pl/wp-content/plugins/designthemes-core-features/shortcodes/images/title-pattern.png");
+        background-repeat: repeat-x;
+        background-position: center;
+
+        z-index: 1;
+      }
+      &--pattern-w-tle-prawy {
+        grid-area: eee3;
+
+        background-image: url("https://infiniti-fit.pl/wp-content/plugins/designthemes-core-features/shortcodes/images/title-pattern.png");
+        background-repeat: repeat-x;
+        background-position: center;
+
+        z-index: 1;
+      }
+    }
+    &__poziomy-infiniti-levle {
+      grid-area: ddd;
+      // background-color: #8ca0ff;
+
+      display: grid;
+      //hook1 - najlepsza konwnecja nazewnictwa nested grids ? \/
+      grid-template-areas: "ddd_1 ddd_2 ddd_3 ddd_4 ddd_5 ddd_6 ddd_7 ddd_8";
+      grid-template-rows: min-content;
+      grid-template-columns: max-content 1fr max-content 1fr max-content 1fr max-content 1fr;
+
+      // layout-strona-glowna__poziomy-infiniti-levle--2--napis
+      padding-top: 4rem;
+      padding-bottom: 6rem;
+      @mixin napis-poziomow {
+        font-size: 2rem;
+        // font-style: normal;
+        border-bottom: 1px solid;
+        border-color: rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+        margin-right: 70px;
+        padding-left: 10px;
+        padding-top: 5px;
+        color: #3c261b;
+        z-index: 1;
+      }
+
+      &--minus-1 {
+        &--fota {
+          grid-area: ddd_1;
+        }
+        &--napis {
+          grid-area: ddd_2;
+          @include napis-poziomow;
+        }
+      }
+      &--0 {
+        &--fota {
+          grid-area: ddd_3;
+          // border-bottom: 5px;
+        }
+        &--napis {
+          grid-area: ddd_4;
+          @include napis-poziomow;
+        }
+      }
+      &--1 {
+        &--fota {
+          grid-area: ddd_5;
+          // border-bottom: 5px;
+        }
+        &--napis {
+          grid-area: ddd_6;
+          @include napis-poziomow;
+        }
+      }
+      &--2 {
+        &--fota {
+          grid-area: ddd_7;
+          // border-bottom: 5px;
+        }
+        &--napis {
+          grid-area: ddd_8;
+          @include napis-poziomow;
+        }
+      }
+    }
+
+    &__efitness-app {
+      grid-area: fff;
+      position: relative;
+      background-color: #f4f4f4;
+
+      display: grid;
+      grid-template-areas:
+        "ff1 ff2 ff2"
+        "ff1 ff3 ff4";
+      grid-template-rows: min-content min-content;
+      grid-template-columns: 50% 20% 20%;
+
+      &--tlo {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
+      }
+      &--lewa-fota {
+        &--telefony {
+          z-index: 1;
+          grid-area: ff1;
+
+          width: 80%;
+          position: relative;
+          top: 8%;
+          left: 14%;
+        }
+      }
+      &--prawa-fota {
+        &--opis-tytul {
+          z-index: 1;
+          grid-area: ff2;
+
+          font-size: 2.7rem;
+          font-weight: normal;
+          color: rgb(43, 41, 41);
+          align-self: end;
+        }
+        &--opis-punkty {
+          z-index: 1;
+          grid-area: ff2;
+
+          font-size: 1.5rem;
+
+          list-style: none;
+        }
+        &--app-store {
+          z-index: 1;
+          grid-area: ff3;
+
+          align-self: start;
+          padding-top: 5rem;
+        }
+        &--google {
+          z-index: 1;
+          grid-area: ff4;
+
+          padding-top: 5rem;
+          align-self: start;
+        }
+      }
+    }
+    &__godziny-otwarcia {
+      grid-area: ggg;
+      background-color: #cfc7a7;
+
+      display: grid;
+      grid-template-areas: "gg1 gg2";
+      grid-template-rows: 10rem;
+      grid-template-columns: 1fr 1fr;
+
+      &--sauna {
+        grid-area: gg1;
+
+        display: grid;
+        grid-template-areas:
+          "gg1_1"
+          "gg1_2";
+        grid-template-rows: 1fr 5fr;
+        grid-template-columns: 1fr;
+
+        &--tytul-napis {
+          grid-area: gg1_1;
+        }
+        &--lista-plci {
+          grid-area: gg1_2;
+
+          display: grid;
+          grid-template-rows: repeat(4, minmax(0.25rem, min-content));
+          grid-template-columns: 1fr;
+          //hook1 - area TYLKO LEPSZE w statycznym layoucie. n ie w momencie dynamicznego, np. accordiona.
+
+          &--accordion {
+            &--open {
+              display: grid;
+
+              grid-template-rows: repeat(4, minmax(0.25rem, min-content));
+              grid-template-columns: 1fr 3fr 2fr;
+            }
+            &--closed {
+              display: none;
+            }
+            //hook1 - TRAP1 - Jeśli masz na elemencie classe z grid, to dodajac classę kolejną - nadpisze ona typ displayu Z JAKIEGOS KURWA POWODU. Myślałem, że się połączą...
+
+            // CZYLI classa "open" i "closed" muszą tez mieć identyczny display"grid", "grid-template.." etc. properties.
+          }
+          //hook1 - za długie nazwy class. nieprzejrzysty jsx. wystarczy mi w sass zrobic spis tresci. kod powinien byc czysty,krotki, na temat
+
+          @mixin grid2x1 {
+            display: grid;
+            grid-template-areas: "g g";
+            //hook1 - najlepiej po prostu "g", "gg", "ggg" " "ggg 1" etc. a po 3 znakach znowu zaczac od "g"
+            //hook1 - mixiny moge robic, i w kazdym tak smao nazywac "g g g" gridy?
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 5fr;
+          }
+
+          &--mezczyzni {
+            @include grid2x1;
+          }
+          &--kobiety {
+            @include grid2x1;
+          }
+          &--koedukacja {
+            @include grid2x1;
+          }
+        }
+      }
+      &--klub {
+        grid-area: gg2;
+      }
+    }
+    &__partnerzy-tytul-gorny {
+      grid-area: jjj;
+      background-color: #83beeb;
+    }
+    &__partnerzy-animowany-slide-in {
+      grid-area: hhh;
+      background-color: #1a2c91;
+    }
+    &__newsletter {
+      grid-area: iii;
+      background-color: #e5a51c;
+
+      display: grid;
+      grid-template-areas: "iii_1 iii_2";
+      grid-template-rows: 10rem;
+      grid-template-columns: 3fr 9fr;
+
+      &--lewy-shape {
+        grid-area: iii_1;
+
+        display: grid;
+        grid-template-areas: "iii_1_a";
+        grid-template-rows: 10rem;
+        grid-template-columns: 1fr;
+        &--napis {
+          grid-area: iii_1_a;
+        }
+      }
+      &--prawy-shape {
+        grid-area: iii_2;
+
+        display: grid;
+        grid-template-areas: "iii_2_a iii_2_b";
+        grid-template-rows: 10rem;
+        grid-template-columns: 3fr 9fr;
+        &--input-email {
+          grid-area: iii_2_a;
+        }
+        &--button-zapisz-sie {
+          grid-area: iii_2_b;
+        }
+      }
+    }
+    //
+  }
+}
+//
+
+.grid {
+  &--1row-2col {
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(2, min-content);
+  }
+  &__typ-rozmiaru {
+    &--6rows-1col {
+      //
+      // sss - Każda wartość odnosi się do osobnego row'u / koluny. Np. "80vh min-content", znaczy 80 viuewport heigh dla pierwszje kolmnu & "min-c0ontnet", czyli tyle ile potrzebue minimalnie, dla drugiej.
+      //
+      display: grid;
+      grid-template-columns: min-content 80px 1fr repeat(3, min-content);
+    }
+  }
+  &__element {
+    &--1 {
+      background-color: rgb(70, 181, 22);
+    }
+    &--2 {
+      background-color: rgb(70, 22, 181);
+    }
+  }
+}

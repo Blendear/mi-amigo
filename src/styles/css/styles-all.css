@@ -1,0 +1,690 @@
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.carousel-foty-infiniti {
+  justify-content: center;
+  align-items: center;
+}
+.carousel-foty-infiniti__arrow-right {
+  align-self: center;
+  justify-self: center;
+  font-size: 3rem;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+}
+.carousel-foty-infiniti__arrow-left {
+  grid-area: aaa;
+  font-size: 3rem;
+  color: #000;
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
+  user-select: none;
+}
+.carousel-foty-infiniti__slide-none {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+.carousel-foty-infiniti__slide-active {
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.carousel-poziomy {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel-poziomy__poziom--2 {
+  background-color: rgb(246, 254, 8);
+}
+.carousel-poziomy__poziom--1 {
+  background-color: rgb(184, 35, 35);
+}
+.carousel-poziomy__poziom--0 {
+  background-color: rgb(122, 43, 12);
+}
+.carousel-poziomy__poziom--minus1 {
+  background-color: rgb(43, 23, 23);
+  color: white;
+}
+.carousel-poziomy__slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+.carousel-poziomy__slide-active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+
+.layout__strona-glowna__cala-strona {
+  display: grid;
+  grid-template-areas: "bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb" "ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc" "ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd ddd" "eee eee eee eee eee eee eee eee eee eee eee eee" "fff fff fff fff fff fff fff fff fff fff fff fff" "ggg ggg ggg ggg ggg ggg ggg ggg ggg ggg ggg ggg";
+  grid-template-rows: minmax(5rem, max-content) minmax(5rem, max-content) minmax(5rem, max-content) repeat(3, minmax(5rem, max-content));
+  grid-template-columns: 1rem 1rem repeat(8, minmax(2rem, 14rem)) 1rem 1rem;
+}
+.layout__strona-glowna__baner-startowy {
+  grid-area: bbb;
+  display: grid;
+  grid-template-areas: "bb1";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  background-color: rgba(64, 175, 255, 0.4784313725);
+  position: relative;
+}
+.layout__strona-glowna__baner-startowy--fota-w-tle {
+  grid-area: bb1;
+  opacity: 0.5;
+  z-index: -10;
+}
+.layout__strona-glowna__baner-startowy--paski-i-ikonki {
+  grid-area: bb1;
+  z-index: -10;
+}
+.layout__strona-glowna__baner-startowy--napis-glowny {
+  grid-area: bb1;
+  z-index: 0;
+}
+.layout__strona-glowna__baner-startowy--napis-maly {
+  grid-area: bb1;
+  z-index: 0;
+}
+.layout__strona-glowna__galeria {
+  grid-area: ccc;
+  display: grid;
+  grid-template-areas: "cc1";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  transform: translateY(-5rem);
+}
+.layout__strona-glowna__galeria__carousel-fot {
+  grid-area: cc1;
+  display: grid;
+  grid-template-areas: "aaa bbb ccc";
+  grid-template-rows: 1fr;
+  grid-template-columns: minmax(5rem, 10rem) minmax(5rem, max-content) minmax(5rem, 10rem);
+}
+.layout__strona-glowna__galeria__carousel-fot--slide-none {
+  grid-area: bbb;
+}
+.layout__strona-glowna__galeria__carousel-fot--slide-active {
+  grid-area: bbb;
+  position: relative;
+  z-index: 10;
+}
+.layout__strona-glowna__galeria__carousel-fot--strzalka-lewa {
+  grid-area: aaa;
+}
+.layout__strona-glowna__galeria__carousel-fot--strzalka-prawa {
+  grid-area: ccc;
+}
+.layout__strona-glowna__galeria__ksztalty-kolorowe-w-tle--lewy {
+  grid-area: cc1;
+  height: 10rem;
+  width: 10rem;
+  background-color: #7b219f;
+  border-radius: 20%;
+  z-index: 5;
+  justify-self: center;
+  align-self: center;
+  transform: translate(-10vw, -10vw);
+}
+.layout__strona-glowna__galeria__ksztalty-kolorowe-w-tle--prawy {
+  grid-area: cc1;
+  height: 10rem;
+  width: 10rem;
+  background-color: #7b219f;
+  border-radius: 20%;
+  z-index: 5;
+  justify-self: center;
+  align-self: center;
+  transform: translate(10vw, 10vw);
+}
+.layout__strona-glowna__opis-i-rysunek {
+  grid-area: ddd;
+  display: grid;
+  grid-template-rows: [r-start] 1fr [r-end];
+  grid-template-columns: [c-1] 3fr [c-2] 1fr [c-3];
+  position: relative;
+}
+.layout__strona-glowna__opis-i-rysunek__shape {
+  grid-row: r-start/r-end;
+  grid-column: c-1/c-3;
+}
+.layout__strona-glowna__opis-i-rysunek__opis {
+  padding: 3vh 5vh 3vh 7vh;
+  grid-row: r-start/r-end;
+  grid-column: c-1/c-2;
+  font-weight: bold;
+  font-size: 80%;
+  align-self: center;
+  justify-self: center;
+}
+.layout__strona-glowna__opis-i-rysunek__rysunek {
+  grid-row: r-start/r-end;
+  grid-column: c-2/c-3;
+  opacity: 0.3;
+}
+.layout__strona-glowna__poziomy {
+  grid-area: eee;
+  display: grid;
+  grid-template-areas: "ee1 ee1 ee1 ee1" "ee2 ee2 ee2 ee2" "ee3 ee4 ee5 ee6" "ee7 ee7 ee7 ee7";
+  grid-template-rows: repeat(3, minmax(0rem, max-content));
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.layout__strona-glowna__poziomy__napis-instruckja {
+  grid-area: ee1;
+  font-weight: bold;
+  font-size: 1.4rem;
+  align-self: center;
+  justify-self: center;
+  color: black;
+}
+.layout__strona-glowna__poziomy__mapa {
+  grid-area: ee2;
+}
+.layout__strona-glowna__poziomy__mapa--nonactive-slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+.layout__strona-glowna__poziomy__mapa--active-slide {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+.layout__strona-glowna__poziomy__prostokat--minus-1 {
+  grid-area: ee3;
+  align-self: center;
+  justify-self: center;
+  height: 10rem;
+  width: 60%;
+  background-color: #7b219f;
+  border: none;
+  cursor: pointer;
+}
+.layout__strona-glowna__poziomy__prostokat--0 {
+  grid-area: ee4;
+  align-self: center;
+  justify-self: center;
+  height: 10rem;
+  width: 60%;
+  background-color: #7b219f;
+  border: none;
+  cursor: pointer;
+}
+.layout__strona-glowna__poziomy__prostokat--1 {
+  grid-area: ee5;
+  align-self: center;
+  justify-self: center;
+  height: 10rem;
+  width: 60%;
+  background-color: #7b219f;
+  border: none;
+  cursor: pointer;
+}
+.layout__strona-glowna__poziomy__prostokat--2 {
+  grid-area: ee6;
+  align-self: center;
+  justify-self: center;
+  height: 10rem;
+  width: 60%;
+  background-color: #7b219f;
+  border: none;
+  cursor: pointer;
+}
+.layout__strona-glowna__poziomy__prostokat---aktywny {
+  background-color: #7b219f;
+}
+.layout__strona-glowna__poziomy__napis-poziomu--minus-1 {
+  height: 100%;
+  width: 100%;
+  padding-top: 30%;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+.layout__strona-glowna__poziomy__napis-poziomu--0 {
+  height: 100%;
+  width: 100%;
+  padding-top: 30%;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+.layout__strona-glowna__poziomy__napis-poziomu--1 {
+  height: 100%;
+  width: 100%;
+  padding-top: 30%;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+.layout__strona-glowna__poziomy__napis-poziomu--2 {
+  height: 100%;
+  width: 100%;
+  padding-top: 30%;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+.layout__strona-glowna__poziomy__shape-nad-godzinami {
+  grid-area: ee7;
+  transform: translateY(-7.5rem);
+}
+.layout__strona-glowna__godziny-otwarcia {
+  grid-area: fff;
+  display: grid;
+  grid-template-areas: "ff1 ff1 ff1" "ff2 ff2 ff2" "ff3 ff3 ff3";
+  grid-template-rows: repeat 3, minmax(5rem, max-content);
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #e39c40;
+}
+.layout__strona-glowna__walczmy-razem {
+  grid-area: ggg;
+  display: grid;
+  grid-template-rows: [r-start] 1fr [r-end];
+  grid-template-columns: [c-1] 1fr [c-2];
+  position: relative;
+}
+.layout__strona-glowna__walczmy-razem__shape {
+  grid-row: r-start/r-end;
+  grid-column: c-1/c-2;
+  z-index: -5;
+}
+.layout__strona-glowna__walczmy-razem__rysunek-z-napisem {
+  grid-row: r-start/r-end;
+  grid-column: c-1/c-2;
+  align-self: end;
+  margin-bottom: 5rem;
+  z-index: 15;
+  opacity: 0.5;
+}
+
+.layout__fitness-kadra__cala-strona {
+  display: grid;
+  grid-template-rows: [r-0] 4rem [r-1] minmax(min-content, max-content) [r-2] minmax(min-content, max-content) [r-3] minmax(min-content, max-content) [r-4];
+  grid-template-columns: [c-1] 1fr [c-2] 1fr [c-3] 1fr [c-4];
+}
+.layout__fitness-kadra__cala-strona__shape-lisc-manager {
+  grid-row: r-1/r-2;
+  grid-column: c-1/c-4;
+  margin-left: 5%;
+}
+.layout__fitness-kadra__cala-strona__shape-lisc-recepcja {
+  grid-row: r-2/r-3;
+  grid-column: c-1/c-4;
+  margin-top: -10%;
+}
+.layout__fitness-kadra__cala-strona__shape-lisc-trenerzy {
+  grid-row: r-3/r-4;
+  grid-column: c-1/c-4;
+}
+.layout__fitness-kadra__cala-strona__tytulowy-opis-strony {
+  grid-row: r-0/r-1;
+  grid-column: c-1/c-4;
+  justify-self: center;
+  margin-top: 6%;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.layout__fitness-kadra__cala-strona__recepcja-wiersz {
+  grid-row: r-2/r-3;
+  grid-column: c-1/c-4;
+  display: grid;
+  grid-template-rows: [r-1] 10rem [r-2];
+  grid-template-columns: [c-1] 10rem [c-2] 10rem [c-3] 10rem [c-4];
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 6rem;
+}
+.layout__fitness-kadra__cala-strona__recepcja-wiersz--zero-napis {
+  grid-row: r-1/r-2;
+  grid-column: c-1/c-2;
+  margin: auto;
+  width: 50%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-left: 0%;
+  margin-top: 20%;
+}
+.layout__fitness-kadra__cala-strona__recepcja-wiersz--zero-napis--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__recepcja-wiersz--jeden {
+  grid-row: r-1/r-2;
+  grid-column: c-1/c-2;
+  margin: auto;
+  width: 50%;
+  margin-left: 130%;
+  margin-top: 65%;
+  margin-bottom: 0%;
+}
+.layout__fitness-kadra__cala-strona__recepcja-wiersz--jeden--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__recepcja-wiersz--dwa {
+  grid-row: r-1/r-2;
+  grid-column: c-2/c-3;
+  margin: auto;
+  width: 50%;
+  margin-right: -55%;
+  margin-top: 35%;
+  margin-bottom: -15%;
+}
+.layout__fitness-kadra__cala-strona__recepcja-wiersz--dwa--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__recepcja-wiersz--trzy {
+  grid-row: r-1/r-2;
+  grid-column: c-3/c-4;
+  margin: auto;
+  width: 50%;
+  margin-right: -10%;
+  margin-top: -10%;
+}
+.layout__fitness-kadra__cala-strona__recepcja-wiersz--trzy--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz {
+  grid-row: r-3/r-4;
+  grid-column: c-1/c-4;
+  display: grid;
+  grid-template-rows: [r-1] 10rem [r-2] 10rem [r-3] 10rem [r-4] 10rem [r-5];
+  grid-template-columns: [c-1] 2.5rem [c-2] 2.5rem [c-3] 2.5rem [c-4] 2.5rem [c-5] 2.5rem [c-6] 2.5rem [c-7] 2.5rem [c-8] 2.5rem [c-9] 2.5rem [c-10] 2.5rem [c-11] 2.5rem [c-12] 2.5rem [c-13];
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--napis {
+  grid-row: r-1/r-2;
+  grid-column: c-9/c-13;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-left: 25%;
+  margin-top: 30%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--jeden {
+  display: none;
+  grid-row: r-1/r-2;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 70%;
+  margin-top: 10%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--jeden--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dwa {
+  display: none;
+  grid-row: r-1/r-2;
+  grid-column: c-5/c-9;
+  margin: auto;
+  width: 50%;
+  margin-left: -90%;
+  margin-top: 60%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dwa--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--trzy {
+  grid-row: r-1/r-2;
+  grid-column: c-9/c-13;
+  margin: auto;
+  width: 50%;
+  margin-left: -100%;
+  margin-top: 70%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--trzy--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--cztery {
+  grid-row: r-1/r-2;
+  grid-column: c-9/c-13;
+  margin: auto;
+  width: 50%;
+  margin-left: 65%;
+  margin-right: 0%;
+  margin-top: 130%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--cztery--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--piec {
+  display: none;
+  grid-row: r-2/r-3;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 0%;
+  margin-top: 30%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--piec--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--szesc {
+  grid-row: r-2/r-3;
+  grid-column: c-5/c-9;
+  margin: auto;
+  width: 50%;
+  margin-left: 100%;
+  margin-top: 0%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--szesc--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--siedem {
+  grid-row: r-3/r-4;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--siedem--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--osiem {
+  grid-row: r-3/r-4;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 15%;
+  margin-top: 75%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--osiem--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dziewiec {
+  grid-row: r-3/r-4;
+  grid-column: c-9/c-13;
+  margin: auto;
+  width: 50%;
+  margin-left: 65%;
+  margin-top: 0%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dziewiec--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dziesiec {
+  grid-row: r-4/r-5;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 70%;
+  margin-top: 35%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dziesiec--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--jedenascie {
+  grid-row: r-4/r-5;
+  grid-column: c-5/c-9;
+  margin: auto;
+  width: 50%;
+  margin-left: 40%;
+  margin-top: 60%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--jedenascie--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dwanascie {
+  grid-row: r-4/r-5;
+  grid-column: c-9/c-13;
+  margin: auto;
+  width: 50%;
+  margin-left: 10%;
+  margin-bottom: 17%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dwanascie--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--trzynascie {
+  grid-row: r-3/r-4;
+  grid-column: c-9/c-13;
+  margin: auto;
+  width: 50%;
+  margin-left: 55%;
+  margin-top: 70%;
+  margin-bottom: 0%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--trzynascie--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--czternascie {
+  grid-row: r-2/r-3;
+  grid-column: c-6/c-10;
+  margin: auto;
+  width: 50%;
+  margin-left: 70%;
+  margin-right: 0%;
+  margin-bottom: -15%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--czternascie--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--pietnascie {
+  grid-row: r-2/r-3;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 130%;
+  margin-top: 30%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--pietnascie--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--szestnascie {
+  grid-row: r-2/r-3;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 70%;
+  margin-top: 75%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--szestnascie--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--siedemnascie {
+  grid-row: r-2/r-3;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 20%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--siedemnascie--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--osiemnascie {
+  grid-row: r-2/r-3;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 135%;
+  margin-top: 110%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--osiemnascie--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dziewietnascie {
+  grid-row: r-2/r-3;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 195%;
+  margin-top: 140%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dziewietnascie--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dwadziescia {
+  grid-row: r-2/r-3;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 145%;
+  margin-top: 190%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dwadziescia--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dwa-jeden {
+  grid-row: r-2/r-3;
+  grid-column: c-1/c-5;
+  margin: auto;
+  width: 50%;
+  margin-left: 80%;
+  margin-top: 155%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz--dwa-jeden--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__trenerzy-wiersz img:hover {
+  transform: scale(1.3);
+}
+.layout__fitness-kadra__cala-strona__manager-wiersz {
+  grid-row: r-1/r-2;
+  grid-column: c-1/c-4;
+  display: grid;
+  grid-template-rows: [r-1] 10rem [r-2];
+  grid-template-columns: [c-1] 10rem [c-2] 10rem [c-3] 10rem [c-4];
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.layout__fitness-kadra__cala-strona__manager-wiersz--jeden {
+  grid-row: r-1/r-2;
+  grid-column: c-1/c-2;
+  margin: auto;
+  width: 50%;
+  margin-left: 33%;
+  margin-bottom: 3%;
+}
+.layout__fitness-kadra__cala-strona__manager-wiersz--jeden--foto-img-element {
+  border-radius: 50%;
+}
+.layout__fitness-kadra__cala-strona__manager-wiersz--napis {
+  grid-row: r-1/r-2;
+  grid-column: c-3/c-4;
+  margin: auto;
+  width: 50%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-left: 0%;
+  margin-top: 40%;
+  margin-bottom: 0%;
+}
+.layout__fitness-kadra__cala-strona__manager-wiersz--napis--foto-img-element {
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=styles-all.css.map */

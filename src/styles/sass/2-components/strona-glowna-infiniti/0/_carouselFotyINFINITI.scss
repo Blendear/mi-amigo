@@ -1,0 +1,52 @@
+//
+//
+//~~ A.  Widok = 1 wybrnaa fota i 2+ poboczne, poziomo (?)
+//
+//       A.1. ..
+//
+//           A.1.1. ..
+//
+//~~ B.  Strzałki
+//
+//           B.4.2. Wygląd
+//
+//~~ D.  Animacja = Snap scroll po strzałk'nięciu
+//
+
+.carousel-foty-infiniti {
+  justify-content: center;
+  align-items: center;
+
+  &__arrow-right {
+    align-self: center;
+    justify-self: center;
+
+    font-size: 3rem;
+    color: #000;
+
+    cursor: pointer;
+    user-select: none;
+  }
+  &__arrow-left {
+    grid-area: aaa;
+
+    font-size: 3rem;
+    color: #000;
+
+    align-self: center;
+    justify-self: center;
+
+    cursor: pointer;
+    user-select: none;
+  }
+  &__slide-none {
+    opacity: 0;
+    transition-duration: 1s ease;
+  }
+
+  &__slide-active {
+    opacity: 1;
+    transition-duration: 1s;
+    // transform: scale(1.08);
+  }
+}

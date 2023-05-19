@@ -1,0 +1,81 @@
+.animation {
+  &__slide-in {
+    width: 800px;
+    height: 400px;
+    // background: url(images/strona-glowna-animowane-zdjecia/1.png);
+    animation: slidein 4s forwards;
+    animation-iteration-count: 1;
+  }
+  &__slide-in2 {
+    width: 800px;
+    height: 400px;
+    // background: url(images/strona-glowna-animowane-zdjecia/1.png);
+    animation: slidein2 4s forwards;
+    animation-iteration-count: 1;
+  }
+  &__slide-in3 {
+    width: 800px;
+    height: 400px;
+    // background: url(images/strona-glowna-animowane-zdjecia/1.png);
+    animation: slidein3 4s forwards;
+    animation-iteration-count: 1;
+  }
+  &__slide-in4 {
+    width: 800px;
+    height: 400px;
+    // background: url(images/strona-glowna-animowane-zdjecia/1.png);
+    animation: slidein4 4s forwards;
+    animation-iteration-count: 1;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    margin-left: 100%;
+
+    // width: 300%;
+  }
+
+  100% {
+    margin-left: 0%;
+    // width: 100%;
+  }
+}
+
+@keyframes slidein2 {
+  0% {
+    margin-left: 100%;
+
+    // width: 300%;
+  }
+
+  100% {
+    margin-left: 0%;
+    // width: 100%;
+  }
+}
+
+@keyframes slidein3 {
+  0% {
+    margin-left: 100%;
+
+    // width: 300%;
+  }
+
+  100% {
+    margin-left: 0%;
+    // width: 100%;
+  }
+}
+@keyframes slidein4 {
+  0% {
+    margin-left: 100%;
+
+    // width: 300%;
+  }
+
+  100% {
+    margin-left: 0%;
+    // width: 100%;
+  }
+}
