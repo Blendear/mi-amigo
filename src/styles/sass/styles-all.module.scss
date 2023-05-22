@@ -1,13 +1,8 @@
-//trap1 - MUSISZ TU IMPORTOWAĆ file, żeby był w ogóle skompilowany. inaczej masz miliard fileów, któe nic nie robią.
+@use "./abstracts/colors";
+@use "./abstracts/mixins";
+@use "./abstracts/variables";
 
-@use "./1-base/base";
-@use "./1-base/helpers";
+@use "./base/base";
+@use "./base/helpers";
 
-@use "./2-components/strona-glowna-infiniti/0/cala-strona-poza-carouselami";
-@use "./2-components/strona-glowna-infiniti/0/carouselFotyINFINITI";
-@use "./2-components/strona-glowna-infiniti/0/carouselPoziomy";
-
-@use "./3-layout/_layout-i-wrappers/footer";
-@use "./3-layout/_layout-i-wrappers/navbar";
-@use "./3-layout/strona-glowna-infiniti/0/strona-glowna-infiniti";
-@use "./3-layout/strona-glowna-infiniti/fitness/kadra/fitness-kadra";
+@use "./components/form";

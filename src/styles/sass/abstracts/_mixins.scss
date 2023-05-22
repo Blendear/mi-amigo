@@ -1,0 +1,68 @@
+@use "../../../styles/sass/base/typography";
+//
+// Creates a component with input feilds - colors for specific elements are given as arguments
+//
+@mixin color-theme-and-basic-props-for-forms(
+  $bg,
+  $title,
+  $inputfield-value,
+  $inputfield-placeholder-value,
+  $inputfield-bg,
+  $button-bg,
+  $button-text
+) {
+  //component properties
+  background-color: $bg;
+  color: $title;
+
+  //input fields properties
+  input[type="text"],
+  input[type="number"],
+  select {
+    color: $inputfield-value;
+    border: none;
+    border-radius: 1rem;
+    background-color: $inputfield-bg;
+
+    &:focus {
+      border: none;
+      outline: none;
+      box-shadow: inset 0 0 0.3rem 0.3rem lighten($button-bg, 10%);
+
+      transition: box-shadow 0.3s;
+      padding: 0;
+    }
+    //hides the arrow keys for input fields of type "number"
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  ::placeholder {
+    color: $inputfield-placeholder-value;
+  }
+
+  button {
+    @include button($button-text, $button-bg);
+  }
+}
+//
+// Creates a button - colors for specific elements are given as arguments
+//
+@mixin button($button-text, $button-bg) {
+  border-radius: 1rem;
+  border: none;
+  background-color: $button-bg;
+  color: $button-text;
+  //protip1 - if you want to chekc for two pseudoclasse,s you need to nest them. css doesnt support writing them at once
+  &:enabled {
+    &:hover {
+      background-color: darken($button-bg, 15%);
+    }
+  }
+  &:disabled {
+    filter: grayscale(100%);
+    color: darken($button-text, 60%);
+  }
+}
