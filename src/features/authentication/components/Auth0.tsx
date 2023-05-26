@@ -5,7 +5,7 @@ import firebase from "../lib/initFirebase";
 // Configure FirebaseUI.
 const uiConfig = {
   // Redirect urlafter sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: "/testowa-stronka",
+  signInSuccessUrl: "/starting-page",
   // auth providers, that let us log in to the app through them
   signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID], //hook1 - add google
 };

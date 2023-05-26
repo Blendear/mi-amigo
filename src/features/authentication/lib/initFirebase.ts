@@ -17,7 +17,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-
+// const app = firebase.initializeApp(firebaseConfig);
+// // if already initialized, use that initializedone (otheriwse revisiting the starting page, which uses this code too, would fire up initalizing every time)
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 export default firebase;
 //hook1 - delete ".env.local" file from "add to github". seucrity passdwords are there
