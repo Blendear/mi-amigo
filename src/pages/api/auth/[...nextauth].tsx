@@ -72,6 +72,8 @@ const authOptions: NextAuthOptions = {
     // c) if everything is fine, do X
     // d) if not, do Y
   ],
+  secret: process.env.NEXTAUTH_SECRET,
+  //hook1 - trap1 - MUST have a secret (for the firebase and other authenticated apps to work in production), aka random, secure string /\ You can generate it wiht a tool like "https://generate-secret.vercel.app/32".
 };
 
 export default NextAuth(authOptions);
