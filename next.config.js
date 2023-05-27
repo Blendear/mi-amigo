@@ -6,13 +6,13 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/starting-page",
+        destination: "/landing-page",
         permanent: true,
       },
     ];
   },
   images: {
-    domains: ["https://mi-amigo.vercel.app"],
+    domains: ["https://mi-amigo-green.vercel.app"],
     //   websit eof this project, so that images are loaded on the live website too
   },
 };
