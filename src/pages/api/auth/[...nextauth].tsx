@@ -76,7 +76,7 @@ const authOptions: NextAuthOptions = {
   //       _._. [INSIDE "pages/api/auth/[[...nextauth].tsx"] Add a "secret" , so that Next.js doesnt block firebase and other authenticated apps in porduction (when the app goes live)
   //
   secret: process.env.NEXTAUTH_SECRET,
-  // protip1 /\ You can generate it wiht a tool like "https://generate-secret.vercel.app/32".s
+  // protip1 /\ You can generate it with a tool like "https://generate-secret.vercel.app/32".s
 };
 
 export default NextAuth(authOptions);
