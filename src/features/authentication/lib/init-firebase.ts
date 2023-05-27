@@ -5,6 +5,8 @@
 //
 //       _._. Configure Firebase App with your personal "security strings"
 //
+//           _._._ WHEN SENDING WEBSITE LIVE - You must copy your used env variables from "env.local" and paste them at your host's project settings (for example on vercel you add it here - https://vercel.com/blendear/mi-amigo/settings/environment-variables)
+//
 //       _._. Initialize (create a connection with) Firebase App & Firestore DB   &   Export Firestore DB for "talking with it with CRUD requests" later on
 //
 //       _._. [INSIDE "pages/api/auth/[[...nextauth].tsx"] Add a "secret" , so that Next.js doesnt block firebase and other authenticated apps in porduction (when the app goes live)
@@ -34,5 +36,3 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
-
-//hook1 - delete ".env.loca."" file from "add to github". seucrity passdwords are there.

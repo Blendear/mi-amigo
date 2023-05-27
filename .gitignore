@@ -27,7 +27,6 @@ yarn-error.log*
 
 # local env files
 .env*.local 
-# //hook1 - nie jest to niebezpeiczne?, zeby dodawac env file tam?
 
 # vercel
 .vercel
