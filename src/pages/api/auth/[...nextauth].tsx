@@ -72,8 +72,12 @@ const authOptions: NextAuthOptions = {
     // c) if everything is fine, do X
     // d) if not, do Y
   ],
-  secret: process.env.NEXTAUTH_SECRET,
-  //hook1 - trap1 - MUST have a secret (for the firebase and other authenticated apps to work in production), aka random, secure string /\ You can generate it wiht a tool like "https://generate-secret.vercel.app/32".
+  //
+  //       _._. [INSIDE "pages/api/auth/[[...nextauth].tsx"] Add a "secret" (this env variable MUST START WITH "NEXT_PUBLIC_"), so that Next.js doesnt block firebase and other authenticated apps in porduction (when the app goes live)
+  //
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+  // protip1 /\ You can generate it wiht a tool like "https://generate-secret.vercel.app/32".
+  // trap1 /\ A next auth env variable MUST have "NEXT_PUBLIC_" at the start for it to work
 };
 
 export default NextAuth(authOptions);
