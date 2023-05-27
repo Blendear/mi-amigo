@@ -35,4 +35,4 @@ const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
 
-//hook1 - delete ".env.loca."" file from "add to github". seucrity passdwords are there
+//hook1 - delete ".env.loca."" file from "add to github". seucrity passdwords are there.
