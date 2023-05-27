@@ -1,5 +1,5 @@
 //
-//~~ _. Initialize Firestore (Database, optimize dversion of Firebae Realtime DB), and its parent - Firebase [VERSION 9.1.1] (Google's technology for working with backend and db)
+//~~ _. Initialize Firestore (Database, optimized version of Firebae Realtime DB), and its parent - Firebase [VERSION 9.1.1] (Google's technology for working with backend and db) - for talking with your database, for example for CRUD operations
 //
 //       _._. Import Firebase App & Firestore DB
 //
@@ -11,7 +11,6 @@
 //
 //       _._. [INSIDE "pages/api/auth/[[...nextauth].tsx"] Add a "secret" , so that Next.js doesnt block firebase and other authenticated apps in porduction (when the app goes live)
 //
-
 //
 //       _._. Import Firebase App & Firestore
 //

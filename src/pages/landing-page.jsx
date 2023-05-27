@@ -5,7 +5,7 @@
 //
 //           _._._. AAA
 //
-
+//~~ _. Add Firebase / Firestore DataBase connection (for talking with your database, for example for CRUD operations)
 //
 //       _._. Connect to Firestore DB ("db" is our custom name - we gave it inside "init-firebase.ts") - for making CRUD operation on our database   &   import neede funtions to operate on colections, documents etc.
 //
