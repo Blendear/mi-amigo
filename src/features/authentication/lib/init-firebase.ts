@@ -7,7 +7,7 @@
 //
 //       _._. Initialize (create a connection with) Firebase App & Firestore DB   &   Export Firestore DB for "talking with it with CRUD requests" later on
 //
-//       _._. [INSIDE "pages/api/auth/[[...nextauth].tsx"] Add a "secret", so that Next.js doesnt block firebase and other authenticated apps in porduction (when the app goes live)
+//       _._. [INSIDE "pages/api/auth/[[...nextauth].tsx"] Add a "secret" , so that Next.js doesnt block firebase and other authenticated apps in porduction (when the app goes live)
 //
 
 //
