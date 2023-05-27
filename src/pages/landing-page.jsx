@@ -33,6 +33,14 @@
 //
 //                  _._._._. Button with prop - Activate "Update new Document" onClick (I passed the document id as a prop, for the fun of it - can be added inside the function tho)
 //
+//           _._._. (CRUD - D) Delete a Document from a Collection - activated onClick (for example)
+//
+//                  _._._._. Get reference the document we want to delete - by passing : databaseReference, collectionName, documentName
+//
+//                  _._._._. Get the build-in delete function and pass the document reference into it
+//
+//                  _._._._. Button with prop - Activate "Delete t h a t Document" onClick (I passed the document id as a prop, for the fun of it - can be added inside the function tho)
+//
 
 import styles from "src/styles/sass/styles-all.module.scss";
 import { useState, useEffect } from "react";
@@ -115,6 +123,25 @@ const LandingPage = () => {
       żarełko: newUpdatedData,
     });
   };
+  //
+  //           _._._. (CRUD - D) Delete a Document from a Collection - activated onClick (for example)
+  //
+  const deleteASpecificDocumentInsideASpecificCollection = async (
+    documentID
+  ) => {
+    //
+    //                  _._._._. Get reference the document we want to delete - by passing : databaseReference, collectionName, documentName
+    //
+    const exampleDocumentReference = doc(
+      db, //which database
+      "zakupki-i-zapasy", // which collection - trap1 - dont add "collecitonReference" here, because its not a string. and "doc()" acceptcs only strings. you could create dedicated state for storing those strings tho
+      documentID // which document
+    );
+    //
+    //                  _._._._. Get the build-in delete function and pass the document reference into it
+    //
+    await deleteDoc(exampleDocumentReference);
+  };
 
   return (
     <div>
@@ -157,6 +184,21 @@ const LandingPage = () => {
           }}
         >
           {`UPDATE konkretny Dokument w DB (np. doc o ID "tobi-i-zuza", wartość jego property "żarełko")`}
+        </button>
+      </div>
+      {/* 
+      ///                  _._._._. Button with prop - Activate "Delete t h a t Document" onClick (I passed the document id as a prop, for the fun of it - can be added inside the function tho)
+
+      */}
+      <div>
+        <button
+          onClick={() => {
+            deleteASpecificDocumentInsideASpecificCollection(
+              "id dokumentu do usuniecia"
+            );
+          }}
+        >
+          {`DELETE konkretny Dokument w DB (np. musialbys wpisac id do usuniecia, wiec prze tmy nie bedzie dzialac)`}
         </button>
       </div>
     </div>
