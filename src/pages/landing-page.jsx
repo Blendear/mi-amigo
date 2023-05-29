@@ -1,10 +1,4 @@
 //
-//~~ _.  A
-//
-//       _._. AA
-//
-//           _._._. AAA
-//
 //~~ _. Use your connection with Firebase / Firestore DataBase for CRUD operations
 //
 //       _._. Connect to Firestore DB ("db" is our custom name - we gave it inside "init-firebase.ts") - for making CRUD operation on our database   &   import neede funtions to operate on colections, documents etc.
@@ -40,6 +34,38 @@
 //                  _._._._. Get the build-in delete function and pass the document reference into it
 //
 //                  _._._._. Button with prop - Activate "Delete t h a t Document" onClick (I passed the document id as a prop, for the fun of it - can be added inside the function tho)
+//
+//
+//
+//~~ _.  Which items, in which shops, with which weather preparation do I need to buy
+//
+//       _._. Which shops do I need to visit
+//
+//           _._._. Choose method for filtering which shops you need to visit (Buttons)
+//
+//           _._._. Choose "active shop" from a iterable list of recommended (Left/Right Buttons, Image) - shop list depends on the chosen method   &   the "cheapestAt" and "existsInThisShops" properties on every item in "myNeededSupplies"
+//
+//       _._. To which weather conditions do I need to prepare myself (clothes / way of transportation)
+//       hook1 - KIEDY SIE ODNAWIA REQUEST? ON START APPKI?
+//           _._._. GET http request to API - which returns data about current weather in a location set in the settings (default "Wrocław - Poland")
+//
+//           _._._. Format requested weather data to return and save only : temperature, wind strength, rain chance and cloudiness
+//
+//           _._._. Show icon and temperature - adequate to intepreted weather data
+//
+//       _._. List of items to buy in the currently active shop || all shops - depends on the chosen image
+//
+//           _._._. Single item, clickable container - onClick opens "ItemDetails" modal as "variant : edit-item"- image of item, title, single-color background (color depends on the "current amount" / "needed amount" ratio), unit of measurement, and 3 number fields : "amout to buy", "current amount", "needed amount"
+//
+//       _._. Save all current users data, through API html request, to Firestore Database (Button)   &   show current progress of the request
+//      hook1 - OR HOW TO CHOOSE ONLY UPDATED DATA? PROPERTY WITH "THIS DATA CONTAINER SHOUDL BE UPDATED - BOOLEAN"
+//           _._._. ...
+//
+//           _._._. ...
+//
+//           _._._. ...
+//
+//       _._. Add new item to "myNeededSupplies" (Button, Modal) - onClick opens "ItemDetails" modal as "variant : create-item"
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
