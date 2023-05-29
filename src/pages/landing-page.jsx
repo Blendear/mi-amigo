@@ -55,18 +55,6 @@
 //
 //       _._. List of items to buy in the currently active shop || all shops - depends on the chosen image
 //
-//           _._._. Single item, clickable container - onClick opens "ItemDetails" modal as "variant : edit-item"- image of item, title, single-color background (color depends on the "current amount" / "needed amount" ratio), unit of measurement, and 3 number fields : "amout to buy", "current amount", "needed amount"
-//
-//       _._. Save all current users data, through API html request, to Firestore Database (Button)   &   show current progress of the request
-//      hook1 - OR HOW TO CHOOSE ONLY UPDATED DATA? PROPERTY WITH "THIS DATA CONTAINER SHOUDL BE UPDATED - BOOLEAN"
-//           _._._. ...
-//
-//           _._._. ...
-//
-//           _._._. ...
-//
-//       _._. Add new item to "myNeededSupplies" (Button, Modal) - onClick opens "ItemDetails" modal as "variant : create-item"
-//
 
 import styles from "src/styles/sass/styles-all.module.scss";
 import { useState, useEffect } from "react";

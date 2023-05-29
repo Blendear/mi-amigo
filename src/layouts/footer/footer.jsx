@@ -1,25 +1,17 @@
-// //
-// //  Footer = Dopisek na dole mojej strony (np. kontakt, copyright etc.)
-////
-////
-////~~ A.  Historyjka - co rozwiązuję tutaj? - Word'owski rozdział name wklejony
-////
-////       A.1. parent rozdział nr 1
-// //
-// //           A.1.1. child rozdział nr 1
-// //
-////~~ B.  Historyjka druga ...
-////
+//
 
-// 1. Importujesz componenty         -    Z którego zbudujesz kod tej stornki. NIE piszesz tu całego oryginalnego kodu
-// ||
-// 1.B. Piszesz już kod oryginalny   -    Bo gdzieś musisz w końcu zacząć go pisac. Nie można dzielić na componenty w nieskończoność
-// 2. Containeruję                   -    Tworzę 1 <div> główny i 1 dla każdego fragmentu danej strony
-// 3. Style'uję containery           -    Po kolei copy pastujac classy z bliźniaczo nazwanego pliku CSS'owskiego
+//       _._. Save all current users data, through API html request, to Firestore Database (Button)   &   show current progress of the request
+//      hook1 - OR HOW TO CHOOSE ONLY UPDATED DATA? PROPERTY WITH "THIS DATA CONTAINER SHOUDL BE UPDATED - BOOLEAN"
+//           _._._. ...
+//
+//           _._._. ...
+//
+//           _._._. ...
+//
+//       _._. Add new item to "myNeededSupplies" (Button, Modal) - onClick opens "ItemDetails" modal as "variant : create-item"
+//
 
 import styles from "src/styles/sass/styles-all.module.scss";
-
-// import {aComponent, bComponent} from "...COMPONENT folder..."
 
 const Footer = () => {
   return (

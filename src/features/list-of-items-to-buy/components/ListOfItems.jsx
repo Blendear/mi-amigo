@@ -1,9 +1,7 @@
 //
-//~~ _.  A
+//~~ _.  List of items to buy in the currently active shop || all shops - depends on the chosen image
 //
-//       _._. AA
-//
-//           _._._.AAA
+//       _._. Single item, clickable container - onClick opens "ItemDetails" modal as "variant : edit-item"
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
