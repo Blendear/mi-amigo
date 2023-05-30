@@ -25,8 +25,9 @@
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
+import Modal from "../../../components/Modal";
 
 const ItemDetails = () => {
-  return <div className={styles["nazwa-css-classy"]}>items details</div>;
+  return <Modal></Modal>;
 };
 export default ItemDetails;
