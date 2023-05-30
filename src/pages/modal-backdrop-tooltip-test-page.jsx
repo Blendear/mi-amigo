@@ -15,6 +15,11 @@ import Backdrop from "../components/Backdrop";
 const ModalBackdropTooltipTestingPage = () => {
   const [showModalAndBackdrop, setShowModalAndBackdrop] = useState(false);
 
+  const handleCloseClick = (e) => {
+    e.preventDefault();
+    setShowModalAndBackdrop(false);
+  };
+
   return (
     <div>
       <button
@@ -25,10 +30,10 @@ const ModalBackdropTooltipTestingPage = () => {
         Open Modal with Backdrop
       </button>
       {showModalAndBackdrop && (
-        <Modal
-          onClose={() => setShowModalAndBackdrop(false)}
-          variant="information"
-        >
+        <Modal variant="information">
+          <a href="#" onClick={handleCloseClick}>
+            x
+          </a>
           <div>title</div> <div>content a</div>
           <div>content b</div>
         </Modal>
