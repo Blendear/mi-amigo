@@ -9,19 +9,17 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 import ReactDOM from "react-dom";
 
-const Backdrop = ({ onClose, children }) => {
+const Backdrop = ({ onClose, variant }) => {
   const handleCloseClick = (e) => {
     e.preventDefault();
     onClose();
   };
 
   const backdropContent = (
-    <div
+    <aside
       onClick={handleCloseClick}
-      className={styles["backdrop--black-50-opacity"]}
-    >
-      {/* {children} */}
-    </div>
+      className={styles[`backdrop--${variant}`]}
+    />
   );
 
   return ReactDOM.createPortal(

@@ -9,13 +9,13 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 import ReactDOM from "react-dom";
 
-const Modal = ({ onClose, children }) => {
+const Modal = ({ children, variant }) => {
   const modalContent = (
-    <div className={styles["modal__overlay"]}>
-      <div className={styles["modal-information__container"]}>
+    <aside className={styles["modal__overlay"]}>
+      <div className={styles[`modal-${variant}__container`]}>
         <div className={styles["modal-information__body"]}>{children}</div>
       </div>
-    </div>
+    </aside>
   );
 
   return ReactDOM.createPortal(modalContent, document.getElementById("modal"));
