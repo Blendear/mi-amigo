@@ -1,0 +1,41 @@
+@use "../../../styles/sass/abstracts/mixins";
+@use "../../../styles/sass/abstracts/colors";
+@use "../../../styles/sass/abstracts/variables";
+@use "../../../styles/sass/base/typography";
+
+.modal {
+  &__overlay {
+    //necessary parent element for easily positioning the modal container in the middle of the screen
+    position: absolute;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+  }
+  @mixin modal-container() {
+    display: grid;
+    z-index: 300;
+  }
+  &-information {
+    &__container {
+      @include modal-container();
+      height: 15rem;
+      width: 10rem;
+
+      background-color: rgb(193, 144, 144);
+    }
+  }
+  &-warning {
+    &__container {
+      @include modal-container();
+    }
+  }
+  &-error {
+    &__container {
+      @include modal-container();
+    }
+  }
+}

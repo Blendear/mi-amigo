@@ -5,4 +5,5 @@
 @use "./base/base";
 @use "./base/helpers";
 
-@use "./components/form";
+@use "./components/backdrop";
+@use "./components/modal";

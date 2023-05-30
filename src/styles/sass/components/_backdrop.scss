@@ -1,0 +1,22 @@
+@use "../../../styles/sass/abstracts/mixins";
+@use "../../../styles/sass/abstracts/colors";
+@use "../../../styles/sass/abstracts/variables";
+@use "../../../styles/sass/base/typography";
+
+//hook1 - add grouping of css properties   &   get variables etc fro "base" or "abstracts"
+
+.backdrop {
+  &--black-50-opacity {
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+  }
+  &--blur {
+    backdrop-filter: blur(3rem);
+  }
+}
