@@ -26,14 +26,6 @@ const Footer = () => {
     showCreateNewItemModalAndBackdrop,
     setShowCreateNewItemModalAndBackdrop,
   ] = useState(false);
-  // hook1 - WHY DOES EVENT NOT EXIST NAGLE. BO CHCE DO HANDLEONCLICK PODAC "SAVE" ALBO "CREATE", A NAGLE WYWLAA, ZE "E" NIE ISTNIEJE. A DZIAŁĄŁO
-  const handleCloseClick = (e) => {
-    e.preventDefault();
-
-    if (closeThisModal === "a") {
-      setShowSavingModalAndBackdrop(false);
-    }
-  };
 
   return (
     <div className={styles[""]}>
@@ -43,16 +35,15 @@ const Footer = () => {
           //       _._. Modal - variant : information
           */}
           <Modal variant="information">
-            <a
-              href="#"
+            <button
               onClick={() => {
-                handleCloseClick();
+                setShowSavingModalAndBackdrop(false);
               }}
             >
               x
-            </a>
+            </button>
             <h1>Title</h1> <div>Content A</div>
-            <div>Content B</div>
+            <div>Content </div>
           </Modal>
           {/* 
           //       _._. Backdrop - - variant : black, 50% opacity
@@ -71,9 +62,13 @@ const Footer = () => {
           //       _._. Modal - variant : information
           */}
           <Modal variant="information">
-            <a href="#" onClick={handleCloseClick}>
+            <button
+              onClick={() => {
+                setShowCreateNewItemModalAndBackdrop(false);
+              }}
+            >
               x
-            </a>
+            </button>
             <h1>Title</h1> <div>Content A</div>
             <div>Content B</div>
           </Modal>

@@ -1,14 +1,38 @@
 //
 //~~ _. Navbar
 //
-//       _._. Menu items list aka list of links to sub-pages, visualized as images with titles (Links, Images, Buttons) - always visible, since there are only two links, for now
+//       _._. Menu items - only 2 for now, so instead of using links, I show the "settings" as a modal - so that coming back to the landing page "Items To Buy" doesn't need to load all the data again
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
+
 import { useState } from "react";
 
+import { MenuItemSingle } from "./index";
+
 const Navbar = () => {
-  return <nav></nav>;
+  const [showAsActive, setShowAsActive] = useState("itemsToBuy");
+
+  return (
+    <nav>
+      <MenuItemSingle
+        svg={"itemsToBuy"}
+        title={"ITEMS TO BUY"}
+        isActive={showAsActive === "itemsToBuy" && true}
+        handleClick={() => {
+          setShowAsActive("itemsToBuy");
+        }}
+      />
+      <MenuItemSingle
+        svg={"settings"}
+        title={"SETTINGS"}
+        isActive={showAsActive === "settings" && true}
+        handleClick={() => {
+          setShowAsActive("settings");
+        }}
+      />
+    </nav>
+  );
 };
 
 export default Navbar;
