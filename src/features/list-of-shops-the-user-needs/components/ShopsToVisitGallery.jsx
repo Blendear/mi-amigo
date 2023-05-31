@@ -8,6 +8,7 @@
 
 import styles from "src/styles/sass/styles-all.module.scss";
 import ShopToVisitSingle from "./ShopToVisitSingle";
+import { useState } from "react";
 
 const ShopsToVisitGallery = () => {
   const [shopsToRender, setShopsToRender] = useState([
