@@ -21,15 +21,17 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 import {
   ShopsToVisitGallery,
-  ShopToVisitSingle,
   ToggleShopsFilterMethodList,
-  ToggleShopsFilterMethodSingle,
 } from "../features/list-of-shops-the-user-needs/index";
+// import {} from "../features/current-weather/index";
+import { ListOfItemsToBuy } from "../features/list-of-items-to-buy/index";
 
 const LandingPage = () => {
   return (
     <div className={styles["container"]}>
       <ShopsToVisitGallery />
+      <ToggleShopsFilterMethodList />
+      <ListOfItemsToBuy />
     </div>
   );
 };

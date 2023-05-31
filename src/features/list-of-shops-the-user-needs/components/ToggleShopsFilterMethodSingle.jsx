@@ -8,11 +8,11 @@
 
 import styles from "src/styles/sass/styles-all.module.scss";
 
-const ToggleShopsFilterMethodSingle = () => {
+const ToggleShopsFilterMethodSingle = ({ isActive, title }) => {
   return (
-    <div className={styles["nazwa-css-classy"]}>
-      ToggleShopsFilterMethodSingle
-    </div>
+    <button className={styles[`${isActive ? "btn--active" : "btn-disabled"}`]}>
+      {title}
+    </button>
   );
 };
 export default ToggleShopsFilterMethodSingle;

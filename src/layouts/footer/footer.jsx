@@ -1,5 +1,6 @@
 //
-
+//hook1 - stworz historyjke - jak warianty modali operuję etc.
+//
 //       _._. Save all current users data, through API html request, to Firestore Database (Button)   &   show current progress of the request
 //      hook1 - OR HOW TO CHOOSE ONLY UPDATED DATA? PROPERTY WITH "THIS DATA CONTAINER SHOUDL BE UPDATED - BOOLEAN"
 //           _._._. ...
@@ -18,6 +19,8 @@ import { useState } from "react";
 
 import Modal from "../../components/Modal";
 import Backdrop from "../../components/Backdrop";
+
+import { ItemDetails } from "../../features/add-or-edit-item/index";
 
 const Footer = () => {
   const [showSavingModalAndBackdrop, setShowSavingModalAndBackdrop] =
@@ -42,8 +45,7 @@ const Footer = () => {
             >
               x
             </button>
-            <h1>Title</h1> <div>Content A</div>
-            <div>Content </div>
+            <div>Saving to Firestore DB</div>
           </Modal>
           {/* 
           //       _._. Backdrop - - variant : black, 50% opacity
@@ -69,8 +71,7 @@ const Footer = () => {
             >
               x
             </button>
-            <h1>Title</h1> <div>Content A</div>
-            <div>Content B</div>
+            <ItemDetails isCreatingNewItem={true} />
           </Modal>
           {/* 
           //       _._. Backdrop - - variant : black, 50% opacity

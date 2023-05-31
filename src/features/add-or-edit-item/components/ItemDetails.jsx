@@ -25,9 +25,12 @@
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
-import Modal from "../../../components/Modal";
 
-const ItemDetails = () => {
-  return <Modal></Modal>;
+const ItemDetails = ({ isCreatingNewItem }) => {
+  return (
+    <div>
+      {isCreatingNewItem ? "create new item modal" : "edit existing item modal"}
+    </div>
+  );
 };
 export default ItemDetails;

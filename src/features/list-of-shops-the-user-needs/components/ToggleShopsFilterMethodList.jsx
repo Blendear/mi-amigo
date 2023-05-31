@@ -7,11 +7,13 @@
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
+import ToggleShopsFilterMethodSingle from "./ToggleShopsFilterMethodSingle";
 
 const ToggleShopsFilterMethodList = () => {
   return (
-    <div className={styles["nazwa-css-classy"]}>
-      ToggleShopsFilterMethodList
+    <div className={styles["list-container"]}>
+      <ToggleShopsFilterMethodSingle isActive={true} title="CHEAP" />
+      <ToggleShopsFilterMethodSingle isActive={false} title="QUICK" />
     </div>
   );
 };
