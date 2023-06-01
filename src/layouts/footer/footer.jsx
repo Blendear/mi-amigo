@@ -31,7 +31,7 @@ const Footer = () => {
   ] = useState(false);
 
   return (
-    <div className={styles[""]}>
+    <div className={styles["footer__container"]}>
       {showSavingModalAndBackdrop && (
         <>
           {/* 
@@ -84,6 +84,7 @@ const Footer = () => {
         </>
       )}
       <button
+        className={styles["footer__svg-button"]}
         onClick={() => {
           setShowSavingModalAndBackdrop(true);
         }}
@@ -91,6 +92,7 @@ const Footer = () => {
         save
       </button>
       <button
+        className={styles["footer__svg-button"]}
         onClick={() => {
           setShowCreateNewItemModalAndBackdrop(true);
         }}

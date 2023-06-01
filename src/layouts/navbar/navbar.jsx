@@ -14,7 +14,7 @@ const Navbar = () => {
   const [showAsActive, setShowAsActive] = useState("itemsToBuy");
 
   return (
-    <nav>
+    <nav className={styles["navbar__container"]}>
       <MenuItemSingle
         svg={"itemsToBuy"}
         title={"ITEMS TO BUY"}

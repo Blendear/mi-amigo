@@ -1,7 +1,15 @@
+//
+//~~ _.  Globally used mixins - locally used mixins are in their specific files, where they are used
+//
+//       _._. Dynamically colored form - colors (theme) for the elements are given as arguments
+//
+//       _._. Dynamically colored button - colors (theme) for the elements are given as arguments
+//
+
 @use "../../../styles/sass/base/typography";
 
 //
-// Creates a component with input feilds - colors for specific elements are given as arguments
+//       _._. Dynamically colored form - colors (theme) for the elements are given as arguments
 //
 @mixin color-theme-and-basic-props-for-forms(
   $bg,
@@ -49,7 +57,7 @@
   }
 }
 //
-// Creates a button - colors for specific elements are given as arguments
+//       _._. Dynamically colored button - colors (theme) for the elements are given as arguments
 //
 @mixin button($button-text, $button-bg) {
   border-radius: 1rem;

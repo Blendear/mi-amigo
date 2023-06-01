@@ -20,9 +20,9 @@ const MenuItemSingle = ({ svg, title, isActive, handleClick }) => {
     //
     <button
       onClick={handleClick}
-      className={
-        styles[`${isActive ? "a__css-class-name" : "b__css-class-name"}`]
-      }
+      className={`${styles[`navbar__button_container`]} ${
+        styles[isActive ? "" : "navbar__button_container--disabled"]
+      }`}
     >
       {/* 
       //       _._. SVG
@@ -40,7 +40,6 @@ const MenuItemSingle = ({ svg, title, isActive, handleClick }) => {
       //       _._. Title
       */}
       <div className={styles["title"]}>{title}</div>
-      <div className={styles[""]}>{isActive ? "Active" : "Inactive"}</div>
     </button>
   );
 };

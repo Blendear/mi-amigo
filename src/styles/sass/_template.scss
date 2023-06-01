@@ -1,0 +1,117 @@
+//
+//~~ _.  Example component, which will be styled
+//
+//       _._. CheatSheet
+//
+//       _._. Main grid system (inside a dedicated parent container) - for positioning the components layout
+//
+//           _._._. Variant "Strictly set row/column amounts & sizes"
+//
+//           _._._. Variant "Automatically set row/column amounts & sizes"
+//
+//           _._._. Visual size recognition helper
+//
+//           _._._. Common css properties
+//
+//                  _._._._. Self - Sizes & Positioning
+//
+//                  _._._._. Self - Styling
+//
+//                  _._._._. Children - Sizes & Positioning
+//
+//                  _._._._. Children - Styling
+//
+//           _._._. Align/justify center for every descending element - since mostly you would write a/j in those elements anyway
+//
+
+@use "../../../styles/sass/abstracts/mixins";
+@use "../../../styles/sass/abstracts/colors";
+@use "../../../styles/sass/abstracts/variables";
+@use "../../../styles/sass/base/typography";
+//
+//       _._. CheatSheet
+//
+// https://htmlcheatsheet.com/css/
+//
+// .name{}
+// &__{}
+// &--{}
+
+.name-of-component {
+  &__container {
+    //
+    //           _._._. Common css properties
+    //
+    //                  _._._._. Self - Sizes & Positioning
+    //
+    // margin: 0 0 0 2rem;
+    // padding: 0 5rem 0 5rem;
+    // width: 8rem;
+    // aspect-ratio:2/1;
+    // font-size: typography.$font-size-sm;
+    //
+    //                  _._._._. Self - Styling
+    //
+    // font-weight: typography.$font-weight-normal;
+    // color: $kolor-svg-nawigacji;
+    background-color: green; //           _._._. Visual size recognition helper
+    //
+    //                  _._._._. Children - Sizes & Positioning
+    //
+    //
+    //              //       _._. Grid system (main) - for positioning the components layout
+    //
+    display: grid; //           _._._. Variant "Strictly set row/column amounts & sizes"
+    grid-template-rows:
+      [r-1] variables.$row-size-sm
+      [r-2] variables.$row-size-sm
+      [r-3] variables.$row-size-sm
+      [r-4];
+    grid-template-columns:
+      [c-1] variables.$column-size
+      [c-2] variables.$column-size
+      [c-3] variables.$column-size
+      [c-4];
+    //
+    // display: grid; //           _._._. Variant "Automatically set row/column amounts & sizes"
+    // grid-auto-flow: column;
+    // grid-auto-columns: 1fr;
+    // grid-auto-rows: variables.$row-size-sm;
+    // row-gap: 0.8rem;
+    //
+    // justify-items: end; // defaultly set to "center" inside "_globals.scss"
+    // align-items: start; // defaultly set to "center" inside "_globals.scss"
+    //
+    //                  _._._._. Children - Styling
+    //                  THROUGH SELECTORS, FOR EXAMPLE "A L L DESCENDANT ELEMENTS"
+    //
+    // & * {
+    //   background-color: yellow;
+    //   color: black;
+    // }
+  }
+
+  &__child-element-name {
+    //
+    //                  _._._._. Self - Sizes & Positioning
+    // margin: 0 0 0 2rem;
+    //                  _._._._. Self - Styling
+    // background-color: green;
+    //                  _._._._. Children - Sizes & Positioning
+    // display: grid;
+    // grid-template-rows:[r-1] variables.$row-size-sm [r-2];
+    // grid-template-columns:[c-1] variables.$column-size [c-2];
+    // ||
+    // grid-auto-flow: column;
+    // grid-auto-columns: 1fr;
+    // grid-auto-rows: variables.$row-size-sm;
+    //                  _._._._. Children - Styling
+    // & * { background-color: yellow; }
+    //
+    &__child-element-of-child-element-name {
+      //
+      // code here
+      //
+    }
+  }
+}

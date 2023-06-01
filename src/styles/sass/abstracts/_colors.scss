@@ -1,3 +1,18 @@
+//
+//~~ _.  Globally used colors - locally used colors are in their specific files, where they are used
+//
+//       _._. Default color scheme
+//
+//           _._._. Theme - Light
+//
+//       _._. Colors which depend on states - disabled, error, success etc.
+//
+
+//
+//       _._. Default color scheme
+//
+//           _._._. Theme - Light
+//
 $primary-light: rgb(255, 255, 255);
 
 $secondary-light: rgb(241, 218, 197);
@@ -6,6 +21,9 @@ $tertiary-light: rgb(238, 158, 84);
 
 $quaternary-light: rgb(97, 39, 14);
 
+//
+//       _._. Colors which depend on states - disabled, error, success etc.
+//
 $succes: rgb(69, 171, 91);
 
 $warning: rgb(255, 208, 54);

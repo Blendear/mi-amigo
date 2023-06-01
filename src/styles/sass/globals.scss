@@ -1,3 +1,6 @@
+//
+//~~ _.  Globally used styles (of all types) - locally used styles are in their specific files, where they are used
+//
 @use "../../../src/styles/sass/base/typography";
 @use "../../../src/styles/sass/abstracts/colors";
 
@@ -7,6 +10,8 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  justify-self: center;
+  align-self: center;
 }
 
 hr {

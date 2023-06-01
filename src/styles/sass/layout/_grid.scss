@@ -1,0 +1,46 @@
+//
+
+// hook1 - isn't this file useless? Since footer and navbar are positioned in their own files. no need for a global layout, right?
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+//~~ _.  Grid system for globally positioning - navbar, footer, body of the webapp etc.
+//
+
+// @use "../../../styles/sass/abstracts/mixins";
+// @use "../../../styles/sass/abstracts/colors";
+// @use "../../../styles/sass/abstracts/variables";
+// @use "../../../styles/sass/base/typography";
+
+// .layout-grid {
+//   display: grid;
+
+//   grid-template-rows:
+//     [navbar-start] variables.$row-size-sm
+//     [navbar-end-body-start] variables.$row-size-sm
+//     [body-end-footer-start] variables.$row-size-sm
+//     [footer-end];
+
+//   grid-template-columns:
+//     [c-1] variables.$column-size-md
+//     [c-2];
+//   //   row-gap: 0.8rem;
+//   //   width: 27rem;
+//   //   justify-content: center;
+//   //   margin: 2rem;
+// }
