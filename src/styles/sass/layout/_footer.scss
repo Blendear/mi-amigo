@@ -18,7 +18,9 @@
 
     padding: 2rem 3rem 2rem 3rem;
 
-    background-color: green;
+    background-color: colors.$primary-light;
+    border-top: 0.75rem solid colors.$third-light;
+    border-radius: 3rem;
 
     display: grid;
     grid-auto-flow: column;
@@ -36,6 +38,7 @@
     aspect-ratio: 1/1.2;
     justify-self: end;
 
-    background-color: rgb(64, 245, 64);
+    background-color: colors.$secondary-light;
+    border-radius: 2rem;
   }
 }

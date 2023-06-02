@@ -41,6 +41,10 @@ li {
   list-style: none;
 }
 
+body {
+  background-color: colors.$primary-light;
+}
+
 body,
 button,
 input,
