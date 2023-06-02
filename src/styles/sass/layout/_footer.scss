@@ -13,6 +13,9 @@
 
 .footer {
   &__container {
+    // position: fixed; //hook1 - should be fixed to the bottom. why is this error happening?
+    // bottom: 0;
+
     padding: 2rem 3rem 2rem 3rem;
 
     background-color: green;
@@ -29,6 +32,10 @@
     }
   }
   &__svg-button {
+    width: 7rem;
+    aspect-ratio: 1/1.2;
     justify-self: end;
+
+    background-color: rgb(64, 245, 64);
   }
 }

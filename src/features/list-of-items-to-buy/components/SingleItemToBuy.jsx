@@ -7,8 +7,6 @@
 //
 //       _._. Variant "create-edit-view"
 //
-//       _._. Container
-//
 //       _._. Image
 //
 //       _._. Title
@@ -37,57 +35,45 @@ const SingleItemToBuy = ({ variant }) => {
     //
     //       _._. Variant "list-view"
     //
-    //       _._. Container
-    //
-    <div
-      // className={styles["item-container--list-view"]}
-      style={{
-        position: "relative",
-        height: "auto",
-        width: "3rem",
-      }}
-    >
-      {/* /\ jemu daj "position:relative" */}
-      <div className={styles["image-styling--list-view"]}>
-        {/* /\ jemu daj "position:relative"   &   jemu przypisz classe" */}
+
+    <>
+      <div className={styles["item-edit-view__img"]}>
         {/* 
           //       _._. Image
           */}
         <Image
           src={`/images/testing/kotlet.png`}
           alt={`nie pyklo zdjecie`}
-          height={200}
-          width={100}
-          layout="responsive"
+          layout="fill"
           objectFit="cover"
         />
-        {/* /\ jemu zadnej classy nie dajesz*/}
       </div>
 
       {/* 
       //       _._. Title
       */}
-      <div className={styles["title--list-view"]}>title</div>
+      <div className={styles["item-edit-view__title"]}>title</div>
       {/* 
       //       _._. Needed amount
       //
       //           _._._. Background - dynamicaly changing color, depending on the "current amount" / "needed amount" ratio
       */}
-      <div className={styles["amounts-container--list-view"]}>
+      <div className={styles["item-edit-view__amounts-container"]}>
         {/* 
         //           _._._. Amount you need to buy (Number, Text) - with unit of measurment
         */}
-        <div className={styles["needed-to-buy--list-view"]}>9 szt.</div>
+        <div className={styles["item-edit-view__amount-to-buy"]}>9 szt.</div>
         {/* 
         //           _._._. Current amount in your supplies, at home (Number)
         */}
-        <div className={styles["current--list-view"]}>3</div>
+        <div className={styles["item-edit-view__amount-current"]}>3</div>
+        <div className={styles["item-edit-view__slash-divider"]}>/</div>
         {/* 
         //           _._._. Wanted amount in total
         */}
-        <div className={styles["wanted-total--list-view"]}>12</div>
+        <div className={styles["item-edit-view__amount-wanted"]}>12</div>
       </div>
-    </div>
+    </>
   ) : (
     //
     //       _._. Variant "create-edit-view"

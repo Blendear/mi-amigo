@@ -11,7 +11,7 @@ import ToggleShopsFilterMethodSingle from "./ToggleShopsFilterMethodSingle";
 
 const ToggleShopsFilterMethodList = () => {
   return (
-    <div className={styles["list-container"]}>
+    <div className={styles["landing-page__btn-toggle-method-container"]}>
       <ToggleShopsFilterMethodSingle isActive={true} title="CHEAP" />
       <ToggleShopsFilterMethodSingle isActive={false} title="QUICK" />
     </div>

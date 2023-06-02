@@ -1,0 +1,54 @@
+@use "../../../styles/sass/abstracts/mixins";
+@use "../../../styles/sass/abstracts/colors";
+@use "../../../styles/sass/abstracts/variables";
+@use "../../../styles/sass/base/typography";
+
+// .name{}
+// &__{}
+// &--{}
+
+.landing-page {
+  &__container {
+    background-color: rgb(225, 201, 81);
+  }
+  &__shops-and-weather-container {
+    display: grid;
+
+    grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr[c-3];
+  }
+  &__shops-to-visit-container {
+    grid-column: c-1 / c-2;
+    padding: 1rem;
+    aspect-ratio: 1/1;
+
+    background-color: aqua;
+    border-radius: 6.9%;
+
+    display: grid;
+    grid-template-rows: [r-0] 0.5fr [r-1] 1.5fr [r-2];
+    grid-template-columns: [c-0] 0.5fr [c-1] 1fr [c-2] 0.5fr [c-3];
+  }
+  &__shops-image {
+    grid-row: r-1 / r-2;
+    grid-column: c-1 / c-2;
+
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+  &__shops-title {
+    grid-column: c-0 / c-3;
+  }
+  &__btn-toggle-method-container {
+    grid-column: c-0 / c-1;
+
+    display: grid;
+    row-gap: 2rem;
+  }
+  &__list-of-items-container {
+    padding: 1.5rem;
+
+    display: grid;
+    row-gap: 1rem;
+  }
+}

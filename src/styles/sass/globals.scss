@@ -10,8 +10,11 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  justify-self: center;
-  align-self: center;
+  // justify-self: center;
+  justify-items: center;
+  // align-self: center; // hook1 - why doesnt it work on nested divs with text?
+  align-items: center;
+  text-align: center;
 }
 
 hr {
@@ -33,15 +36,23 @@ html {
   font-size: typography.$font-size-sm;
   font-weight: typography.$font-weight-normal;
 }
-body,
-button {
-  @include fontStylingGlobal();
-  font-size: typography.$font-size-md;
-  line-height: typography.$line-height-sm;
-  text-align: center;
-  color: colors.$quaternary-light;
-  overflow: hidden;
 
+li {
+  list-style: none;
+}
+
+body,
+button,
+input,
+select,
+div {
+  @include fontStylingGlobal();
+  color: colors.$quaternary-light;
+  border: none;
+  width: 100%;
+  height: 100%;
+
+  //hook1 - could i maybe add "display:grid" in here, or is it not good for optimisation?
   ::placeholder {
     @include fontStylingGlobal();
   }
@@ -57,11 +68,6 @@ button {
   :-ms-input-placeholder {
     @include fontStylingGlobal();
   }
-}
-
-input,
-select {
-  @include fontStylingGlobal();
 }
 
 a {

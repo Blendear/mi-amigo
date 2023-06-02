@@ -27,9 +27,9 @@ const ListOfItemsToBuy = () => {
   ]);
 
   return (
-    <ul className={styles["list-container"]}>
+    <ul className={styles["landing-page__list-of-items-container"]}>
       {itemsToRender.map((item) => (
-        <li key={item.name} className="___hook1___">
+        <li key={item.name} className={styles["item-edit-view__container"]}>
           <SingleItemToBuy variant="list-view" />
         </li>
       ))}

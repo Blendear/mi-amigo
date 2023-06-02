@@ -21,16 +21,21 @@ const ShopsToVisitGallery = () => {
   ]);
   // ONE is active, the rest is loaded, bu inactive. bacause we render only 1 logo
   return (
-    <ul className={styles["shops-list-container"]}>
-      <li key={"all-shops"} className="all-shops">
-        <ShopToVisitSingle isActive={true} />
-      </li>
-      {shopsToRender.map((item) => (
-        <li key={item.name} className="___">
-          <ShopToVisitSingle isActive={false} />
+    <div className={styles["landing-page__shops-to-visit-container"]}>
+      <div className={styles["landing-page__shops-title"]}>
+        Visit this shops
+      </div>
+      <ul className={styles["landing-page__shops-image"]}>
+        <li key={"all-shops"}>
+          <ShopToVisitSingle isActive={true} />
         </li>
-      ))}
-    </ul>
+        {shopsToRender.map((item) => (
+          <li key={item.name} className="___">
+            <ShopToVisitSingle isActive={false} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 export default ShopsToVisitGallery;

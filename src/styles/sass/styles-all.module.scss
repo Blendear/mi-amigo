@@ -8,13 +8,14 @@
 
 @use "./components/backdrop";
 @use "./components/modal";
+@use "./components/item-edit-view";
+@use "./components/item-list-view";
 // @use "./components";
 
 @use "./layout/footer";
 @use "./layout/grid";
 @use "./layout/navbar";
 
-@use "./pages/items-to-buy";
-@use "./pages/shops_to-visit";
-@use "./pages/weather-conditions";
+@use "./pages/landing-page";
+@use "./pages/settings";
 // @use "./pages";

@@ -19,6 +19,7 @@
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
+
 import {
   ShopsToVisitGallery,
   ToggleShopsFilterMethodList,
@@ -28,9 +29,14 @@ import { ListOfItemsToBuy } from "../features/list-of-items-to-buy/index";
 
 const LandingPage = () => {
   return (
-    <div className={styles["container"]}>
-      <ShopsToVisitGallery />
-      <ToggleShopsFilterMethodList />
+    <div className={styles["landing-page__container"]}>
+      <div className={styles["landing-page__shops-and-weather-container"]}>
+        <ToggleShopsFilterMethodList />
+
+        <ShopsToVisitGallery />
+        <div>weather component</div>
+      </div>
+
       <ListOfItemsToBuy />
     </div>
   );

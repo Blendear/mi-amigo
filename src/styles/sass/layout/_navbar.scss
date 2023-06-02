@@ -28,7 +28,11 @@
       font-weight: typography.$font-weight-normal;
     }
   }
-  &__button_container {
+  &__menu-item-container {
+    padding: 1rem;
+    width: 8rem;
+    aspect-ratio: 1/1.2;
+
     background-color: rgb(64, 245, 64);
     border: none;
 
@@ -36,9 +40,11 @@
       filter: grayscale(1);
     }
   }
-  &__icon {
+  &__menu-item-svg {
+    background-color: rgba(115, 197, 255, 0.735);
   }
 
-  &__title {
+  &__menu-item-title {
+    background-color: rgba(255, 104, 104, 0.763);
   }
 }

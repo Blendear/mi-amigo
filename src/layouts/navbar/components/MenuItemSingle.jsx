@@ -20,8 +20,8 @@ const MenuItemSingle = ({ svg, title, isActive, handleClick }) => {
     //
     <button
       onClick={handleClick}
-      className={`${styles[`navbar__button_container`]} ${
-        styles[isActive ? "" : "navbar__button_container--disabled"]
+      className={`${styles[`navbar__menu-item-container`]} ${
+        styles[isActive ? "" : "navbar__menu-item-container--disabled"]
       }`}
     >
       {/* 
@@ -29,9 +29,15 @@ const MenuItemSingle = ({ svg, title, isActive, handleClick }) => {
       */}
       {
         {
-          itemsToBuy: <div>svg itemstobuy </div>,
+          itemsToBuy: (
+            <div className={styles["navbar__menu-item-svg"]}>
+              svg itemstobuy{" "}
+            </div>
+          ),
           // itemsToBuy: <SVGItemsToBuy />,
-          settings: <div>svg settings </div>,
+          settings: (
+            <div className={styles["navbar__menu-item-svg"]}>svg settings </div>
+          ),
           // settings: <SVGSettings />,
         }[svg]
       }
@@ -39,7 +45,7 @@ const MenuItemSingle = ({ svg, title, isActive, handleClick }) => {
       {/* 
       //       _._. Title
       */}
-      <div className={styles["title"]}>{title}</div>
+      <div className={styles["navbar__menu-item-title"]}>{title}</div>
     </button>
   );
 };

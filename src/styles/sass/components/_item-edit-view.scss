@@ -1,0 +1,54 @@
+@use "../../../styles/sass/abstracts/mixins";
+@use "../../../styles/sass/abstracts/colors";
+@use "../../../styles/sass/abstracts/variables";
+@use "../../../styles/sass/base/typography";
+
+// .name{}
+// &__{}
+// &--{}
+
+.item-edit-view {
+  &__container {
+    width: minmax(20rem, 100%);
+    aspect-ratio: 6/1;
+
+    display: grid;
+    grid-template-rows: [r-0] 1fr [r-1];
+    grid-template-columns: [c-0] 1fr[c-1] 3fr[c-2] 1fr [c-3];
+    grid-auto-flow: column;
+  }
+  &__img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    & img {
+      border-radius: 1rem;
+    }
+  }
+  &__title {
+    border-radius: 0 1rem 1rem 0;
+
+    background-color: bisque;
+
+    display: grid;
+  }
+  &__amounts-container {
+    border-radius: 0 1rem 1rem 0;
+
+    background-color: rgb(197, 171, 139);
+
+    display: grid;
+    grid-template-rows: [r-0] 1.75fr [r-1] 1fr[r-2];
+    grid-template-columns: [c-0] variables.$column-size-md-maxcontent [c-1] variables.$column-size-md-maxcontent[c-2] variables.$column-size-md-maxcontent [c-3];
+  }
+  &__amount-to-buy {
+    grid-column: c-0 / c-3; //it takes the whole row, so the rest of the amounts will be placed automatically right
+  }
+  &__amount-current {
+  }
+  &__amount-wanted {
+  }
+  &__slash-divider {
+  }
+}

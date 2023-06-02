@@ -43,11 +43,11 @@
     //           _._._. Common css properties
     //
     //                  _._._._. Self - Sizes & Positioning
-    //
+
     // margin: 0 0 0 2rem;
     // padding: 0 5rem 0 5rem;
     // width: 8rem;
-    // aspect-ratio:2/1;
+    // aspect-ratio:2/1; // width/height
     // font-size: typography.$font-size-sm;
     //
     //                  _._._._. Self - Styling
@@ -63,15 +63,21 @@
     //
     display: grid; //           _._._. Variant "Strictly set row/column amounts & sizes"
     grid-template-rows:
+      [r-0] variables.$row-size-sm
       [r-1] variables.$row-size-sm
       [r-2] variables.$row-size-sm
       [r-3] variables.$row-size-sm
-      [r-4];
+      [r-4] variables.$row-size-sm
+      [r-5] variables.$row-size-sm
+      [r-6];
     grid-template-columns:
-      [c-1] variables.$column-size
-      [c-2] variables.$column-size
-      [c-3] variables.$column-size
-      [c-4];
+      [c-0] variables.$column-size-md
+      [c-1] variables.$column-size-md
+      [c-2] variables.$column-size-md
+      [c-3] variables.$column-size-md
+      [r-4] variables.$column-size-md
+      [r-5] variables.$column-size-md
+      [r-6];
     //
     // display: grid; //           _._._. Variant "Automatically set row/column amounts & sizes"
     // grid-auto-flow: column;
@@ -94,13 +100,15 @@
   &__child-element-name {
     //
     //                  _._._._. Self - Sizes & Positioning
+    // grid-row: r-0 / r-1;
+    // grid-column: c-0 / c-1;
     // margin: 0 0 0 2rem;
     //                  _._._._. Self - Styling
     // background-color: green;
     //                  _._._._. Children - Sizes & Positioning
     // display: grid;
-    // grid-template-rows:[r-1] variables.$row-size-sm [r-2];
-    // grid-template-columns:[c-1] variables.$column-size [c-2];
+    // grid-template-rows:[r-0] variables.$row-size-sm [r-1];
+    // grid-template-columns:[c-0] variables.$column-size-md [c-1];
     // ||
     // grid-auto-flow: column;
     // grid-auto-columns: 1fr;
