@@ -26,17 +26,16 @@ import {
 } from "../features/list-of-shops-the-user-needs/index";
 // import {} from "../features/current-weather/index";
 import { ListOfItemsToBuy } from "../features/list-of-items-to-buy/index";
+import { CurrentWeather } from "../features/current-weather/index";
 
 const LandingPage = () => {
   return (
     <div className={styles["landing-page__container"]}>
       <div className={styles["landing-page__shops-and-weather-container"]}>
         <ToggleShopsFilterMethodList />
-
         <ShopsToVisitGallery />
-        <div>weather component</div>
+        <CurrentWeather />
       </div>
-
       <ListOfItemsToBuy />
     </div>
   );

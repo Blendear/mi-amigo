@@ -13,22 +13,22 @@
 //
 //           _._._. Theme - Light
 //
-$primary-light: rgb(255, 255, 255);
-
-$secondary-light: rgb(241, 218, 197);
-
-$tertiary-light: rgb(238, 158, 84);
-
-$quaternary-light: rgb(97, 39, 14);
-
+$primary-light: #ffece7;
+$secondary-light: #fac3c6;
+$third-light: #c08285;
+$forth-light: #61270e;
+$fifth-light: #ffffff;
 //
 //       _._. Colors which depend on states - disabled, error, success etc.
 //
-$succes: rgb(69, 171, 91);
+$succes: #9ed176;
+$succes-dark-parts: #5a902f;
 
-$warning: rgb(255, 208, 54);
+$warning: #f8cc7d;
+$warning-dark-parts: #907b2f;
 
-$danger: rgb(207, 61, 61);
+$danger: #d17676;
+$darker-dark-parts: $forth-light;
 
 $medium: rgb(74, 74, 74);
 

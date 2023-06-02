@@ -45,10 +45,24 @@
     display: grid;
     row-gap: 2rem;
   }
-  &__list-of-items-container {
-    padding: 1.5rem;
+  &__weather-container {
+    grid-column: c-2 / c-3;
 
     display: grid;
+    grid-template-rows: [r-0] 1.5fr [r-1] 0.5fr [r-2];
+
+    & div {
+      display: grid;
+    }
+  }
+  &__list-of-items-container {
+    padding: 3.5rem;
+    height: 35vh;
+
+    overflow: hidden;
+
+    display: grid;
+    grid-auto-rows: 6.5rem;
     row-gap: 1rem;
   }
 }

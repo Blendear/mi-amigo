@@ -9,7 +9,8 @@
 
 .item-edit-view {
   &__container {
-    width: minmax(20rem, 100%);
+    width: max(20rem, 100%);
+
     aspect-ratio: 6/1;
 
     display: grid;
@@ -40,7 +41,11 @@
 
     display: grid;
     grid-template-rows: [r-0] 1.75fr [r-1] 1fr[r-2];
-    grid-template-columns: [c-0] variables.$column-size-md-maxcontent [c-1] variables.$column-size-md-maxcontent[c-2] variables.$column-size-md-maxcontent [c-3];
+    grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr [c-3];
+
+    & div {
+      display: grid;
+    }
   }
   &__amount-to-buy {
     grid-column: c-0 / c-3; //it takes the whole row, so the rest of the amounts will be placed automatically right

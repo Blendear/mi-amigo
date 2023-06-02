@@ -24,6 +24,27 @@ const ListOfItemsToBuy = () => {
       "amount-wanted": 20,
       "unit-of-measurment": "szt.",
     },
+    {
+      name: "jajko-photo",
+      title: "jajko",
+      "amount-current": 13,
+      "amount-wanted": 20,
+      "unit-of-measurment": "szt.",
+    },
+    {
+      name: "jajko-photo",
+      title: "jajko",
+      "amount-current": 13,
+      "amount-wanted": 20,
+      "unit-of-measurment": "szt.",
+    },
+    {
+      name: "jajko-photo",
+      title: "jajko",
+      "amount-current": 13,
+      "amount-wanted": 20,
+      "unit-of-measurment": "szt.",
+    },
   ]);
 
   return (
