@@ -10,28 +10,52 @@
   &__overlay {
     //necessary parent element for easily positioning the modal container in the middle of the screen
     position: absolute;
-
-    display: grid;
-    justify-content: center;
-    align-items: center;
-
     height: 100%;
     width: 100%;
+
+    display: grid;
+    // justify-content: center;
+    // align-items: center;
   }
   @mixin modal-container() {
-    display: grid;
+    padding: 2rem;
     z-index: 300;
+
+    display: grid;
+    // grid-template-rows: ;
+    grid-auto-rows: max-content;
+    row-gap: 2rem;
+
+    & div,
+    button {
+      width: max-content;
+    }
+    & > button {
+      width: 5rem;
+      aspect-ratio: 1/1;
+      justify-self: end;
+
+      border-radius: 1.25rem;
+      font-size: typography.$font-size-xl;
+    }
   }
+  // herehere - 3 warianty modali :
+  //    )
+  //    )
+  //    )
   &-information {
     &__container {
       @include modal-container();
-      height: 15rem;
-      width: 10rem;
+      height: 80vh;
+      width: 80vw;
 
       background-color: rgb(193, 144, 144);
     }
-    &__body {
+    &__btn-close {
+      border-radius: 1rem;
     }
+    // &__body {
+    // }
   }
   &-warning {
     &__container {

@@ -45,7 +45,7 @@ const Footer = () => {
             >
               x
             </button>
-            <div>Saving to Firestore DB</div>
+            <h1>Saving to Firestore DB</h1>
           </Modal>
           {/* 
           //       _._. Backdrop - - variant : black, 50% opacity

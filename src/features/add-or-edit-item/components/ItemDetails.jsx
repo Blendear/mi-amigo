@@ -28,9 +28,14 @@ import styles from "src/styles/sass/styles-all.module.scss";
 
 const ItemDetails = ({ isCreatingNewItem }) => {
   return (
-    <div>
-      {isCreatingNewItem ? "create new item modal" : "edit existing item modal"}
-    </div>
+    <>
+      <h1>
+        {" "}
+        {isCreatingNewItem
+          ? "create new item modal"
+          : "edit existing item modal"}
+      </h1>
+    </>
   );
 };
 export default ItemDetails;

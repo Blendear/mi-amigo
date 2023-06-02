@@ -23,7 +23,9 @@ const Modal = ({ children, variant }) => {
       //       _._. Container (empty) & Custom body - content is taken from the parent, through the "children" prop
       */}
       <div className={styles[`modal-${variant}__container`]}>
-        <div className={styles["modal-information__body"]}>{children}</div>
+        {/* <div className={styles["modal-information__body"]}> */}
+        {children}
+        {/* </div> */}
       </div>
     </aside>
   );
