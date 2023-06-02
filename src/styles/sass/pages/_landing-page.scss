@@ -9,7 +9,7 @@
 
 .landing-page {
   &__container {
-    background-color: rgb(225, 201, 81);
+    background-color: colors.$primary-light;
   }
   &__shops-and-weather-container {
     display: grid;
@@ -21,7 +21,8 @@
     padding: 1rem;
     aspect-ratio: 1/1;
 
-    background-color: aqua;
+    background-color: colors.$secondary-light;
+    box-shadow: colors.$shadow-sharp-right-down-close;
     border-radius: 6.9%;
 
     display: grid;
@@ -31,19 +32,33 @@
   &__shops-image {
     grid-row: r-1 / r-2;
     grid-column: c-1 / c-2;
-
     position: relative;
     width: 100%;
     aspect-ratio: 1/1;
+
+    border-radius: 1.5rem; //hook1 - add border radius sizes to global "_variables.scss". used a lot. 2-3 vriants max, so worth it
+    box-shadow: 0.25rem 0.25rem 0rem 0 rgba(0, 0, 0, 0.4); //hook1 - worth adding as global varibl, like other box shadows ?
+    & img {
+      border-radius: 1.5rem;
+    }
   }
   &__shops-title {
     grid-column: c-0 / c-3;
   }
   &__btn-toggle-method-container {
     grid-column: c-0 / c-1;
+    padding: 1.5rem 0 1.5rem 0;
 
     display: grid;
-    row-gap: 2rem;
+
+    & button {
+      width: 10rem;
+      height: 4rem;
+
+      background-color: colors.$third-light;
+      color: colors.$primary-light;
+      border-radius: 2rem;
+    }
   }
   &__weather-container {
     grid-column: c-2 / c-3;
@@ -63,6 +78,6 @@
 
     display: grid;
     grid-auto-rows: 6.5rem;
-    row-gap: 1rem;
+    row-gap: 2.15rem;
   }
 }
