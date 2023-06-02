@@ -25,6 +25,7 @@
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
+import SingleItemToBuy from "../../list-of-items-to-buy/components/SingleItemToBuy";
 
 const ItemDetails = ({ isCreatingNewItem }) => {
   return (

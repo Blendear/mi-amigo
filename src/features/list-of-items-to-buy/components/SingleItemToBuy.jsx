@@ -80,7 +80,9 @@ const SingleItemToBuy = ({ variant }) => {
     //
     //       _._. Container
     //
-    <div className={styles["item-container"]}>
+    <div
+      className={styles["item-edit-view__container--create-or-edit-variant"]}
+    >
       {/* /\ jemu daj "position:relative" */}
       <div className={styles["image-styling"]}>
         {/* /\ jemu daj "position:relative"   &   jemu przypisz classe" */}

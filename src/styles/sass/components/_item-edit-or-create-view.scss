@@ -12,8 +12,8 @@
     @include mixins.item-container;
 
     display: grid;
-    grid-template-rows: [r-0] 1fr [r-1] 1fr [r-2];
-    grid-template-columns: [c-0] 1fr[c-1] 3fr[c-2] 1fr [c-3];
+    grid-template-rows: [r-0] 1fr [r-1];
+    // grid-template-columns: [c-0] 1fr[c-1] 3fr[c-2] 1fr [c-3];
     grid-auto-flow: column;
   }
   &__img {

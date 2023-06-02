@@ -1,77 +1,98 @@
 //
 //~~ _.  Globally used mixins - locally used mixins are in their specific files, where they are used
 //
-//       _._. Dynamically colored form - colors (theme) for the elements are given as arguments
+//       _._. Item necessary info component mixins
 //
-//       _._. Dynamically colored button - colors (theme) for the elements are given as arguments
+//           _._._. Item container
+//
+//           _._._. Image
+//
+//           _._._. Title
+//
+//           _._._. Amounts container
+//
+//                  _._._._. Amount-to-buy
+//
+//                  _._._._.
+//
+//                  _._._._.
 //
 
+@use "../../../styles/sass/abstracts/colors";
+@use "../../../styles/sass/abstracts/variables";
 @use "../../../styles/sass/base/typography";
 
 //
-//       _._. Dynamically colored form - colors (theme) for the elements are given as arguments
+//       _._. Item necessary info component mixins
 //
-@mixin color-theme-and-basic-props-for-forms(
-  $bg,
-  $title,
-  $inputfield-value,
-  $inputfield-placeholder-value,
-  $inputfield-bg,
-  $button-bg,
-  $button-text
-) {
-  //component properties
-  background-color: $bg;
-  color: $title;
+//           _._._. Item container
+//
+@mixin item-container {
+  width: max(20rem, 100%);
+  aspect-ratio: 6/1;
 
-  //input fields properties
-  input[type="text"],
-  input[type="number"],
-  select {
-    color: $inputfield-value;
-    border: none;
+  box-shadow: colors.$shadow-sharp-right-down;
+  border-radius: 1rem;
+}
+
+//
+//           _._._. Image
+//
+@mixin item-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  z-index: 15;
+
+  border-radius: 1rem;
+  box-shadow: colors.$shadow-sharp-right;
+
+  & img {
     border-radius: 1rem;
-    background-color: $inputfield-bg;
-
-    &:focus {
-      border: none;
-      outline: none;
-      box-shadow: inset 0 0 0.3rem 0.3rem lighten($button-bg, 10%);
-
-      transition: box-shadow 0.3s;
-      padding: 0;
-    }
-    //hides the arrow keys for input fields of type "number"
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-    }
-  }
-
-  ::placeholder {
-    color: $inputfield-placeholder-value;
-  }
-
-  button {
-    @include button($button-text, $button-bg);
   }
 }
 //
-//       _._. Dynamically colored button - colors (theme) for the elements are given as arguments
+//           _._._. Title
 //
-@mixin button($button-text, $button-bg) {
-  border-radius: 1rem;
-  border: none;
-  background-color: $button-bg;
-  color: $button-text;
-  //protip1 - if you want to chekc for two pseudoclasse,s you need to nest them. css doesnt support writing them at once
-  &:enabled {
-    &:hover {
-      background-color: darken($button-bg, 15%);
-    }
+@mixin item-title {
+  padding: 0 20% 0 20%;
+  width: 110%;
+  z-index: 10;
+  transform: translateX(-1.2rem);
+
+  border-radius: 0 1rem 1rem 0;
+  box-shadow: colors.$shadow-sharp-right;
+  background-color: colors.$secondary-light;
+  font-size: typography.$font-size-md;
+  font-weight: typography.$font-weight-bold;
+
+  display: grid;
+  justify-items: start;
+}
+//
+//           _._._. Amounts container
+//
+@mixin item-amounts-container {
+  padding: 0 20% 0 25%;
+  width: 120%;
+  z-index: 5;
+
+  border-radius: 0 1rem 1rem 0;
+  background-color: colors.$succes;
+
+  display: grid;
+  grid-template-rows: [r-0] 1.75fr [r-1] 1fr[r-2];
+  grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr [c-3];
+
+  & div {
+    font-size: typography.$font-size-md;
+
+    display: grid;
   }
-  &:disabled {
-    filter: grayscale(100%);
-    color: darken($button-text, 60%);
-  }
+}
+//
+//                  _._._._. Amount-to-buy
+//
+@mixin item-amounts-to-buy {
+  grid-column: c-0 / c-3; //it takes the whole row, so the rest of the amounts will be placed automatically right
 }

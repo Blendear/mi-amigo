@@ -21,6 +21,8 @@
     padding: 2rem;
     z-index: 300;
 
+    border-radius: 2rem;
+
     display: grid;
     // grid-template-rows: ;
     grid-auto-rows: max-content;
@@ -37,6 +39,11 @@
 
       border-radius: 1.25rem;
       font-size: typography.$font-size-xl;
+      background-color: colors.$primary-light;
+
+      // & :focus {
+      //   filter: saturate(1);
+      // }
     }
   }
   // herehere - 3 warianty modali :
@@ -46,14 +53,12 @@
   &-information {
     &__container {
       @include modal-container();
-      height: 80vh;
-      width: 80vw;
+      height: 94vh;
+      width: 90vw;
 
       background-color: rgb(193, 144, 144);
     }
-    &__btn-close {
-      border-radius: 1rem;
-    }
+
     // &__body {
     // }
   }
