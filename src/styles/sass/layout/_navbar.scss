@@ -15,7 +15,7 @@
   &__container {
     padding: 2rem 5rem 2rem 5rem;
 
-    background-color: green;
+    background-color: colors.$primary-light;
 
     display: grid;
     grid-auto-flow: column;
@@ -33,23 +33,31 @@
     width: 10rem;
     aspect-ratio: 1/1.2;
 
-    background-color: rgb(64, 245, 64);
+    background-color: colors.$secondary-light;
     border: none;
+    border-radius: 2rem;
 
     display: grid;
     grid-template-rows: [r-0] 1.5fr [r-1] 0.5fr [r-2];
+    row-gap: 0.8rem;
     & div {
       display: grid;
     }
     &--disabled {
-      filter: grayscale(1);
+      background-color: colors.$primary-light;
+      & div {
+        filter: saturate(0);
+      }
     }
   }
   &__menu-item-svg {
+    width: 100%;
+    aspect-ratio: 1/1;
+
+    border-radius: 2rem;
     background-color: rgba(115, 197, 255, 0.735);
   }
 
   &__menu-item-title {
-    background-color: rgba(255, 104, 104, 0.763);
   }
 }

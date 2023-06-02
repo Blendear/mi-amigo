@@ -10,6 +10,8 @@ import styles from "src/styles/sass/styles-all.module.scss";
 import ShopToVisitSingle from "./ShopToVisitSingle";
 import { useState } from "react";
 
+import { BsArrowLeftSquareFill, BsArrowRightSquareFill } from "react-icons/bs";
+
 const ShopsToVisitGallery = () => {
   const [shopsToRender, setShopsToRender] = useState([
     {
@@ -35,6 +37,18 @@ const ShopsToVisitGallery = () => {
           </li>
         ))}
       </ul>
+      <BsArrowLeftSquareFill
+        size="2rem"
+        onClick={() => {
+          console.log("prev shop");
+        }}
+      />
+      <BsArrowRightSquareFill
+        size="2rem"
+        onClick={() => {
+          console.log("next shop");
+        }}
+      />
     </div>
   );
 };

@@ -18,7 +18,7 @@
   }
   &__shops-to-visit-container {
     grid-column: c-1 / c-2;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     aspect-ratio: 1/1;
 
     background-color: colors.$secondary-light;
@@ -28,6 +28,15 @@
     display: grid;
     grid-template-rows: [r-0] 0.5fr [r-1] 1.5fr [r-2];
     grid-template-columns: [c-0] 0.5fr [c-1] 1fr [c-2] 0.5fr [c-3];
+
+    & svg {
+      :hover {
+        filter: saturate(2.5);
+      }
+      :active {
+        filter: saturate(1.8);
+      }
+    }
   }
   &__shops-image {
     grid-row: r-1 / r-2;
@@ -58,6 +67,13 @@
       background-color: colors.$third-light;
       color: colors.$primary-light;
       border-radius: 2rem;
+    }
+
+    & :hover {
+      filter: saturate(1.5);
+    }
+    & :active {
+      filter: saturate(1);
     }
   }
   &__weather-container {

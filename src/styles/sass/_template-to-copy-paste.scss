@@ -25,4 +25,12 @@
   }
   &__child-element-name {
   }
+  &__child-button-with-active-and-hover-effect-name {
+    & :hover {
+      filter: saturate(1.5);
+    }
+    & :active {
+      filter: saturate(1);
+    }
+  }
 }
