@@ -9,6 +9,6 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 
 const Temperature = () => {
-  return <div className={styles["nazwa-css-classy"]}>Temperature </div>;
+  return <div>17 &#8451; </div>;
 };
 export default Temperature;

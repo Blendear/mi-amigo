@@ -8,7 +8,9 @@
 
 import styles from "src/styles/sass/styles-all.module.scss";
 
+import { TiWeatherPartlySunny } from "react-icons/ti";
+
 const DynamicWeatherIcon = () => {
-  return <div className={styles["nazwa-css-classy"]}>DynamicWeatherIcon</div>;
+  return <TiWeatherPartlySunny size="80%" color="#c08285" />;
 };
 export default DynamicWeatherIcon;

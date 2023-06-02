@@ -48,7 +48,8 @@
     }
     &--disabled {
       background-color: colors.$primary-light;
-      & div {
+      & svg {
+        opacity: 50%;
         filter: saturate(0);
       }
     }
@@ -58,7 +59,7 @@
     aspect-ratio: 1/1;
 
     border-radius: 2rem;
-    background-color: rgba(115, 197, 255, 0.735);
+    background-color: colors.$primary-light;
   }
 
   &__menu-item-title {

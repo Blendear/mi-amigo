@@ -78,11 +78,13 @@
   }
   &__weather-container {
     grid-column: c-2 / c-3;
-
+    height: 14rem;
     display: grid;
     grid-template-rows: [r-0] 1.5fr [r-1] 0.5fr [r-2];
 
     & div {
+      font-size: typography.$font-size-xl;
+      color: colors.$third-light;
       display: grid;
     }
   }

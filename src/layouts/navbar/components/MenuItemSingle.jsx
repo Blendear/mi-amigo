@@ -12,6 +12,8 @@ import styles from "src/styles/sass/styles-all.module.scss";
 
 import SVGItemsToBuy from "./SVGItemsToBuy";
 import SVGSettings from "./SVGSettings";
+import { MdSettings } from "react-icons/md";
+import { ImList } from "react-icons/im";
 
 const MenuItemSingle = ({ svg, title, isActive, handleClick }) => {
   return (
@@ -31,14 +33,15 @@ const MenuItemSingle = ({ svg, title, isActive, handleClick }) => {
         {
           itemsToBuy: (
             <div className={styles["navbar__menu-item-svg"]}>
-              svg itemstobuy{" "}
+              <ImList size="50%" />
             </div>
           ),
-          // itemsToBuy: <SVGItemsToBuy />,
+
           settings: (
-            <div className={styles["navbar__menu-item-svg"]}>svg settings </div>
+            <div className={styles["navbar__menu-item-svg"]}>
+              <MdSettings size="70%" />{" "}
+            </div>
           ),
-          // settings: <SVGSettings />,
         }[svg]
       }
 
