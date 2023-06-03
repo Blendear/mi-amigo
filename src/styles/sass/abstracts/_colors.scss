@@ -5,6 +5,8 @@
 //
 //           _._._. Theme - Light
 //
+//           _._._. Shadow styles
+//
 //       _._. Colors which depend on states - disabled, error, success etc.
 //
 
@@ -17,8 +19,12 @@ $primary-light: #ffece7;
 $secondary-light: #fac3c6;
 $third-light: #c08285;
 $forth-light: #61270e;
-$fifth-light: #ffffff;
+$fifth-light: #f1dac5;
+$sixth-light: #ffffff;
 
+//
+//           _._._. Shadow styles
+//
 $shadow-sharp-right: 0.2rem 0 0rem 0 rgba(0, 0, 0, 0.3);
 $shadow-sharp-right-down: 1.1rem 0.3rem 0rem 0 rgba(0, 0, 0, 0.3);
 $shadow-sharp-right-down-close: 0.3rem 0.3rem 0rem 0 rgba(0, 0, 0, 0.3);

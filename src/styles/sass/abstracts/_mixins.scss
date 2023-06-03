@@ -17,6 +17,12 @@
 //
 //                  _._._._.
 //
+//       _._. Button specific
+//
+//           _._._. Button with border radius
+//
+//           _._._. Buton with active hover effects
+//
 
 @use "../../../styles/sass/abstracts/colors";
 @use "../../../styles/sass/abstracts/variables";
@@ -87,4 +93,31 @@
 //
 @mixin item-amounts-to-buy {
   grid-column: c-0 / c-3; //it takes the whole row, so the rest of the amounts will be placed automatically right
+}
+//
+//       _._. Button specific
+//
+//           _._._. Buton with active hover effects
+//
+@mixin btn-with-active-hover-effects {
+  &:hover {
+    filter: saturate(2.5);
+  }
+  &:active {
+    filter: saturate(1);
+  }
+}
+//
+//           _._._. Button with border radius
+//
+
+@mixin btn-with-border-radius($radius-size-variant) {
+  @include btn-with-active-hover-effects;
+
+  @if $radius-size-variant == "md" {
+    border-radius: colors.$border-radius-sm;
+  }
+  @if $radius-size-variant == "lg" {
+    border-radius: colors.$border-radius-md;
+  }
 }
