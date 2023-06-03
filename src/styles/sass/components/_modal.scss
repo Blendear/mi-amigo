@@ -14,8 +14,6 @@
     width: 100%;
 
     display: grid;
-    // justify-content: center;
-    // align-items: center;
   }
   @mixin modal-container() {
     padding: 2rem;
@@ -24,43 +22,32 @@
     border-radius: 2rem;
 
     display: grid;
-    // grid-template-rows: ;
+
     grid-auto-rows: max-content;
     row-gap: 2rem;
 
-    & div,
-    button {
-      width: max-content;
-    }
+    //style for the "close modal" buttons
     & > button {
       width: 5rem;
       aspect-ratio: 1/1;
       justify-self: end;
+      z-index: 350;
 
       border-radius: 1.25rem;
       font-size: typography.$font-size-xl;
       background-color: colors.$primary-light;
-
-      // & :focus {
-      //   filter: saturate(1);
-      // }
     }
   }
-  // herehere - 3 warianty modali :
-  //    )
-  //    )
-  //    )
+
   &-information {
     &__container {
       @include modal-container();
+
       height: 94vh;
       width: 90vw;
 
       background-color: rgb(193, 144, 144);
     }
-
-    // &__body {
-    // }
   }
   &-warning {
     &__container {

@@ -7,23 +7,46 @@
 // &__{}
 // &--{}
 
-.item-edit-view {
+.item-create-or-edit-view {
   &__container {
     @include mixins.item-container;
 
+    aspect-ratio: 2/1;
+
+    transform: translateY(-6rem);
     display: grid;
-    grid-template-rows: [r-0] 1fr [r-1];
-    // grid-template-columns: [c-0] 1fr[c-1] 3fr[c-2] 1fr [c-3];
-    grid-auto-flow: column;
+    grid-template-rows: [r-0] 15rem[r-1] 1fr [c-1];
+    grid-template-columns: [c-0] 2fr[c-1] 1fr [c-2];
+    // row-gap: 2rem;
   }
   &__img {
     @include mixins.item-img;
+
+    grid-column: c-0/c-2;
+    width: 50%;
+    z-index: 0;
+    transform: translateY(1rem);
+
+    border-radius: 1rem 1rem 0 0;
+
+    & img {
+      border-radius: 1rem 1rem 0 0;
+    }
   }
   &__title {
     @include mixins.item-title;
+
+    border-radius: 1rem;
+
+    justify-items: center;
   }
   &__amounts-container {
     @include mixins.item-amounts-container;
+
+    width: 110%;
+    transform: translateX(-0.5rem);
+
+    box-shadow: colors.$shadow-sharp-right;
   }
   &__amount-to-buy {
     @include mixins.item-amounts-to-buy;

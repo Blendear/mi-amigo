@@ -11,19 +11,33 @@
   &__container {
     @include mixins.item-container;
 
+    box-shadow: colors.$shadow-sharp-right-down;
+
     display: grid;
-    grid-template-rows: [r-0] 1fr [r-1] 1fr [r-2];
+    grid-template-rows: [r-0] 1fr [r-1];
     grid-template-columns: [c-0] 1fr[c-1] 3fr[c-2] 1fr [c-3];
     grid-auto-flow: column;
   }
   &__img {
     @include mixins.item-img;
+
+    border-radius: 1rem;
+    & img {
+      border-radius: 1rem;
+    }
   }
   &__title {
     @include mixins.item-title;
+    width: 110%;
+    padding: 0 20% 0 20%;
+    justify-items: start;
+    transform: translateX(-1.2rem);
+
+    border-radius: 0 1rem 1rem 0;
   }
   &__amounts-container {
     @include mixins.item-amounts-container;
+    width: 120%;
   }
   &__amount-to-buy {
     @include mixins.item-amounts-to-buy;

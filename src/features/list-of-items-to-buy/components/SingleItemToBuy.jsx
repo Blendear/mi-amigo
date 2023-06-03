@@ -29,85 +29,102 @@ const SingleItemToBuy = ({ variant }) => {
   //       _._. Variant name - "list view" or "create/edit item view", used depending on "does the user see it on the laning page as a list item, or when he tries to create/edit an item?"
   //
   return {
-    "list-view": "a",
-    "create-edit-view": "b",
-  }[variant] === "a" ? (
     //
-    //       _._. Variant "list-view"
-    //
+    "list-view": (
+      //       _._. Variant "list-view"
+      //
 
-    <>
-      <div className={styles["item-edit-view__img"]}>
-        {/* 
+      <>
+        <div className={styles["item-edit-view__img"]}>
+          {/* 
           //       _._. Image
           */}
-        <Image
-          src={`/images/testing/kotlet.png`}
-          alt={`nie pyklo zdjecie`}
-          layout="fill"
-          objectFit="cover"
-        />
-      </div>
+          <Image
+            src={`/images/testing/kotlet.png`}
+            alt={`nie pyklo zdjecie`}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
 
-      {/* 
+        {/* 
       //       _._. Title
       */}
-      <div className={styles["item-edit-view__title"]}>title</div>
-      {/* 
+        <div className={styles["item-edit-view__title"]}>title</div>
+        {/* 
       //       _._. Needed amount
       //
       //           _._._. Background - dynamicaly changing color, depending on the "current amount" / "needed amount" ratio
       */}
-      <div className={styles["item-edit-view__amounts-container"]}>
-        {/* 
+        <div className={styles["item-edit-view__amounts-container"]}>
+          {/* 
         //           _._._. Amount you need to buy (Number, Text) - with unit of measurment
         */}
-        <div className={styles["item-edit-view__amount-to-buy"]}>9 szt.</div>
-        {/* 
+          <div className={styles["item-edit-view__amount-to-buy"]}>9 szt.</div>
+          {/* 
         //           _._._. Current amount in your supplies, at home (Number)
         */}
-        <div className={styles["item-edit-view__amount-current"]}>3</div>
-        <div className={styles["item-edit-view__slash-divider"]}>/</div>
-        {/* 
+          <div className={styles["item-edit-view__amount-current"]}>3</div>
+          <div className={styles["item-edit-view__slash-divider"]}>/</div>
+          {/* 
         //           _._._. Wanted amount in total
         */}
-        <div className={styles["item-edit-view__amount-wanted"]}>12</div>
-      </div>
-    </>
-  ) : (
+          <div className={styles["item-edit-view__amount-wanted"]}>12</div>
+        </div>
+      </>
+    ),
     //
-    //       _._. Variant "create-edit-view"
-    //
-    //       _._. Container
-    //
-    <div
-      className={styles["item-edit-view__container--create-or-edit-variant"]}
-    >
-      {/* /\ jemu daj "position:relative" */}
-      <div className={styles["image-styling"]}>
-        {/* /\ jemu daj "position:relative"   &   jemu przypisz classe" */}
-        {/* 
+    "create-or-edit-view": (
+      //       _._. Variant "create-edit-view"
+      //
+      //       _._. Container
+      //
+      <>
+        <div className={styles["item-create-or-edit-view__img"]}>
+          {/* 
           //       _._. Image
           */}
-        <Image
-          src={`/images/testing/kotlet.png`}
-          alt={`nie pyklo zdjecie`}
-          height={200}
-          width={100}
-          layout="responsive"
-          objectFit="cover"
-        />
-        {/* /\ jemu zadnej classy nie dajesz*/}
-      </div>
-      {/* 
+          <Image
+            src={`/images/testing/kotlet.png`}
+            alt={`nie pyklo zdjecie`}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+        {/* 
       //       _._. Title
       */}
-      <div className={styles["title"]}></div>
-      {/* 
+        <div className={styles["item-create-or-edit-view__title"]}>title</div>
+        {/* 
       //       _._. Needed amount
+      //
+      //           _._._. Background - dynamicaly changing color, depending on the "current amount" / "needed amount" ratio
       */}
-      <div className={styles["amounts-container"]}></div>
-    </div>
-  );
+        <div className={styles["item-create-or-edit-view__amounts-container"]}>
+          {/* 
+        //           _._._. Amount you need to buy (Number, Text) - with unit of measurment
+        */}
+          <div className={styles["item-create-or-edit-view__amount-to-buy"]}>
+            9 szt.
+          </div>
+          {/* 
+        //           _._._. Current amount in your supplies, at home (Number)
+        */}
+          <div className={styles["item-create-or-edit-view__amount-current"]}>
+            3
+          </div>
+          <div className={styles["item-create-or-edit-view__slash-divider"]}>
+            /
+          </div>
+          {/* 
+        //           _._._. Wanted amount in total
+        */}
+          <div className={styles["item-create-or-edit-view__amount-wanted"]}>
+            12
+          </div>
+        </div>
+      </>
+    ),
+  }[variant];
 };
 export default SingleItemToBuy;

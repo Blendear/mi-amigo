@@ -30,12 +30,10 @@ import SingleItemToBuy from "../../list-of-items-to-buy/components/SingleItemToB
 const ItemDetails = ({ isCreatingNewItem }) => {
   return (
     <>
-      <h1>
-        {" "}
-        {isCreatingNewItem
-          ? "create new item modal"
-          : "edit existing item modal"}
-      </h1>
+      <div className={styles["item-create-or-edit-view__container"]}>
+        <SingleItemToBuy variant="create-or-edit-view" />
+      </div>
+      <div>reszta modala</div>
     </>
   );
 };
