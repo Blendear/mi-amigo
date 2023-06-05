@@ -11,6 +11,7 @@ const nextConfig = {
       },
     ];
   },
+
   images: {
     domains: ["https://mi-amigo-green.vercel.app"],
     //   website of this project, so that images are loaded on the live website too

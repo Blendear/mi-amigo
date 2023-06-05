@@ -161,6 +161,7 @@ const ItemDetails = ({ isCreatingNewItem }) => {
       */}
       <MdDeleteForever />
       {/* hook1 - change onChange to an action that only ocurs after save button of the item modal is clicked */}
+      {/*  // hook2 - add info about "only use free license images from  https://images.unsplash.com, */}
       <input
         type="text"
         onChange={(event) => {
