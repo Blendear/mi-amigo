@@ -89,6 +89,7 @@
     height: 35vh;
 
     overflow: hidden;
+    overflow-y: scroll; // allows scrolling inside the component
 
     display: grid;
     grid-auto-rows: 6.5rem;
