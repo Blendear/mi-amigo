@@ -1,5 +1,5 @@
 //
-//~~ _.  Details of an item - some
+//~~ _.  Details of an item - it's a submit form
 //
 //       _._. Image, title and needed amounts - by literally adding "SingleItemToBuy" container as "create/edit view" variant
 //
@@ -33,17 +33,40 @@
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
+
 import SingleItemToBuy from "../../list-of-items-to-buy/components/SingleItemToBuy";
+import ShopPrice from "./ShopPrice";
+
 import { useState } from "react";
+
+import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
+import { urlSliceActions } from "../../../store/redux/store-redux";
 
 import { ImCheckmark } from "react-icons/im";
 import { MdDeleteForever } from "react-icons/md";
 
 const ItemDetails = ({ isCreatingNewItem }) => {
-  // const [itemData, setItemData] = useState([]);
+  //
   const shopPricesToRender = [{ name: "A" }, { name: "B" }];
+  const [photo, setPhoto] = useState("");
+
+  // const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
+  // console.log(reduxStateImageURL);
+
+  //hook2 - add this redux code to the table of contentd comments
+  const dispatch = useAppDispatch();
+  //hook2 add this code to table of contents
+  const handleSubmitForm = (event) => {
+    event.preventDefault();
+    dispatch(
+      urlSliceActions.setURL({
+        newURL: photo,
+      })
+    );
+  };
+
   return (
-    <>
+    <form onSubmit={handleSubmitForm}>
       <div className={styles["item-create-or-edit-view__container"]}>
         <SingleItemToBuy variant="create-or-edit-view" />
       </div>
@@ -75,7 +98,13 @@ const ItemDetails = ({ isCreatingNewItem }) => {
         {/* 
         //           _._._. Toggle "item is open" (Button) - automaticly changes the expiration date, if specific conditions apply
         */}
-        <button>Unused</button>
+        <button
+          onClick={(e) => {
+            e.preventDefault(), console.log("click");
+          }}
+        >
+          Unused
+        </button>
       </div>
 
       {/* 
@@ -95,19 +124,34 @@ const ItemDetails = ({ isCreatingNewItem }) => {
         {/* 
         //           _._._. Add new price in a new shop (Button)
         */}
-        <button>+</button>
+        <button
+          onClick={(e) => {
+            e.preventDefault(), console.log("click");
+          }}
+        >
+          +
+        </button>
       </div>
 
       {/* 
       //           _._._. List of "PriceInASpecificShop" components
       */}
       {shopPricesToRender.map((item) => (
-        <li key={item.name} className={styles[""]}>
+        <li
+          key={item.name}
+          // className={styles[""]}
+          style={{
+            position: "relative",
+            height: "4rem",
+            width: "4rem",
+            display: "grid",
+            "grid-auto-flow": "column",
+          }}
+        >
           {/*
           //                  _._._._. Single "PriceInASpecificShop" - with shop name and the price of that item inside the given shop
           */}
-          <div>price </div>
-          {/* /\ / hook1 - create acomponent for this */}
+          <ShopPrice />
         </li>
       ))}
       <div>a</div>
@@ -116,11 +160,19 @@ const ItemDetails = ({ isCreatingNewItem }) => {
       //       _._. Delete item (Button)
       */}
       <MdDeleteForever />
+      {/* hook1 - change onChange to an action that only ocurs after save button of the item modal is clicked */}
+      <input
+        type="text"
+        onChange={(event) => {
+          setPhoto(event.target.value);
+        }}
+        placeholder="paste new url here"
+      ></input>
       {/* 
       //       _._. Save changes (Button)
       */}
-      <ImCheckmark />
-    </>
+      <input type="submit"></input>
+    </form>
   );
 };
 export default ItemDetails;

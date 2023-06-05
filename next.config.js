@@ -13,7 +13,15 @@ const nextConfig = {
   },
   images: {
     domains: ["https://mi-amigo-green.vercel.app"],
-    //   websit eof this project, so that images are loaded on the live website too
+    //   website of this project, so that images are loaded on the live website too
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+        port: "",
+        pathname: "**",
+      },
+    ],
   },
 };
 

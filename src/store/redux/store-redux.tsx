@@ -1,132 +1,82 @@
+//hook2 - add main title of comment seciotn here & set the title under into one further "_. to _._." etc. To use the same comment style
 //
-//  0.  Interface'y
+//  _.  Interfaces
 //
-//      0.1. Initial state'y
+//      _._. Initial states interfaces (expected properties and their types of values)
 //
-
-//  1.  Slice'y
+//           _._._. URL - Interfaces
 //
-//      1.1. Initial state'y
+//           _._._. Auth - Interfaces
 //
-//      1.2. Sumy Kalorii slice
+//  _.  Slices with Reducers bound to them (fragments of all the data which redux stores & "setters" which manipulate the given data)
 //
-//      1.3. Authentication slice
+//      _._. Initial states of slices
 //
+//           _._._. URL - Initial state
 //
-//  2.  Store - Redux Toolkit way
+//           _._._. Auth - Initial state
 //
+//      _._. Slices with Reducers - creation
 //
-//  3.  Action Packs - Redux Toolkit way
+//           _._._. URL - Slice with Reducers
 //
+//           _._._. Auth - Slice with Reducers
+//
+//  _.  Store - Redux Toolkit way (combines all the slices and reducers into once place)
+//
+//  _.  Action Packs - Redux Toolkit way (will be used to activate specific functions - actions - of reducers - to manipulate redux data)
 //
 
 import { createSlice, configureStore, PayloadAction } from "@reduxjs/toolkit";
-
-//sss \/
 //
+//  _.  Interfaces
 //
+//      _._. Initial states interfaces (expected properties and their types of values)
 //
+//           _._._. URL - Interfaces
 //
+interface typeOfURLState {
+  photoPlaceholderURL: string;
+}
 //
+//           _._._. Auth - Interfaces
 //
-//
-//
-//
-//
-//
-//
-
-//
-//~~ A.  Timer liczący upływający czas & w momencie X robiący Y
-//
-//      1.  Biblioteka pod kontrolę czasu - "date-fns" library
-//
-//      2.  Pokaż ile czassu minęło od startu timera - useEffect "start timera = stwórz czas teraz & co sekundę twórz drugi czas teraz, porównując różnicę wg pierwszego"
-//
-//               2.1. Rozpocznij timer aka od teraz do X, co sekunde dodawaj cyfrę 1 do timera
-//
-//               1.1. Zaciągnięcie czasu dla Polski w momencie "start timera"
-//
-//               1.2. Przerobienie danych zaciągniętyhc na ładny visual timer'a
-//
-//      2. "Redux" - niech zapisze te dane
-//
-//          2.1.
-//
-//          2.1.
-//
-//          2.1.
-//
-
-//
-//
-
-import { parseISO, format, compareAsc } from "date-fns";
-
-const initialTimersState = {
-  GETnietyStringDataZakonczeniaTimera: "",
-  czyTimerIsAktywny: false,
-  czasStartuTimera: 0,
-  czasNaliczonyOnStartuTimera: 0,
-  czasZaIleSekundMaSieSkonczycTimer: 0,
-};
-
-const timersSlice = createSlice({
-  name: "timersSlice",
-  initialState: initialTimersState,
-  reducers: {
-    // 2.1. Rozpocznij timer aka od teraz do X, co sekunde dodawaj cyfrę 1 do timera
-    addJednaSekundeDoTimera(state) {
-      state.czasNaliczonyOnStartuTimera += 1;
-      console.log(`aktualny czas = ${state.czasNaliczonyOnStartuTimera}`);
-    },
-    // 2.1. Rozpocznij timer aka od teraz do X, co sekunde dodawaj cyfrę 1 do timera
-    rozpocznijTimerODlugosciX(state, action) {
-      state.czyTimerIsAktywny = true;
-      console.log(`timer aktywowany`);
-      setTimeout(() => {
-        setInterval(() => {
-          store.dispatch(timersSliceActions.addJednaSekundeDoTimera());
-        }, 1000);
-      }, 250 * action.payload);
-    },
-    //
-    ustawReduxowyTimer(state, action) {
-      state.GETnietyStringDataZakonczeniaTimera = action.payload;
-      console.log(`GETnieta data : ${action.payload}`);
-    },
-  },
-});
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-//      0.1. Initial state'y
-//
-
 interface typeOfAuthState {
   isAuthenticated: boolean;
 }
-
 //
-//      1.1. Initial state'y
+//  _.  Slices with Reducers bound to them (fragments of all the data which redux stores & "setters" which manipulate the given data)
 //
-
+//      _._. Initial states of slices
+//
+//           _._._. URL - Initial state
+//
+const initialURLState = {
+  photoPlaceholderURL:
+    "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*",
+};
+//
+//           _._._. Auth - Initial state
+//
 const initialAuthState: typeOfAuthState = { isAuthenticated: false };
-
 //
-//      1.3. Auth slice
-
+//      _._. Slices with Reducers - creation
+//
+//           _._._. URL - Slice with Reducers
+//
+const urlSlice = createSlice({
+  name: "urlSlice",
+  initialState: initialURLState,
+  reducers: {
+    setURL(state, action: PayloadAction<{ newURL: string }>) {
+      state.photoPlaceholderURL = action.payload.newURL;
+      console.log(`new url set to : ${action.payload.newURL}`);
+    },
+  },
+});
+//
+//           _._._. Auth - Slice with Reducers
+//
 const authSlice = createSlice({
   name: "authenticationSlice",
   initialState: initialAuthState,
@@ -139,28 +89,21 @@ const authSlice = createSlice({
     },
   },
 });
-
 //
-//  2.  Store - Redux Toolkit way
+//  _.  Store - Redux Toolkit way (combines all the slices and reducers into once place)
 //
-
 const store = configureStore({
   reducer: {
     authReducer: authSlice.reducer,
-    timersReducer: timersSlice.reducer,
+    urlReducer: urlSlice.reducer,
   },
 });
-
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
-
-//
-//  3.  Action Packs - Redux Toolkit way
-//
-
-export const authSliceActions = authSlice.actions;
-export const timersSliceActions = timersSlice.actions;
+export type RootState = ReturnType<typeof store.getState>; // Infer the `RootState` and `AppDispatch` types from the store itself
+export type AppDispatch = typeof store.dispatch; // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 
 export default store;
+//
+//  _.  Action Packs - Redux Toolkit way (will be used to activate specific functions - actions - of reducers - to manipulate redux data)
+//
+export const authSliceActions = authSlice.actions;
+export const urlSliceActions = urlSlice.actions;

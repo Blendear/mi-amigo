@@ -1,3 +1,4 @@
+//hook1 - add geting the data from reduxm, which takes the data from firestore
 //
 //~~ _.  Single item, clickable container - onClick opens "ItemDetails" modal as "variant : edit-item"
 //
@@ -23,8 +24,14 @@
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
+
 import Image from "next/image";
-const SingleItemToBuy = ({ variant }) => {
+
+import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
+
+const SingleItemToBuy = ({ variant, itemID }) => {
+  //hook2 - add this redux code to the table of contentd comments
+  const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
   //
   //       _._. Variant name - "list view" or "create/edit item view", used depending on "does the user see it on the laning page as a list item, or when he tries to create/edit an item?"
   //
@@ -40,7 +47,7 @@ const SingleItemToBuy = ({ variant }) => {
           //       _._. Image
           */}
           <Image
-            src={`/images/testing/kotlet.png`}
+            src={reduxStateImageURL.photoPlaceholderURL}
             alt={`nie pyklo zdjecie`}
             layout="fill"
             objectFit="cover"
@@ -85,7 +92,7 @@ const SingleItemToBuy = ({ variant }) => {
           //       _._. Image
           */}
           <Image
-            src={`/images/testing/kotlet.png`}
+            src={reduxStateImageURL.photoPlaceholderURL}
             alt={`nie pyklo zdjecie`}
             layout="fill"
             objectFit="cover"

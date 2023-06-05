@@ -32,7 +32,7 @@
 // ______
 // UCOMPONENTNIJ (VARIABLES NAWET) JUŻ SAM PROJEKT W FIGMIE
 // ______
-// [   ] _. Figma file z "Historyjka"               -   WSZYSTKO W COMPONENTS REUŻYWALNE spróbuj pogrupowac JUŻ W FIGMIE. Na odstawie tychże componentów od razu będziesz wiedział jakie MIXINS I COMPONENTS GLOBALNE utworzyć, a które lokalne. nawet shadow or barder radius są powtarzalne
+// [ v ] _. Figma file z "Historyjka"               -   WSZYSTKO W COMPONENTS REUŻYWALNE spróbuj pogrupowac JUŻ W FIGMIE. Na odstawie tychże componentów od razu będziesz wiedział jakie MIXINS I COMPONENTS GLOBALNE utworzyć, a które lokalne. nawet shadow or barder radius są powtarzalne
 // ______
 // UPRECYZUJ CEL AKTUALNY
 // ______
@@ -41,12 +41,12 @@
 // ______
 // BASE SCSS FILES AND BEM CLASSES CREATION
 // ______
-// [   ] _. "globals.scss"                          -   Globalne style edytuj (jeśli potrzeba) -
-// [   ] _. [abstracts] i "_typography.scss"        -   Wszystkie MIARY, które można, skropl w uniwersalnie używalne miary, palety kolorów itp.
-// [   ] _. [layout]                                -   Footer, navbar i inne potrzebne "stałe, poza body" elementy
-// [   ] _. [components]                            -   Wszystkie FRAGMENTY wizualne, które można, skropl w uniwersalnie używalne componenty (np. button używany wizualnie na paru pages)
+// [ v ] _. "globals.scss"                          -   Globalne style edytuj (jeśli potrzeba) -
+// [ v ] _. [abstracts] i "_typography.scss"        -   Wszystkie MIARY, które można, skropl w uniwersalnie używalne miary, palety kolorów itp.
+// [ v ] _. [layout]                                -   Footer, navbar i inne potrzebne "stałe, poza body" elementy
+// [ v ] _. [components]                            -   Wszystkie FRAGMENTY wizualne, które można, skropl w uniwersalnie używalne componenty (np. button używany wizualnie na paru pages)
 // [   ] _. [pages]                                 -   Unikatowe dla danej strony wizuale tutaj stwórz
-// [   ] _. "styles-all.module.scss"                -   Dodaj all scss files tutaj, poprzez "@use..."
+// [ v ] _. "styles-all.module.scss"                -   Dodaj all scss files tutaj, poprzez "@use..."
 // ______
 // PREPARE HTML FOR SCSS INJECTION  &  LETS GO CSS
 // ______
