@@ -1,13 +1,6 @@
 //
-//~~ _.  Page for testing the toggling visibility of a Modal with a Backdrop
+// Table of content for this file is written at the bottom
 //
-//       _._. Open modal and backdrop (Button) - default behaviour prevented, so that the link doesnt chnge the url
-//
-//       _._. Modal - variant : information
-//
-//       _._. Backdrop - - variant : black, 50% opacity
-//
-
 import styles from "src/styles/sass/styles-all.module.scss";
 import { useState } from "react";
 
@@ -26,9 +19,7 @@ const ModalBackdropTooltipTestingPage = () => {
 
   return (
     <div>
-      {/*
-      //       _._. Open modal and backdrop (Button) - default behaviour prevented, so that the link doesnt chnge the url
-      */}
+      {/*//       _._. Open modal and backdrop (Button) - default behaviour prevented, so that the link doesnt chnge the url*/}
       <button
         onClick={() => {
           setShowModalAndBackdrop(true);
@@ -36,9 +27,7 @@ const ModalBackdropTooltipTestingPage = () => {
       >
         Open Modal with Backdrop
       </button>
-      {/* 
-      //       _._. Modal - variant : information
-      */}
+      {/*//       _._. Modal - variant : information*/}
       {showModalAndBackdrop && (
         <Modal variant="information">
           <a href="#" onClick={handleCloseClick}>
@@ -48,9 +37,7 @@ const ModalBackdropTooltipTestingPage = () => {
           <div>Content B</div>
         </Modal>
       )}
-      {/* 
-      //       _._. Backdrop - - variant : black, 50% opacity
-      */}
+      {/*//       _._. Backdrop - variant : black, 50% opacity*/}
       {showModalAndBackdrop && (
         <Backdrop
           onClose={() => setShowModalAndBackdrop(false)}
@@ -62,3 +49,13 @@ const ModalBackdropTooltipTestingPage = () => {
   );
 };
 export default ModalBackdropTooltipTestingPage;
+
+//
+//~~ _.  Page for testing the toggling visibility of a Modal with a Backdrop
+//
+//       _._. Open modal and backdrop (Button) - default behaviour prevented, so that the link doesnt chnge the url
+//
+//       _._. Modal - variant : information
+//
+//       _._. Backdrop - variant : black, 50% opacity
+//

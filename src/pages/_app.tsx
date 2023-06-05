@@ -1,24 +1,12 @@
 //
-//  Dodatkowo dodałem linijki pod:
-//
-//  0.  Startowy Next.js component
-//
-//  1.  "Next-Auth", a dokładniej żeby "Session" sexownie było dostępne w całej apce
-//
-//  2.  "Redux"
-//
-//  3.  "Layout" - pod zawartośc stronki, ktora ma być na KAŻDEJ page. Np. nawigacja górnja i footer dolny z informacjami/kontaktem etc.
+// Table of content for this file is written at the bottom
 //
 import "src/styles/sass/globals.scss";
-
 import type { AppProps } from "next/app";
-
 import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-
 import store from "../store/redux/store-redux";
 import { Provider } from "react-redux";
-
 import Layout from "../layouts/layout/layout";
 
 function MyApp({
@@ -28,22 +16,13 @@ function MyApp({
   session: Session;
 }>) {
   return (
-    //
-    //  2.  "Redux"
-    //
+    //       _._. "Redux"
     <Provider store={store}>
-      {/* 
-          1.  "Next-Auth", a dokładniej żeby "Session" sexownie było dostępne w całej apce
-      */}
+      {/*//       _._. "Next-Auth" - or actually code for making the "Session" available easily through the whole app*/}
       <SessionProvider session={pageProps.session}>
-        {/* 
-        3.  "Layout" - pod zawartośc stronki, ktora ma być na KAŻDEJ page. Np. nawigacja górnja i footer dolny z informacjami/kontaktem etc.
-        */}
-
+        {/*//       _._. "Layout" - components visible on every single page (footer, navbar etc.)*/}
         <Layout>
-          {/* 
-            0.  Startowy Next.js component
-          */}
+          {/*//       _._. The body of the currently active page of the app.*/}
           <Component {...pageProps} />
         </Layout>
       </SessionProvider>
@@ -52,3 +31,15 @@ function MyApp({
 }
 
 export default MyApp;
+
+//
+//~~ _.  Main file of the app
+//
+//       _._. The body of the currently active page of the app.
+//
+//       _._. "Next-Auth" - or actually code for making the "Session" available easily through the whole app
+//
+//       _._. "Redux"
+//
+//       _._. "Layout" - components visible on every single page (footer, navbar etc.)
+//

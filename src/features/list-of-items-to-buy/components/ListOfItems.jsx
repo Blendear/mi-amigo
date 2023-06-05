@@ -1,9 +1,6 @@
 //
-//~~ _.  List of items to buy in the currently active shop || all shops - depends on the chosen image
+// Table of content for this file is written at the bottom
 //
-//       _._. Single item, clickable container - onClick opens "ItemDetails" modal as "variant : edit-item"
-//
-
 import styles from "src/styles/sass/styles-all.module.scss";
 import SingleItemToBuy from "./SingleItemToBuy";
 import { useState } from "react";
@@ -58,3 +55,10 @@ const ListOfItemsToBuy = () => {
   );
 };
 export default ListOfItemsToBuy;
+
+// hook2 - table of cotnent isnt mpemented in the code
+//
+//~~ _.  List of items to buy in the currently active shop || all shops - depends on the chosen image
+//
+//       _._. Single item, clickable container - onClick opens "ItemDetails" modal as "variant : edit-item"
+//

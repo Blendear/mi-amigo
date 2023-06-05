@@ -1,40 +1,18 @@
 //
 //~~ _.  Globally used fonts and font characteristics - locally used fonts and characteristics are in their specific files, where they are used
 //
-//       _._. Font families
-//
-//       _._. Font sizes
-//
-//       _._. Font weights
-//
-//       _._. Line heights
-//
-//       _._. Letter spacings
-//
-
-//
-//       _._. Font families
-//
 $font-family-primary: "Gill Sans", "Gill Sans MT", "Calibri", sans-serif;
-//
-//       _._. Font sizes
-//
+
 $font-size-sm: 1.5rem;
 $font-size-md: 1.65rem;
 $font-size-lg: 2.5rem;
 $font-size-xl: 3.5rem;
-//
-//       _._. Font weights
-//
+
 $font-weight-normal: 300;
 $font-weight-bold: 600;
-//
-//       _._. Line heights
-//
+
 $line-height-sm: 1.5;
 $line-height-md: 2;
-//
-//       _._. Letter spacings
-//
+
 $letter-spacing-sm: 0.05em;
 $letter-spacing-md: 0.1em;

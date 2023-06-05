@@ -1,9 +1,5 @@
 //
-//~~ _.  A
-//
-//       _._. AA
-//
-//           _._._.AAA
+// Table of content for this file is written at the bottom
 //
 
 import styles from "src/styles/sass/styles-all.module.scss";
@@ -21,3 +17,11 @@ const ShopPrice = ({ propA, propB }) => {
   );
 };
 export default ShopPrice;
+
+//
+//~~ _.  A
+//
+//       _._. AA
+//
+//           _._._.AAA
+//

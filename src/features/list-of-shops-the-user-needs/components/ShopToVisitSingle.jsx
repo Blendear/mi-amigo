@@ -1,15 +1,8 @@
 //
-//~~ _.  A
+// Table of content for this file is written at the bottom
 //
-//       _._. AA
-//
-//           _._._.AAA
-//
-
 import styles from "src/styles/sass/styles-all.module.scss";
-
 import Image from "next/image";
-
 import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
 
 const ShopToVisitSingle = ({ isActive }) => {
@@ -28,3 +21,11 @@ const ShopToVisitSingle = ({ isActive }) => {
   );
 };
 export default ShopToVisitSingle;
+
+//
+//~~ _.  A
+//
+//       _._. AA
+//
+//           _._._.AAA
+//

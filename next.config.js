@@ -1,3 +1,6 @@
+//
+// Table of content for this file is written at the bottom
+//
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -27,3 +30,5 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
+//hook2 create a table of content of explainign what you do here

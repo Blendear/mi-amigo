@@ -1,15 +1,10 @@
 //
 //~~ _.  Navbar
 //
-
 @use "../../../styles/sass/abstracts/mixins";
 @use "../../../styles/sass/abstracts/colors";
 @use "../../../styles/sass/abstracts/variables";
 @use "../../../styles/sass/base/typography";
-
-// .name{}
-// &__{}
-// &--{}
 
 .navbar {
   &__container {

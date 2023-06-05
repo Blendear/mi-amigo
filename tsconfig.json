@@ -1,3 +1,6 @@
+//
+// Table of content for this file is written at the bottom
+//
 {
   "compilerOptions": {
     "target": "es6",
@@ -23,3 +26,4 @@
   "include": ["src", "next-env.d.ts"],
   "exclude": ["node_modules"]
 }
+//hook2 create a table of content of explainign what you do here
