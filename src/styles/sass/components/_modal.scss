@@ -13,7 +13,6 @@
     height: 100%;
     width: 100%;
     z-index: 250;
-    overflow-y: scroll; // allows scrolling inside the component
 
     display: grid;
   }
@@ -47,6 +46,7 @@
 
       height: 94vh;
       width: 90vw;
+      overflow-y: scroll; // allows scrolling inside the component
 
       background-color: colors.$fifth-light;
     }
