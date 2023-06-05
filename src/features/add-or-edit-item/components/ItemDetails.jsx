@@ -48,7 +48,7 @@ const ItemDetails = ({ isCreatingNewItem }) => {
         <input type="time"></input>
         <button
           onClick={(e) => {
-            e.preventDefault(), console.log("click");
+            e.preventDefault(), console.log("toggled opened/unused");
           }}
         >
           Unused
@@ -62,7 +62,7 @@ const ItemDetails = ({ isCreatingNewItem }) => {
         {/* /\ //hook1 add default value, not just palceholder */}
         <button
           onClick={(e) => {
-            e.preventDefault(), console.log("click");
+            e.preventDefault(), console.log("added new price");
           }}
         >
           +
@@ -85,10 +85,18 @@ const ItemDetails = ({ isCreatingNewItem }) => {
       ))}
       <div>a</div>
       {/* //       _._. Delete & Save item (Buttons) */}
-      <button>
+      <button
+        onClick={(e) => {
+          e.preventDefault(), console.log("deleted");
+        }}
+      >
         <MdDeleteForever />
       </button>
-      <button>
+      <button
+        onClick={(e) => {
+          e.preventDefault(), console.log("saved");
+        }}
+      >
         <ImCheckmark />
       </button>
 

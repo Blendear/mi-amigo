@@ -23,6 +23,7 @@ const LandingPage = () => {
   );
 };
 export default LandingPage;
+
 //hook2 - add this title to the code \/
 //
 //~~ _.  Which items, in which shops, with which weather preparation do I need to buy

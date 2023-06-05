@@ -11,7 +11,7 @@
 .backdrop {
   &--black-50-opacity {
     display: grid;
-    position: absolute;
+    position: fixed; // not absolute, so that it covers the whole page, not just the whole screen
     top: 0;
     left: 0;
     height: 100%;

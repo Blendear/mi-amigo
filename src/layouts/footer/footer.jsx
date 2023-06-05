@@ -19,7 +19,8 @@ const Footer = () => {
           <Modal variant="information">
             <button
               onClick={() => {
-                setShowSavingModalAndBackdrop(false);
+                setShowSavingModalAndBackdrop(false),
+                  (document.body.style.overflow = "unset"); // enables page-scrolling
               }}
             >
               x
@@ -39,7 +40,8 @@ const Footer = () => {
           <Modal variant="information">
             <button
               onClick={() => {
-                setShowCreateNewItemModalAndBackdrop(false);
+                setShowCreateNewItemModalAndBackdrop(false),
+                  (document.body.style.overflow = "unset"); // enables page-scrolling
               }}
             >
               x
@@ -56,7 +58,8 @@ const Footer = () => {
       <button
         className={styles["footer__svg-button"]}
         onClick={() => {
-          setShowSavingModalAndBackdrop(true);
+          setShowSavingModalAndBackdrop(true),
+            (document.body.style.overflow = "hidden"); // disables page-scrolling
         }}
       >
         save
@@ -64,7 +67,8 @@ const Footer = () => {
       <button
         className={styles["footer__svg-button"]}
         onClick={() => {
-          setShowCreateNewItemModalAndBackdrop(true);
+          setShowCreateNewItemModalAndBackdrop(true),
+            (document.body.style.overflow = "hidden"); // disables page-scrolling
         }}
       >
         add item

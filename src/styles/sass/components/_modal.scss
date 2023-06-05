@@ -9,9 +9,10 @@
 .modal {
   &__overlay {
     //necessary parent element for easily positioning the modal container in the middle of the screen
-    position: absolute;
+    position: fixed; // not absolute, so that it covers the whole page, not just the whole screen
     height: 100%;
     width: 100%;
+    z-index: 250;
 
     display: grid;
   }
