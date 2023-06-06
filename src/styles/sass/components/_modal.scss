@@ -44,6 +44,8 @@
     &__container {
       @include modal-container();
 
+      justify-self: center;
+      align-self: center;
       height: 94vh;
       width: 90vw;
       overflow-y: scroll; // allows scrolling inside the component

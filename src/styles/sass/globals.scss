@@ -10,11 +10,11 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  // justify-self: center;
-  justify-items: center;
-  // align-self: center; // hook1 - why doesnt it work on nested divs with text?
-  align-items: center;
-  text-align: center;
+  // // justify-self: center;
+  // justify-items: center;
+  // // align-self: center; // hook1 - why doesnt it work on nested divs with text?
+  // align-items: center;
+  // text-align: center;
 }
 
 hr {
@@ -53,8 +53,8 @@ div {
   @include fontStylingGlobal();
   color: colors.$forth-light;
   border: none;
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
 
   //hook1 - could i maybe add "display:grid" in here, or is it not good for optimisation?
   ::placeholder {

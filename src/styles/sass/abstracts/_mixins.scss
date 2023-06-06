@@ -72,17 +72,34 @@
 //           _._._. Button with border radius
 @mixin btn-with-border-radius($radius-size-variant) {
   @include btn-with-active-hover-effects;
-
+  justify-self: center;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   @if $radius-size-variant == "md" {
-    border-radius: colors.$border-radius-sm;
+    border-radius: variables.$border-radius-sm;
   }
   @if $radius-size-variant == "lg" {
-    border-radius: colors.$border-radius-md;
+    border-radius: variables.$border-radius-md;
   }
 }
-
+//       _._. Positioning
+//           _._._. Grid items - Justify and align center
+@mixin center-grid-items {
+  justify-items: center;
+  align-items: center;
+}
+//           _._._. Grid self - Justify and align center
+@mixin center-grid-self {
+  justify-self: center;
+  align-self: center;
+}
 //
 //~~ _.  Globally used mixins - locally used mixins are in their specific files, where they are used
+//
+//       _._. Positioning
+//
+//           _._._. Grid items - Justify and align center
+//
+//           _._._. Grid self - Justify and align center
 //
 //       _._. Item necessary info component mixins
 //

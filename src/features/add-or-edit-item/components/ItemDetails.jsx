@@ -44,7 +44,9 @@ const ItemDetails = ({ isCreatingNewItem }) => {
       </select>
       {/* //       _._. Expiration date (Date Picker, Button) - date is chosen by hand or automaticcly, after clicking "Open item" */}
 
-      <div>Earliest expiration date:</div>
+      <div className={styles["item-create-or-edit-view__exp-date__title"]}>
+        Earliest expiration date:
+      </div>
       <div className={styles["item-create-or-edit-view__exp-date__inputs"]}>
         <input
           type="date"
@@ -72,7 +74,13 @@ const ItemDetails = ({ isCreatingNewItem }) => {
       <div
         className={styles["item-create-or-edit-view__prices-in-shops__header"]}
       >
-        <div>Prices in shops:</div>
+        <div
+          className={
+            styles["item-create-or-edit-view__prices-in-shops__header__title"]
+          }
+        >
+          Prices in shops:
+        </div>
         <input
           type="number"
           placeholder="1"
@@ -132,10 +140,7 @@ const ItemDetails = ({ isCreatingNewItem }) => {
         <MdDeleteForever />
       </button>
       <button
-        type="submit" //hook1 - doest it work? or oes it need to a input html element
-        onClick={(e) => {
-          e.preventDefault(), console.log("saved");
-        }}
+        type="submit"
         className={styles["item-create-or-edit-view__btn-save"]}
       >
         <ImCheckmark />
@@ -151,7 +156,6 @@ const ItemDetails = ({ isCreatingNewItem }) => {
         placeholder="paste new url here"
       ></input>
       {/* /\ hook1 - remake it into showing only after clikcing the image or image dedicated edit icon */}
-      {/* <input type="submit"></input> */}
     </form>
   );
 };

@@ -8,12 +8,33 @@ import ShopToVisitSingle from "../../list-of-shops-the-user-needs/components/Sho
 const ShopPrice = ({ propA, propB }) => {
   return (
     <>
-      <div></div>
-      <ShopToVisitSingle isActive={true} />
-      <div>Nazwa sklepu</div>
-      <div>|</div>
-      <div>5,50</div>
-      <div>zł</div>
+      <div
+        className={
+          styles[
+            "item-create-or-edit-view__prices-in-shops__list-of-prices__item__shop-img"
+          ]
+        }
+      >
+        <ShopToVisitSingle isActive={true} />
+      </div>
+      <div
+        className={
+          styles[
+            "item-create-or-edit-view__prices-in-shops__list-of-prices__item__shop-name"
+          ]
+        }
+      >
+        Nazwa sklepu
+      </div>
+      <div
+        className={
+          styles[
+            "item-create-or-edit-view__prices-in-shops__list-of-prices__item__price-value"
+          ]
+        }
+      >
+        5,50 zł
+      </div>
     </>
   );
 };

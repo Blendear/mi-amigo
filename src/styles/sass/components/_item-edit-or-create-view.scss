@@ -15,14 +15,14 @@
 
     transform: translateY(-6rem);
     display: grid;
-    grid-template-rows: [r-0] 15rem [r-1] 1fr [r-2] 1fr [r-3] 1fr [r-4] 1fr [r-5] 1fr [r-6] 1fr [r-7];
+    grid-template-rows: [r-0] 1fr [r-1] 1fr [r-2] 1fr [r-3] 1fr [r-4] 1fr [r-5] 1fr [r-6] 1fr [r-7];
     grid-template-columns: [c-0] 2fr [c-1] 1fr [c-2];
   }
   &__img {
     @include mixins.item-img;
 
     grid-column: c-0/c-2;
-    width: 50%;
+    width: 20rem;
     z-index: 0;
     transform: translateY(1rem);
 
@@ -30,6 +30,7 @@
 
     & img {
       border-radius: 1rem 1rem 0 0;
+      // hook2 - image wont center for the love of god
     }
   }
   &__title {
@@ -60,59 +61,113 @@
 
   &__repeatability {
     grid-column: c-0/c-2;
+    @include mixins.btn-with-border-radius("md");
+    margin: 1rem 0;
   }
   &__exp-date {
-    // &__title {
-    // } // hook2 - how to easily figure out which html elemnts will not need a class, buceause global / dynamic position/style will do them justify jsut fine?
+    &__title {
+      grid-column: c-0/c-2;
+      justify-self: center; //hook2 - why not justify everything in globals ND ADD "IMPORTANT" inside children? dangerous tactic?
+    }
     &__inputs {
+      grid-column: c-0/c-2;
+
+      display: grid;
+      grid-auto-flow: column;
+      margin: 1rem 0;
+      //hook1 - HOW to quickly find out what elements will need a class, and which will only need smartly organized html? ashoudl alll have classes, since we can easily modify the grid position when we need a repositioning of design?
       &__date {
+        justify-self: end;
+        padding: 0.5rem 0 0.5rem 1rem;
+        border-radius: 1rem 0 0 1rem;
       }
       &__time {
+        justify-self: start;
+        padding: 0.5rem 0 0.5rem 1rem;
+        width: max-content;
+
+        border-radius: 0 1rem 1rem 0;
       }
       &__btn-toggle-open {
+        @include mixins.btn-with-border-radius("md");
       }
     }
     //hook2 - how to amke css names shorter. they make the code less readable
   }
   &__prices-in-shops {
     &__header {
+      grid-column: c-0/c-2;
+
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+
       &__title {
       }
-      &__amount {
-      }
+
       // &__divider {
       // } hook2 - replace other dividers on the app with simple one-sided border property on a near element
+      &__amount {
+        border-radius: 1rem 0 0 1rem;
+        width: 4rem;
+        text-align: center;
+      }
       &__unit-of-measurment {
+        border-radius: 0 1rem 1rem 0;
+        width: 4rem;
+        text-align: center;
       }
       &__btn-add-shop {
+        @include mixins.btn-with-border-radius("md");
+        background-color: colors.$secondary-light;
       }
     }
     &__list-of-prices {
+      grid-column: c-0/c-2;
+      display: grid;
+      row-gap: 1rem;
+      margin: 1rem 0;
       &__item {
-        position: relative;
-        height: 4rem;
-        width: 4rem;
-
         display: grid;
         grid-auto-flow: column;
-        // position: "relative",
-        //       height: "4rem",
-        //       width: "4rem",
-        //       display: "grid",
-        //       "grid-auto-flow": "column",
-        // &__shop-img {
-        // }
-        // &__shop-name {
-        // }
-        // &__divider {
-        // }
-        // &__price-value {
-        // }
+
+        justify-items: start;
+        align-items: center;
+
+        & * {
+          font-size: typography.$font-size-lg;
+        }
+
+        &__shop-img {
+          position: relative;
+          width: 4rem;
+          aspect-ratio: 1/1;
+          margin: 0 1rem 0 1rem;
+        }
+        &__shop-name {
+          border-right: 0.1rem solid;
+          padding: 0 2rem 0 0;
+        }
+        &__price-value {
+          width: 100%;
+          text-align: center;
+          // padding: 0 0 0 2rem;
+        }
       }
     }
   }
   &__btn-save {
+    background-color: transparent;
+
+    & > svg {
+      color: colors.$succes;
+    }
   }
   &__btn-delete {
+    background-color: transparent;
+
+    & > svg {
+      color: colors.$danger;
+    }
   }
 }
