@@ -24,7 +24,10 @@ const SingleItemToBuy = ({ variant, itemID }) => {
         </div>
         <div className={styles["item-edit-view__title"]}>title</div>
         <div className={styles["item-edit-view__amounts-container"]}>
-          <div className={styles["item-edit-view__amount-to-buy"]}>9 szt.</div>
+          <div className={styles["item-edit-view__amount-to-buy"]}>9 </div>
+          <div className={styles["item-edit-view__unit-of-measurment"]}>
+            szt.
+          </div>
           <div className={styles["item-edit-view__amount-current"]}>3</div>
           <div className={styles["item-edit-view__slash-divider"]}>/</div>
           <div className={styles["item-edit-view__amount-wanted"]}>12</div>
@@ -45,7 +48,12 @@ const SingleItemToBuy = ({ variant, itemID }) => {
         <div className={styles["item-create-or-edit-view__title"]}>title</div>
         <div className={styles["item-create-or-edit-view__amounts-container"]}>
           <div className={styles["item-create-or-edit-view__amount-to-buy"]}>
-            9 szt.
+            9
+          </div>
+          <div
+            className={styles["item-create-or-edit-view__unit-of-measurment"]}
+          >
+            szt.
           </div>
           <div className={styles["item-create-or-edit-view__amount-current"]}>
             3

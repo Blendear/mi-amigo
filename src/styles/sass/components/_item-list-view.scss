@@ -35,6 +35,9 @@
     @include mixins.item-amounts-container;
     width: 120%;
   }
+  &__unit-of-measurment {
+    grid-column: c-2/c-3;
+  }
   &__amount-to-buy {
     @include mixins.item-amounts-to-buy;
   }

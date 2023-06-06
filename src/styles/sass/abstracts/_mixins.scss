@@ -38,7 +38,7 @@
 }
 //           _._._. Amounts container
 @mixin item-amounts-container {
-  padding: 0 20% 0 25%;
+  padding: 0 10% 0 10%;
 
   z-index: 5;
 
@@ -50,14 +50,32 @@
   grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr [c-3];
 
   & div {
-    font-size: typography.$font-size-md;
-
     display: grid;
   }
 }
 //                  _._._._. Amount-to-buy
 @mixin item-amounts-to-buy {
-  grid-column: c-0 / c-3; //it takes the whole row, so the rest of the amounts will be placed automatically right
+  grid-column: c-1 / c-2; //it takes the whole row, so the rest of the amounts will be placed automatically right
+  transform: translateY(0.45rem);
+  font-size: typography.$font-size-xl;
+  color: colors.$sixth-light;
+  -webkit-text-stroke-width: 0.2rem; // hook2 add webkit to all css
+  -webkit-text-stroke-color: black;
+}
+//                  _._._._. Unit of measurment
+@mixin needed-amount-unit-of-measurement {
+  grid-column: c-2/c-3;
+  align-self: end;
+
+  font-size: typography.$font-size-md;
+  color: colors.$sixth-light;
+}
+//                  _._._._. Amounts - current, expected and divider
+@mixin amounts-current-expected {
+  font-weight: normal;
+  align-self: start;
+  font-size: typography.$font-size-md;
+  font-weight: typography.$font-weight-bold;
 }
 //       _._. Button specific
 //           _._._. Buton with active hover effects
@@ -92,6 +110,16 @@
   justify-self: center;
   align-self: center;
 }
+//       _._. Image specific
+//           _._._. Next Image - Rounded corners of <div> and <img>
+@mixin next-img-border-radius($border-radius) {
+  border-radius: $border-radius; // so that the shadow of the <div> is rounded also
+
+  & img {
+    border-radius: $border-radius;
+  }
+}
+
 //
 //~~ _.  Globally used mixins - locally used mixins are in their specific files, where they are used
 //
@@ -113,13 +141,17 @@
 //
 //                  _._._._. Amount-to-buy
 //
-//                  _._._._.
+//                  _._._._. Unit of measurment
 //
-//                  _._._._.
+//                  _._._._. Amounts - current, expected and divider
 //
 //       _._. Button specific
 //
 //           _._._. Button with border radius
 //
 //           _._._. Buton with active hover effects
+//
+//       _._. Image specific
+//
+//           _._._. Next Image - Rounded corners of <div> and <img>
 //

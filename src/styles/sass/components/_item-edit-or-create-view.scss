@@ -17,6 +17,10 @@
     display: grid;
     grid-template-rows: [r-0] 1fr [r-1] 1fr [r-2] 1fr [r-3] 1fr [r-4] 1fr [r-5] 1fr [r-6] 1fr [r-7];
     grid-template-columns: [c-0] 2fr [c-1] 1fr [c-2];
+
+    & * {
+      font-weight: typography.$font-weight-bold;
+    }
   }
   &__img {
     @include mixins.item-img;
@@ -26,15 +30,13 @@
     z-index: 0;
     transform: translateY(1rem);
 
-    border-radius: 1rem 1rem 0 0;
+    @include mixins.next-img-border-radius(1rem 1rem 0 0);
 
-    & img {
-      border-radius: 1rem 1rem 0 0;
-      // hook2 - image wont center for the love of god
-    }
+    // hook2 - image wont center for the love of god
   }
   &__title {
     @include mixins.item-title;
+    @include mixins.center-grid-items;
 
     border-radius: 1rem;
 
@@ -42,6 +44,7 @@
   }
   &__amounts-container {
     @include mixins.item-amounts-container;
+    @include mixins.center-grid-items;
 
     width: 110%;
     transform: translateX(-0.5rem);
@@ -51,11 +54,17 @@
   &__amount-to-buy {
     @include mixins.item-amounts-to-buy;
   }
+  &__unit-of-measurment {
+    @include mixins.needed-amount-unit-of-measurement;
+  }
   &__amount-current {
+    @include mixins.amounts-current-expected;
   }
   &__amount-wanted {
+    @include mixins.amounts-current-expected;
   }
   &__slash-divider {
+    @include mixins.amounts-current-expected;
   }
   //hook2--pieszczę - /\ & all other old scss files - remake all names into WHAT I DID EARLIER, S T A C K BEM names, like "so el_el--modifier_el"
 
@@ -68,6 +77,8 @@
     &__title {
       grid-column: c-0/c-2;
       justify-self: center; //hook2 - why not justify everything in globals ND ADD "IMPORTANT" inside children? dangerous tactic?
+
+      // font-weight: typography.$font-weight-bold;
     }
     &__inputs {
       grid-column: c-0/c-2;
@@ -97,36 +108,46 @@
   &__prices-in-shops {
     &__header {
       grid-column: c-0/c-2;
+      height: 3.8rem;
 
       display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: max-content;
+      grid-template-columns: 1fr 6rem 6rem 5rem;
 
       &__title {
+        @include mixins.center-grid-self;
+        font-weight: typography.$font-weight-bold;
       }
 
-      // &__divider {
-      // } hook2 - replace other dividers on the app with simple one-sided border property on a near element
       &__amount {
         border-radius: 1rem 0 0 1rem;
-        width: 4rem;
+        width: 6rem;
         text-align: center;
+        justify-self: end;
       }
       &__unit-of-measurment {
         border-radius: 0 1rem 1rem 0;
-        width: 4rem;
+        width: 6rem;
         text-align: center;
       }
       &__btn-add-shop {
         @include mixins.btn-with-border-radius("md");
+        justify-self: end;
+
         background-color: colors.$secondary-light;
       }
     }
     &__list-of-prices {
       grid-column: c-0/c-2;
+      margin: 1rem 0;
+      padding: 1rem 0 1rem 0;
+
+      background-color: colors.$sixth-light;
+      border-radius: 1rem;
+      // box-shadow: colors.$shadow-sharp-right; //remake shadow to take only the x/y of shadow as parameters. rest should be static
+
       display: grid;
       row-gap: 1rem;
-      margin: 1rem 0;
+
       &__item {
         display: grid;
         grid-auto-flow: column;
@@ -143,9 +164,11 @@
           width: 4rem;
           aspect-ratio: 1/1;
           margin: 0 1rem 0 1rem;
+
+          @include mixins.next-img-border-radius(1rem);
         }
         &__shop-name {
-          border-right: 0.1rem solid;
+          border-right: 0.3rem solid colors.$grey-light;
           padding: 0 2rem 0 0;
         }
         &__price-value {
@@ -156,18 +179,25 @@
       }
     }
   }
-  &__btn-save {
+  @mixin btn-crud {
+    display: grid;
     background-color: transparent;
-
+  }
+  @mixin svg-of-btn-crud($color, $justify) {
     & > svg {
-      color: colors.$succes;
+      justify-self: $justify;
+      margin: 1rem 0;
+
+      font-size: 4.5rem;
+      color: $color;
     }
   }
+  &__btn-save {
+    @include btn-crud;
+    @include svg-of-btn-crud(colors.$succes, end);
+  }
   &__btn-delete {
-    background-color: transparent;
-
-    & > svg {
-      color: colors.$danger;
-    }
+    @include btn-crud;
+    @include svg-of-btn-crud(colors.$danger, start);
   }
 }
