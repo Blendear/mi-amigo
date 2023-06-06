@@ -8,6 +8,7 @@ import ShopToVisitSingle from "../../list-of-shops-the-user-needs/components/Sho
 const ShopPrice = ({ propA, propB }) => {
   return (
     <>
+      <div></div>
       <ShopToVisitSingle isActive={true} />
       <div>Nazwa sklepu</div>
       <div>|</div>

@@ -31,71 +31,112 @@ const ItemDetails = ({ isCreatingNewItem }) => {
   };
 
   return (
-    <form onSubmit={handleSubmitForm}>
-      <div className={styles["item-create-or-edit-view__container"]}>
-        <SingleItemToBuy variant="create-or-edit-view" />
-      </div>
+    <form
+      onSubmit={handleSubmitForm}
+      className={styles["item-create-or-edit-view__container"]}
+    >
+      <SingleItemToBuy variant="create-or-edit-view" />
       {/* //       _._. Repeatability type toggler (Button) */}
-      <select required>
+      <select className={styles["item-create-or-edit-view__repeatability"]}>
         <option value="Repeatability">Repeatability</option>
         <option value="Unique">Unique</option>
         <option value="Traditional">Traditional</option>
       </select>
       {/* //       _._. Expiration date (Date Picker, Button) - date is chosen by hand or automaticcly, after clicking "Open item" */}
-      <div>
-        <div>Earliest expiration date:</div>
-        <input type="date"></input>
-        <input type="time"></input>
+
+      <div>Earliest expiration date:</div>
+      <div className={styles["item-create-or-edit-view__exp-date__inputs"]}>
+        <input
+          type="date"
+          className={styles["item-create-or-edit-view__exp-date__inputs__date"]}
+        ></input>
+        <input
+          type="time"
+          className={styles["item-create-or-edit-view__exp-date__inputs__time"]}
+        ></input>
         <button
           onClick={(e) => {
             e.preventDefault(), console.log("toggled opened/unused");
           }}
+          className={
+            styles[
+              "item-create-or-edit-view__exp-date__inputs__btn-toggle-open"
+            ]
+          }
         >
           Unused
         </button>
       </div>
+
       {/*//       _._. Prices in specific shops - by chosen amount and unit of measurment*/}
-      <div>
-        <div>Cena w sklepach</div>
-        <input type="number" placeholder="1"></input>
-        <input type="text" placeholder="pc."></input>
+      <div
+        className={styles["item-create-or-edit-view__prices-in-shops__header"]}
+      >
+        <div>Prices in shops:</div>
+        <input
+          type="number"
+          placeholder="1"
+          className={
+            styles["item-create-or-edit-view__prices-in-shops__header__amount"]
+          }
+        ></input>
+        <input
+          type="text"
+          placeholder="pc."
+          className={
+            styles[
+              "item-create-or-edit-view__prices-in-shops__header__unit-of-measurment"
+            ]
+          }
+        ></input>
         {/* /\ //hook1 add default value, not just palceholder */}
         <button
           onClick={(e) => {
             e.preventDefault(), console.log("added new price");
           }}
+          className={
+            styles[
+              "item-create-or-edit-view__prices-in-shops__header__btn-add-shop"
+            ]
+          }
         >
           +
         </button>
       </div>
-      {shopPricesToRender.map((item) => (
-        <li
-          key={item.name}
-          // className={styles[""]}
-          style={{
-            position: "relative",
-            height: "4rem",
-            width: "4rem",
-            display: "grid",
-            "grid-auto-flow": "column",
-          }}
-        >
-          <ShopPrice />
-        </li>
-      ))}
-      <div>a</div>
+      <ul
+        className={
+          styles["item-create-or-edit-view__prices-in-shops__list-of-prices"]
+        }
+      >
+        {shopPricesToRender.map((item) => (
+          <li
+            key={item.name}
+            className={
+              styles[
+                "item-create-or-edit-view__prices-in-shops__list-of-prices__item"
+              ]
+            }
+          >
+            <ShopPrice />
+          </li>
+        ))}
+      </ul>
+
       {/* //       _._. Delete & Save item (Buttons) */}
       <button
         onClick={(e) => {
           e.preventDefault(), console.log("deleted");
         }}
+        className={styles["item-create-or-edit-view__btn-delete"]}
       >
         <MdDeleteForever />
       </button>
       <button
+        type="submit" //hook1 - doest it work? or oes it need to a input html element
         onClick={(e) => {
           e.preventDefault(), console.log("saved");
         }}
+        className={styles["item-create-or-edit-view__btn-save"]}
       >
         <ImCheckmark />
       </button>
@@ -109,7 +150,8 @@ const ItemDetails = ({ isCreatingNewItem }) => {
         }}
         placeholder="paste new url here"
       ></input>
-      <input type="submit"></input>
+      {/* /\ hook1 - remake it into showing only after clikcing the image or image dedicated edit icon */}
+      {/* <input type="submit"></input> */}
     </form>
   );
 };

@@ -50,7 +50,8 @@
 // ______
 // PREPARE HTML FOR SCSS INJECTION  &  LETS GO CSS
 // ______
-// [   ] _. "... . jsx" files                       -   Oczyść zbędne html elementy (Żeby zbędnych class pozycjonujących nie musieć pisać)
+// [   ] _. "... . scss" files                      -   Think about how to bundle html elements inside dynamic containers & Create adequate BEM class names (without properties yet)
+// [   ] _. "... . jsx" files                       -   Dodaj potrzebne || Usuń zbędne - html elementy, ADEKWATNIE do wcześniej stoworzonych nazw (Np. o mam 3-poziomowo głęboki class tree, ale mam tylko 2-poziomowo głęboki div w divie, wię cmusze dac dodatkowego parent diva) - żeby kontrolę mieć || żeby zbędnych class pozycjonujących nie musieć pisać
 // [   ] _. "... . jsx" files                       -   Dodaj nazwy class do adekwatnych HTML elementów (bo w next krokach będzie potrzeba widać efekty pisanyc css properties)
 // [   ] _. "... . jsx" files                       -   Semantic html names, write them, instead of <div> everywhere
 // [   ] _. "... . scss" files                      -   write self & child POSITIONING css properties (ORDER : [layout] > [components] > [pages])

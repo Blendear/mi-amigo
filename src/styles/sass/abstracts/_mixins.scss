@@ -1,4 +1,87 @@
 //
+// Table of content for this file is written at the bottom
+//
+@use "../../../styles/sass/abstracts/colors";
+@use "../../../styles/sass/abstracts/variables";
+@use "../../../styles/sass/base/typography";
+
+//       _._. Item necessary info component mixins
+//           _._._. Item container
+@mixin item-container {
+  width: max(
+    20rem,
+    100%
+  ); //hook1 - VERY risky, sinze 20rem may overflow. clamp maybe?
+  aspect-ratio: 6/1; // hoo1 trap1 - aspect ratio, combined with widti max20rem-100%, destroyed my modal size for somereason. understand why for the future
+
+  border-radius: 1rem;
+}
+//           _._._. Image
+@mixin item-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  z-index: 15;
+
+  box-shadow: colors.$shadow-sharp-right;
+}
+//           _._._. Title
+@mixin item-title {
+  z-index: 10;
+
+  box-shadow: colors.$shadow-sharp-right;
+  background-color: colors.$secondary-light;
+  font-size: typography.$font-size-md;
+  font-weight: typography.$font-weight-bold;
+
+  display: grid;
+}
+//           _._._. Amounts container
+@mixin item-amounts-container {
+  padding: 0 20% 0 25%;
+
+  z-index: 5;
+
+  border-radius: 0 1rem 1rem 0;
+  background-color: colors.$succes;
+
+  display: grid;
+  grid-template-rows: [r-0] 1.75fr [r-1] 1fr[r-2];
+  grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr [c-3];
+
+  & div {
+    font-size: typography.$font-size-md;
+
+    display: grid;
+  }
+}
+//                  _._._._. Amount-to-buy
+@mixin item-amounts-to-buy {
+  grid-column: c-0 / c-3; //it takes the whole row, so the rest of the amounts will be placed automatically right
+}
+//       _._. Button specific
+//           _._._. Buton with active hover effects
+@mixin btn-with-active-hover-effects {
+  &:hover {
+    filter: saturate(2.5);
+  }
+  &:active {
+    filter: saturate(1);
+  }
+}
+//           _._._. Button with border radius
+@mixin btn-with-border-radius($radius-size-variant) {
+  @include btn-with-active-hover-effects;
+
+  @if $radius-size-variant == "md" {
+    border-radius: colors.$border-radius-sm;
+  }
+  @if $radius-size-variant == "lg" {
+    border-radius: colors.$border-radius-md;
+  }
+}
+
+//
 //~~ _.  Globally used mixins - locally used mixins are in their specific files, where they are used
 //
 //       _._. Item necessary info component mixins
@@ -23,101 +106,3 @@
 //
 //           _._._. Buton with active hover effects
 //
-
-@use "../../../styles/sass/abstracts/colors";
-@use "../../../styles/sass/abstracts/variables";
-@use "../../../styles/sass/base/typography";
-
-//
-//       _._. Item necessary info component mixins
-//
-//           _._._. Item container
-//
-@mixin item-container {
-  width: max(
-    20rem,
-    100%
-  ); //hook1 - VERY risky, sinze 20rem may overflow. clamp maybe?
-  aspect-ratio: 6/1; // hoo1 trap1 - aspect ratio, combined with widti max20rem-100%, destroyed my modal size for somereason. understand why for the future
-
-  border-radius: 1rem;
-}
-
-//
-//           _._._. Image
-//
-@mixin item-img {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1/1;
-  z-index: 15;
-
-  box-shadow: colors.$shadow-sharp-right;
-}
-//
-//           _._._. Title
-//
-@mixin item-title {
-  z-index: 10;
-
-  box-shadow: colors.$shadow-sharp-right;
-  background-color: colors.$secondary-light;
-  font-size: typography.$font-size-md;
-  font-weight: typography.$font-weight-bold;
-
-  display: grid;
-}
-//
-//           _._._. Amounts container
-//
-@mixin item-amounts-container {
-  padding: 0 20% 0 25%;
-
-  z-index: 5;
-
-  border-radius: 0 1rem 1rem 0;
-  background-color: colors.$succes;
-
-  display: grid;
-  grid-template-rows: [r-0] 1.75fr [r-1] 1fr[r-2];
-  grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr [c-3];
-
-  & div {
-    font-size: typography.$font-size-md;
-
-    display: grid;
-  }
-}
-//
-//                  _._._._. Amount-to-buy
-//
-@mixin item-amounts-to-buy {
-  grid-column: c-0 / c-3; //it takes the whole row, so the rest of the amounts will be placed automatically right
-}
-//
-//       _._. Button specific
-//
-//           _._._. Buton with active hover effects
-//
-@mixin btn-with-active-hover-effects {
-  &:hover {
-    filter: saturate(2.5);
-  }
-  &:active {
-    filter: saturate(1);
-  }
-}
-//
-//           _._._. Button with border radius
-//
-
-@mixin btn-with-border-radius($radius-size-variant) {
-  @include btn-with-active-hover-effects;
-
-  @if $radius-size-variant == "md" {
-    border-radius: colors.$border-radius-sm;
-  }
-  @if $radius-size-variant == "lg" {
-    border-radius: colors.$border-radius-md;
-  }
-}

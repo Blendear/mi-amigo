@@ -15,9 +15,8 @@
 
     transform: translateY(-6rem);
     display: grid;
-    grid-template-rows: [r-0] 15rem[r-1] 1fr [c-1];
-    grid-template-columns: [c-0] 2fr[c-1] 1fr [c-2];
-    // row-gap: 2rem;
+    grid-template-rows: [r-0] 15rem [r-1] 1fr [r-2] 1fr [r-3] 1fr [r-4] 1fr [r-5] 1fr [r-6] 1fr [r-7];
+    grid-template-columns: [c-0] 2fr [c-1] 1fr [c-2];
   }
   &__img {
     @include mixins.item-img;
@@ -56,5 +55,64 @@
   &__amount-wanted {
   }
   &__slash-divider {
+  }
+  //hook2--pieszczę - /\ & all other old scss files - remake all names into WHAT I DID EARLIER, S T A C K BEM names, like "so el_el--modifier_el"
+
+  &__repeatability {
+    grid-column: c-0/c-2;
+  }
+  &__exp-date {
+    // &__title {
+    // } // hook2 - how to easily figure out which html elemnts will not need a class, buceause global / dynamic position/style will do them justify jsut fine?
+    &__inputs {
+      &__date {
+      }
+      &__time {
+      }
+      &__btn-toggle-open {
+      }
+    }
+    //hook2 - how to amke css names shorter. they make the code less readable
+  }
+  &__prices-in-shops {
+    &__header {
+      &__title {
+      }
+      &__amount {
+      }
+      // &__divider {
+      // } hook2 - replace other dividers on the app with simple one-sided border property on a near element
+      &__unit-of-measurment {
+      }
+      &__btn-add-shop {
+      }
+    }
+    &__list-of-prices {
+      &__item {
+        position: relative;
+        height: 4rem;
+        width: 4rem;
+
+        display: grid;
+        grid-auto-flow: column;
+        // position: "relative",
+        //       height: "4rem",
+        //       width: "4rem",
+        //       display: "grid",
+        //       "grid-auto-flow": "column",
+        // &__shop-img {
+        // }
+        // &__shop-name {
+        // }
+        // &__divider {
+        // }
+        // &__price-value {
+        // }
+      }
+    }
+  }
+  &__btn-save {
+  }
+  &__btn-delete {
   }
 }
