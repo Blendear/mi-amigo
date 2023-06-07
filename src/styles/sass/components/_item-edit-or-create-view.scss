@@ -105,6 +105,10 @@
       &__btn-toggle-open {
         @include mixins.btn-with-border-radius("md");
         background-color: colors.$succes;
+
+        &--opened {
+          background-color: colors.$danger;
+        }
       }
     }
     //hook2 - how to amke css names shorter. they make the code less readable
@@ -198,6 +202,7 @@
 
       font-size: 4.5rem;
       color: $color;
+      filter: drop-shadow(0.15rem 0.15rem 0 rgba(0, 0, 0, 0.3));
     }
   }
   &__btn-save {

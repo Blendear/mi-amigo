@@ -4,20 +4,51 @@
 import { createSlice, configureStore, PayloadAction } from "@reduxjs/toolkit";
 //  _.  Interfaces
 //      _._. Initial states interfaces (expected properties and their types of values)
-interface typeOfURLState {
+type PriceInShopSingle = {
+  imageURL: string; // hook1 - usert shuld be able to create "my shops list", so that he dont need to find url's eveyr time, but just choose an image url for the list
+  name: string;
+  price: number;
+  currency: string;
+};
+type ItemDetails = {
+  //hook1 - paste inetrfaces and types to dedicated folder - global or feature "types"
+  id: string; // necessary, because I will need to filter out specific items without talking with the dataabse during each filtering process
+  imageURL: string;
+  name: string;
+  unitOfMeasurement: string;
+  amountNeeded: number;
+  amountCurrent: number;
+  amountMaxExpected: number;
+  repeatability: string;
+  expirationDate: string; //hook1 how to format from / to string (locale string?)  &  how to get date and time separately
+  isOpen: boolean;
+  pricesInShops: PriceInShopSingle[];
+};
+type URLState = {
   photoPlaceholderURL: string;
-}
-interface typeOfAuthState {
+};
+type Auth = {
   isAuthenticated: boolean;
-}
+};
 //  _.  Slices with Reducers bound to them (fragments of all the data which redux stores & "setters" which manipulate the given data)
 //      _._. Initial states of slices
-const initialURLState: typeOfURLState = {
+const initialListOfItems: ItemDetails[] | {} = {}; //can be an empty object if there are no items of this user
+const initialURLState: URLState = {
   photoPlaceholderURL:
     "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*",
 };
-const initialAuthState: typeOfAuthState = { isAuthenticated: false };
+const initialAuthState: Auth = { isAuthenticated: false };
 //      _._. Slices with Reducers - creation
+const listOfItemsSlice = createSlice({
+  name: "listOfItemsSlice",
+  initialState: initialListOfItems,
+  reducers: {
+    testAction(state, action: PayloadAction<{ testPayload: string }>) {
+      console.log(`current state : ${state}`);
+      console.log(`current payload : ${action.payload.testPayload}`);
+    },
+  },
+});
 const urlSlice = createSlice({
   name: "urlSlice",
   initialState: initialURLState,
@@ -43,6 +74,7 @@ const authSlice = createSlice({
 //  _.  Store - Redux Toolkit way (combines all the slices and reducers into once place)
 const store = configureStore({
   reducer: {
+    listOfItemsReducer: listOfItemsSlice.reducer,
     authReducer: authSlice.reducer,
     urlReducer: urlSlice.reducer,
   },
@@ -51,6 +83,7 @@ export type RootState = ReturnType<typeof store.getState>; // Infer the `RootSta
 export type AppDispatch = typeof store.dispatch; // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export default store;
 //  _.  Action Packs - Redux Toolkit way (will be used to activate specific functions - actions - of reducers - to manipulate redux data)
+export const listOfItemsActions = listOfItemsSlice.actions;
 export const authSliceActions = authSlice.actions;
 export const urlSliceActions = urlSlice.actions;
 

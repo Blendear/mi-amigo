@@ -45,15 +45,12 @@ const SingleItemToBuy = ({ variant, itemID }) => {
             {" / "}
             {12}
           </div>
-          {/* <div className={styles["item-edit-view__slash-divider"]}>/</div>
-          <div className={styles["item-edit-view__amount-wanted"]}>12</div> */}
         </div>
       </>
     ),
     //           _._._. Variant : "create-edit-view"
     "create-or-edit-view": (
       <>
-        {/* <div className={styles["item-create-or-edit-view__img__container"]}> */}
         <div className={styles["item-create-or-edit-view__img"]}>
           <Image
             src={reduxStateImageURL.photoPlaceholderURL}
@@ -91,12 +88,6 @@ const SingleItemToBuy = ({ variant, itemID }) => {
             {" / "}
             {12}
           </div>
-          {/* <div className={styles["item-create-or-edit-view__slash-divider"]}>
-            /
-          </div>
-          <div className={styles["item-create-or-edit-view__amount-wanted"]}>
-            12
-          </div> */}
         </div>
       </>
     ),
