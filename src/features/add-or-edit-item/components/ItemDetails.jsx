@@ -54,12 +54,16 @@ const ItemDetails = ({ isCreatingNewItem }) => {
       </div>
       <div className={styles["item-create-or-edit-view__exp-date__inputs"]}>
         <input
-          type="date"
-          value="yyyy-mm-dd"
+          type="text"
+          placeholder="MM/DD/YYYY"
+          onfocus="(this.type='date')"
+          onblur="(this.type='text')"
           className={styles["item-create-or-edit-view__exp-date__inputs__date"]}
         ></input>
         <input
-          type="time"
+          placeholder="00:00"
+          onfocus="(this.type='time')"
+          onblur="(this.type='text')"
           className={styles["item-create-or-edit-view__exp-date__inputs__time"]}
         ></input>
         <button
