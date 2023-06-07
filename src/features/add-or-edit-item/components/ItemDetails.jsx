@@ -50,7 +50,7 @@ const ItemDetails = ({ isCreatingNewItem }) => {
       {/* //       _._. Expiration date (Date Picker, Button) - date is chosen by hand or automaticcly, after clicking "Open item" */}
 
       <div className={styles["item-create-or-edit-view__exp-date__title"]}>
-        Expiration date:
+        Expiration date :
       </div>
       <div className={styles["item-create-or-edit-view__exp-date__inputs"]}>
         <input
