@@ -51,11 +51,16 @@
     box-shadow: colors.$shadow-sharp-right;
   }
   &__amount-to-buy {
-    @include mixins.item-amounts-to-buy;
+    @include mixins.item-amounts-to-buy-container;
+
+    &__number {
+      @include mixins.item-amounts-to-buy-number;
+    }
+    &__unit-of-measurment {
+      @include mixins.item-amounts-to-buy-unit-of-measurement;
+    }
   }
-  &__unit-of-measurment {
-    @include mixins.needed-amount-unit-of-measurement;
-  }
+
   &__amount-current-and-expected {
     @include mixins.amounts-current-expected;
   }

@@ -31,11 +31,24 @@
     @include mixins.item-amounts-container;
     width: 120%;
   }
-  &__unit-of-measurment {
-    grid-column: c-2/c-3;
+  &__amounts-container {
+    @include mixins.item-amounts-container;
+    @include mixins.center-grid-items;
+
+    width: 110%;
+    transform: translateX(-0.5rem);
+
+    box-shadow: colors.$shadow-sharp-right;
   }
   &__amount-to-buy {
-    @include mixins.item-amounts-to-buy;
+    @include mixins.item-amounts-to-buy-container;
+
+    &__number {
+      @include mixins.item-amounts-to-buy-number;
+    }
+    &__unit-of-measurment {
+      @include mixins.item-amounts-to-buy-unit-of-measurement;
+    }
   }
   &__amount-current-and-expected {
   }

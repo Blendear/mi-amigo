@@ -14,6 +14,8 @@ const SingleItemToBuy = ({ variant, itemID }) => {
     //           _._._. Variant : "list-view"
     "list-view": (
       <>
+        {/* hook2 - change "item-edit-view" to "item-list-view". i misspelled the name at the beginning */}
+
         <div className={styles["item-edit-view__img"]}>
           <Image
             src={reduxStateImageURL.photoPlaceholderURL}
@@ -24,9 +26,17 @@ const SingleItemToBuy = ({ variant, itemID }) => {
         </div>
         <div className={styles["item-edit-view__title"]}>title</div>
         <div className={styles["item-edit-view__amounts-container"]}>
-          <div className={styles["item-edit-view__amount-to-buy"]}>9 </div>
-          <div className={styles["item-edit-view__unit-of-measurment"]}>
-            szt.
+          <div className={styles["item-edit-view__amount-to-buy"]}>
+            <div className={styles["item-edit-view__amount-to-buy__number"]}>
+              9{" "}
+            </div>
+            <div
+              className={
+                styles["item-edit-view__amount-to-buy__unit-of-measurment"]
+              }
+            >
+              szt.
+            </div>
           </div>
           <div
             className={styles["item-edit-view__amount-current-and-expected"]}
@@ -52,16 +62,25 @@ const SingleItemToBuy = ({ variant, itemID }) => {
             objectFit="cover"
           />
         </div>
-        {/* </div> */}
         <div className={styles["item-create-or-edit-view__title"]}>title</div>
         <div className={styles["item-create-or-edit-view__amounts-container"]}>
           <div className={styles["item-create-or-edit-view__amount-to-buy"]}>
-            9
-          </div>
-          <div
-            className={styles["item-create-or-edit-view__unit-of-measurment"]}
-          >
-            szt.
+            <div
+              className={
+                styles["item-create-or-edit-view__amount-to-buy__number"]
+              }
+            >
+              9{" "}
+            </div>
+            <div
+              className={
+                styles[
+                  "item-create-or-edit-view__amount-to-buy__unit-of-measurment"
+                ]
+              }
+            >
+              szt.
+            </div>
           </div>
           <div
             className={

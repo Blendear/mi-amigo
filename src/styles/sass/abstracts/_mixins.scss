@@ -54,18 +54,24 @@
     display: grid;
   }
 }
-//                  _._._._. Amount-to-buy
-@mixin item-amounts-to-buy {
-  grid-column: c-1 / c-2; //it takes the whole row, so the rest of the amounts will be placed automatically right
+//                  _._._._. Amount-to-buy container
+@mixin item-amounts-to-buy-container {
+  grid-column: c-0/c-3;
+  padding: 0 0 0 2rem;
+
+  display: grid;
+  grid-auto-flow: column;
+}
+//                        _._._._._. Number
+@mixin item-amounts-to-buy-number {
   transform: translateY(0.45rem);
   font-size: typography.$font-size-xl;
   color: colors.$sixth-light;
-  -webkit-text-stroke-width: 0.3rem; // hook2 add webkit to all css
+  -webkit-text-stroke-width: 0.2rem; // hook2 add webkit to all css
   -webkit-text-stroke-color: colors.$seventh-light;
 }
-//                  _._._._. Unit of measurment
-@mixin needed-amount-unit-of-measurement {
-  grid-column: c-2/c-3;
+//                        _._._._._. Unit of measurment
+@mixin item-amounts-to-buy-unit-of-measurement {
   align-self: end;
 
   font-size: typography.$font-size-md;
@@ -148,9 +154,11 @@
 //
 //           _._._. Amounts container
 //
-//                  _._._._. Amount-to-buy
+//                  _._._._. Amount-to-buy container
 //
-//                  _._._._. Unit of measurment
+//                        _._._._._. Number
+//
+//                        _._._._._. Unit of measurment
 //
 //                  _._._._. Amounts - current, expected and divider
 //
