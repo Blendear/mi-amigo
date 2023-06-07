@@ -43,6 +43,7 @@ const SingleItemToBuy = ({ variant, itemID }) => {
     //           _._._. Variant : "create-edit-view"
     "create-or-edit-view": (
       <>
+        {/* <div className={styles["item-create-or-edit-view__img__container"]}> */}
         <div className={styles["item-create-or-edit-view__img"]}>
           <Image
             src={reduxStateImageURL.photoPlaceholderURL}
@@ -51,6 +52,7 @@ const SingleItemToBuy = ({ variant, itemID }) => {
             objectFit="cover"
           />
         </div>
+        {/* </div> */}
         <div className={styles["item-create-or-edit-view__title"]}>title</div>
         <div className={styles["item-create-or-edit-view__amounts-container"]}>
           <div className={styles["item-create-or-edit-view__amount-to-buy"]}>

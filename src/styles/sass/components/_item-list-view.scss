@@ -16,11 +16,7 @@
   }
   &__img {
     @include mixins.item-img;
-
-    border-radius: 1rem;
-    & img {
-      border-radius: 1rem;
-    }
+    @include mixins.next-img-border-radius(1rem);
   }
   &__title {
     @include mixins.item-title;

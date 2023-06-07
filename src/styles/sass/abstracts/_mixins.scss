@@ -18,8 +18,9 @@
 }
 //           _._._. Image
 @mixin item-img {
+  //hook2 - easier finding the mixin === just copy paste name and write "mixin" at the start, to find it, ins\tead of the "@include";s
   position: relative;
-  width: 100%;
+  // width: 100%;
   aspect-ratio: 1/1;
   z-index: 15;
 

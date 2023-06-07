@@ -20,14 +20,17 @@
   }
   &__img {
     @include mixins.item-img;
+    @include mixins.next-img-border-radius(1rem 1rem 0 0);
 
     grid-column: c-0/c-2;
-    width: 20rem;
+    width: 40%;
+    justify-self: center;
     z-index: 0;
     transform: translateY(1rem);
 
-    @include mixins.next-img-border-radius(1rem 1rem 0 0);
-
+    & > span {
+      width: 20rem;
+    }
     // hook2 - image wont center for the love of god
   }
   &__title {
@@ -62,7 +65,7 @@
   &__repeatability {
     grid-column: c-0/c-2;
     @include mixins.btn-with-border-radius("md");
-    margin: 2rem 0;
+    margin: 2.25rem 0;
 
     background-color: colors.$secondary-light;
   }
@@ -76,7 +79,7 @@
 
       display: grid;
       grid-auto-flow: column;
-      margin: 2rem 0;
+      margin: 0.75rem 0 2.75rem 0;
       //hook1 - HOW to quickly find out what elements will need a class, and which will only need smartly organized html? ashoudl alll have classes, since we can easily modify the grid position when we need a repositioning of design?
       &__date {
         justify-self: end;
@@ -132,7 +135,7 @@
     }
     &__list-of-prices {
       grid-column: c-0/c-2;
-      margin: 2rem 0;
+      margin: 1.25rem 0;
       padding: 1.75rem 0.75rem;
 
       background-color: colors.$sixth-light;
