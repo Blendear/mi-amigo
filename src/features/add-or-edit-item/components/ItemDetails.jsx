@@ -55,12 +55,11 @@ const ItemDetails = ({ isCreatingNewItem }) => {
       <div className={styles["item-create-or-edit-view__exp-date__inputs"]}>
         <input
           type="date"
-          placeholder="sss"
+          value="yyyy-mm-dd"
           className={styles["item-create-or-edit-view__exp-date__inputs__date"]}
         ></input>
         <input
           type="time"
-          placeholder="ttttt"
           className={styles["item-create-or-edit-view__exp-date__inputs__time"]}
         ></input>
         <button
