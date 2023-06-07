@@ -61,6 +61,7 @@
 
   display: grid;
   grid-auto-flow: column;
+  column-gap: 0.2rem;
 }
 //                        _._._._._. Number
 @mixin item-amounts-to-buy-number {
