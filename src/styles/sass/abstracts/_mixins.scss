@@ -48,7 +48,7 @@
   display: grid;
   grid-template-rows: [r-0] 1.75fr [r-1] 1fr[r-2];
   grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr [c-3];
-
+  row-gap: 0.5rem;
   & div {
     display: grid;
   }
@@ -59,8 +59,8 @@
   transform: translateY(0.45rem);
   font-size: typography.$font-size-xl;
   color: colors.$sixth-light;
-  -webkit-text-stroke-width: 0.2rem; // hook2 add webkit to all css
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 0.3rem; // hook2 add webkit to all css
+  -webkit-text-stroke-color: colors.$seventh-light;
 }
 //                  _._._._. Unit of measurment
 @mixin needed-amount-unit-of-measurement {
@@ -68,12 +68,17 @@
   align-self: end;
 
   font-size: typography.$font-size-md;
-  color: colors.$sixth-light;
+  color: colors.$seventh-light;
 }
+
 //                  _._._._. Amounts - current, expected and divider
 @mixin amounts-current-expected {
+  grid-column: c-0/c-3;
+
   font-weight: normal;
   align-self: start;
+
+  color: colors.$seventh-light;
   font-size: typography.$font-size-md;
   font-weight: typography.$font-weight-bold;
 }
@@ -81,7 +86,7 @@
 //           _._._. Buton with active hover effects
 @mixin btn-with-active-hover-effects {
   &:hover {
-    filter: saturate(2.5);
+    filter: saturate(1.5);
   }
   &:active {
     filter: saturate(1);
@@ -91,7 +96,10 @@
 @mixin btn-with-border-radius($radius-size-variant) {
   @include btn-with-active-hover-effects;
   justify-self: center;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 1.25rem 1.25rem;
+
+  color: colors.$seventh-light;
+  box-shadow: colors.$shadow-sharp-right-down-close;
   @if $radius-size-variant == "md" {
     border-radius: variables.$border-radius-sm;
   }

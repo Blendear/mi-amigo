@@ -38,14 +38,19 @@ const ItemDetails = ({ isCreatingNewItem }) => {
       <SingleItemToBuy variant="create-or-edit-view" />
       {/* //       _._. Repeatability type toggler (Button) */}
       <select className={styles["item-create-or-edit-view__repeatability"]}>
-        <option value="Repeatability">Repeatability</option>
+        <option
+          value="Repeatability"
+          style={{ "background-color": "#a8a8a8", color: "#4a4a4a" }}
+        >
+          Repeatability
+        </option>
         <option value="Unique">Unique</option>
         <option value="Traditional">Traditional</option>
       </select>
       {/* //       _._. Expiration date (Date Picker, Button) - date is chosen by hand or automaticcly, after clicking "Open item" */}
 
       <div className={styles["item-create-or-edit-view__exp-date__title"]}>
-        Earliest expiration date:
+        Expiration date:
       </div>
       <div className={styles["item-create-or-edit-view__exp-date__inputs"]}>
         <input
@@ -79,7 +84,7 @@ const ItemDetails = ({ isCreatingNewItem }) => {
             styles["item-create-or-edit-view__prices-in-shops__header__title"]
           }
         >
-          Prices in shops:
+          Prices for:
         </div>
         <input
           type="number"

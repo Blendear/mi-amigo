@@ -41,10 +41,6 @@
   &__amount-to-buy {
     @include mixins.item-amounts-to-buy;
   }
-  &__amount-current {
-  }
-  &__amount-wanted {
-  }
-  &__slash-divider {
+  &__amount-current-and-expected {
   }
 }

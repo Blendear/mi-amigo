@@ -34,7 +34,7 @@ html {
 @mixin fontStylingGlobal {
   font-family: typography.$font-family-primary;
   font-size: typography.$font-size-sm;
-  font-weight: typography.$font-weight-normal;
+  font-weight: typography.$font-weight-bold;
 }
 
 li {

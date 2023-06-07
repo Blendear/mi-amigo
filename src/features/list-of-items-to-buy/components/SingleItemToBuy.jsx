@@ -28,9 +28,15 @@ const SingleItemToBuy = ({ variant, itemID }) => {
           <div className={styles["item-edit-view__unit-of-measurment"]}>
             szt.
           </div>
-          <div className={styles["item-edit-view__amount-current"]}>3</div>
-          <div className={styles["item-edit-view__slash-divider"]}>/</div>
-          <div className={styles["item-edit-view__amount-wanted"]}>12</div>
+          <div
+            className={styles["item-edit-view__amount-current-and-expected"]}
+          >
+            {3}
+            {" / "}
+            {12}
+          </div>
+          {/* <div className={styles["item-edit-view__slash-divider"]}>/</div>
+          <div className={styles["item-edit-view__amount-wanted"]}>12</div> */}
         </div>
       </>
     ),
@@ -55,15 +61,21 @@ const SingleItemToBuy = ({ variant, itemID }) => {
           >
             szt.
           </div>
-          <div className={styles["item-create-or-edit-view__amount-current"]}>
-            3
+          <div
+            className={
+              styles["item-create-or-edit-view__amount-current-and-expected"]
+            }
+          >
+            {3}
+            {" / "}
+            {12}
           </div>
-          <div className={styles["item-create-or-edit-view__slash-divider"]}>
+          {/* <div className={styles["item-create-or-edit-view__slash-divider"]}>
             /
           </div>
           <div className={styles["item-create-or-edit-view__amount-wanted"]}>
             12
-          </div>
+          </div> */}
         </div>
       </>
     ),
