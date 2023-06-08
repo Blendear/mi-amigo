@@ -35,7 +35,7 @@ const SingleItemToBuy = ({ variant, itemID }) => {
                 styles["item-edit-view__amount-to-buy__unit-of-measurment"]
               }
             >
-              szt.
+              pc.
             </div>
           </div>
           <div
@@ -76,7 +76,7 @@ const SingleItemToBuy = ({ variant, itemID }) => {
                 ]
               }
             >
-              szt.
+              pc.
             </div>
           </div>
           <div

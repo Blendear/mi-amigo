@@ -12,7 +12,7 @@ type PriceInShopSingle = {
 };
 type ItemDetails = {
   //hook1 - paste inetrfaces and types to dedicated folder - global or feature "types"
-  id: string; // necessary, because I will need to filter out specific items without talking with the dataabse during each filtering process
+  _id: string; // hook1 - replace with "name" or is additional "_id" it necessary?  because I will need to filter out specific items without talking with the dataabse during each filtering process
   imageURL: string;
   name: string;
   unitOfMeasurement: string;
@@ -20,9 +20,10 @@ type ItemDetails = {
   amountCurrent: number;
   amountMaxExpected: number;
   repeatability: string;
-  expirationDate: string; //hook1 how to format from / to string (locale string?)  &  how to get date and time separately
+  expirationDate: string; //hook1 how to format from / to string (locale string?)  &  how to get date and time separately - link : https://stackoverflow.com/questions/40526102/how-do-you-format-a-date-time-in-typescript
   isOpen: boolean;
   pricesInShops: PriceInShopSingle[];
+  cheapestInThisShop: string; //so that the app doesnt need to filter every time the user choses "cheap" shopping - it just reads this prop
 };
 type URLState = {
   photoPlaceholderURL: string;

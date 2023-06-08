@@ -24,7 +24,7 @@ const ShopPrice = ({ propA, propB }) => {
           ]
         }
       >
-        Nazwa sklepu
+        Shop name
       </div>
       <div
         className={

@@ -134,7 +134,6 @@ const ItemDetails = ({ isCreatingNewItem }) => {
           </li>
         ))}
       </ul>
-
       {/* //       _._. Delete & Save item (Buttons) */}
       <button
         onClick={(e) => {
