@@ -17,7 +17,7 @@ const Navbar = () => {
     <nav className={styles["navbar__container"]}>
       <MenuItemSingle
         svg={"itemsToBuy"}
-        title={"ITEMS TO BUY"}
+        title={"TO BUY"}
         isActive={showAsActive === "itemsToBuy" && true}
         handleClick={() => {
           setShowAsActive("itemsToBuy");

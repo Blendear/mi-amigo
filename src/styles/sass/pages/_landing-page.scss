@@ -11,6 +11,8 @@
     display: grid;
 
     grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr[c-3];
+    // @include mixins.center-grid-items;
+    justify-items: center;
   }
   &__shops-to-visit-container {
     grid-column: c-1 / c-2;
@@ -24,7 +26,7 @@
     display: grid;
     grid-template-rows: [r-0] 0.5fr [r-1] 1.5fr [r-2];
     grid-template-columns: [c-0] 0.5fr [c-1] 1fr [c-2] 0.5fr [c-3];
-
+    @include mixins.center-grid-items;
     & svg {
       :hover {
         filter: saturate(2.5);
@@ -55,6 +57,7 @@
     padding: 1.5rem 0 1.5rem 0;
 
     display: grid;
+    @include mixins.center-grid-items;
 
     & button {
       width: 10rem;
@@ -86,13 +89,14 @@
   }
   &__list-of-items-container {
     padding: 3.5rem;
-    height: 35vh;
+    height: 40dvh;
 
     overflow: hidden;
     overflow-y: scroll; // allows scrolling inside the component
 
     display: grid;
     grid-auto-rows: 6.5rem;
-    row-gap: 2rem;
+    @include mixins.center-grid-items;
+    row-gap: 3rem;
   }
 }

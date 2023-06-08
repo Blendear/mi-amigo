@@ -1,5 +1,5 @@
 import exampleImage from "../../../../../public/images/examplePath.png";
-
+// hook1 - cut and paste this file to the original mi-amigo
 interface IToolTrapProtipObject {
   poziom: number;
   miejsce: string;
