@@ -40,7 +40,8 @@
     @include mixins.center-grid-items;
 
     width: 110%;
-    aspect-ratio: 2.5/1;
+    // aspect-ratio: 2.5/1;
+
     transform: translateX(-0.5rem);
   }
   &__amount-to-buy {
@@ -54,5 +55,6 @@
     }
   }
   &__amount-current-and-expected {
+    @include mixins.amounts-current-expected;
   }
 }
