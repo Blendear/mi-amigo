@@ -33,7 +33,7 @@ const ShopPrice = ({ propA, propB }) => {
           ]
         }
       >
-        5,50 zł
+        5,50 $
       </div>
     </>
   );
