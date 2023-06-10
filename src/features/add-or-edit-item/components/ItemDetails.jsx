@@ -35,7 +35,10 @@ const ItemDetails = ({ isCreatingNewItem }) => {
       onSubmit={handleSubmitForm}
       className={styles["item-create-or-edit-view__container"]}
     >
-      <SingleItemToBuy variant="create-or-edit-view" />
+      <SingleItemToBuy
+        variant="create-or-edit-view"
+        itemAlreadyExists={false}
+      />
       {/* //       _._. Repeatability type toggler (Button) */}
       <select className={styles["item-create-or-edit-view__repeatability"]}>
         <option

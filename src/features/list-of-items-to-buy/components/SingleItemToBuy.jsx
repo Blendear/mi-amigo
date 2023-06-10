@@ -5,10 +5,15 @@ import styles from "src/styles/sass/styles-all.module.scss";
 import Image from "next/image";
 import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
 
-const SingleItemToBuy = ({ variant, itemID }) => {
+const placeholderImageURL =
+  "https://www.bjcconnect.com.au/hubfs/Placeholder%20Square.png";
+//hook2 - /\ add it to the table of  contents later
+
+const SingleItemToBuy = ({ variant, itemAlreadyExists, itemSingle }) => {
   //hook2 - add this redux code to the table of contentd comments
   const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
 
+  //hook1 - remake this, because i have two nearly the same copies of JSX below. maybe its cleaner to waytch, bot iuts not DRY code
   return {
     //       _._. Variant name - "list view" or "create/edit item view", used depending on "does the user see it on the laning page as a list item, or when he tries to create/edit an item?"
     //           _._._. Variant : "list-view"
@@ -18,32 +23,39 @@ const SingleItemToBuy = ({ variant, itemID }) => {
 
         <div className={styles["item-edit-view__img"]}>
           <Image
-            src={reduxStateImageURL.photoPlaceholderURL}
+            src={itemAlreadyExists ? itemSingle.imageURL : placeholderImageURL}
             alt={`nie pyklo zdjecie`}
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPs+3j4PwAHmgNDkGNxigAAAABJRU5ErkJggg==" //hook2 - write this down, sweet placeholder technique
           />
         </div>
-        <div className={styles["item-edit-view__title"]}>title</div>
+
+        <div className={styles["item-edit-view__title"]}>
+          {itemAlreadyExists ? itemSingle.name : "Item name"}
+        </div>
         <div className={styles["item-edit-view__amounts-container"]}>
           <div className={styles["item-edit-view__amount-to-buy"]}>
             <div className={styles["item-edit-view__amount-to-buy__number"]}>
-              9{" "}
+              {itemAlreadyExists
+                ? itemSingle.amountMaxExpected - itemSingle.amountCurrent
+                : "?"}
             </div>
             <div
               className={
                 styles["item-edit-view__amount-to-buy__unit-of-measurment"]
               }
             >
-              pc.
+              {itemAlreadyExists ? itemSingle.unitOfMeasurement : ""}
             </div>
           </div>
           <div
             className={styles["item-edit-view__amount-current-and-expected"]}
           >
-            {3}
+            {itemAlreadyExists ? itemSingle.amountCurrent : "?"}
             {" / "}
-            {12}
+            {itemAlreadyExists ? itemSingle.amountMaxExpected : "?"}
           </div>
         </div>
       </>
@@ -53,13 +65,15 @@ const SingleItemToBuy = ({ variant, itemID }) => {
       <>
         <div className={styles["item-create-or-edit-view__img"]}>
           <Image
-            src={reduxStateImageURL.photoPlaceholderURL}
+            src={itemAlreadyExists ? itemSingle.imageURL : placeholderImageURL}
             alt={`nie pyklo zdjecie`}
             layout="fill"
             objectFit="cover"
           />
         </div>
-        <div className={styles["item-create-or-edit-view__title"]}>title</div>
+        <div className={styles["item-create-or-edit-view__title"]}>
+          {itemAlreadyExists ? itemSingle.name : "Item name"}
+        </div>
         <div className={styles["item-create-or-edit-view__amounts-container"]}>
           <div className={styles["item-create-or-edit-view__amount-to-buy"]}>
             <div
@@ -67,7 +81,9 @@ const SingleItemToBuy = ({ variant, itemID }) => {
                 styles["item-create-or-edit-view__amount-to-buy__number"]
               }
             >
-              9{" "}
+              {itemAlreadyExists
+                ? itemSingle.amountMaxExpected - itemSingle.amountCurrent
+                : "?"}
             </div>
             <div
               className={
@@ -76,7 +92,7 @@ const SingleItemToBuy = ({ variant, itemID }) => {
                 ]
               }
             >
-              pc.
+              {itemAlreadyExists ? itemSingle.unitOfMeasurement : ""}
             </div>
           </div>
           <div
@@ -84,9 +100,9 @@ const SingleItemToBuy = ({ variant, itemID }) => {
               styles["item-create-or-edit-view__amount-current-and-expected"]
             }
           >
-            {3}
+            {itemAlreadyExists ? itemSingle.amountCurrent : "?"}
             {" / "}
-            {12}
+            {itemAlreadyExists ? itemSingle.amountMaxExpected : "?"}
           </div>
         </div>
       </>

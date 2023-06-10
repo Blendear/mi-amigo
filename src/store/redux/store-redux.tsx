@@ -8,7 +8,7 @@ type PriceInShopSingle = {
   imageURL: string; // hook1 - usert shuld be able to create "my shops list", so that he dont need to find url's eveyr time, but just choose an image url for the list
   name: string;
   price: number;
-  currency: string;
+  // currency: string; - automatically gotten from settings
 };
 type ItemDetails = {
   //hook1 - paste inetrfaces and types to dedicated folder - global or feature "types"

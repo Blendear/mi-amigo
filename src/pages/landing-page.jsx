@@ -9,8 +9,36 @@ import {
 // import {} from "../features/current-weather/index";
 import { ListOfItemsToBuy } from "../features/list-of-items-to-buy/index";
 import { CurrentWeather } from "../features/current-weather/index";
+import { useState } from "react";
 
 const LandingPage = () => {
+  const [itemsFromDB, setItemsFromDB] = useState([
+    {
+      imageURL:
+        "https://cdn.shopify.com/s/files/1/0266/5817/7121/products/product-image-535342209_grande.jpg?v=1571720057",
+      name: "Carrot",
+      unitOfMeasurement: "szt.",
+      amountCurrent: 3,
+      amountMaxExpected: 12,
+    },
+
+    {
+      imageURL:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTppSddrPcB7SawpZJbtZnA6C5KqppS7YbGs8MQxzRDvPfqwNJ3Qcuyz7HwaAfq6KDIv9E&usqp=CAU",
+      name: "Wata",
+      unitOfMeasurement: "l",
+      amountCurrent: 2,
+      amountMaxExpected: 4,
+    },
+    {
+      imageURL:
+        "https://i.etsystatic.com/29643476/r/il/50a04e/3121476700/il_fullxfull.3121476700_ayqm.jpg",
+      name: "Watamala",
+      unitOfMeasurement: "g",
+      amountCurrent: 300,
+      amountMaxExpected: 400,
+    },
+  ]);
   return (
     <div className={styles["landing-page__container"]}>
       <div className={styles["landing-page__shops-and-weather-container"]}>
@@ -18,7 +46,7 @@ const LandingPage = () => {
         <ShopsToVisitGallery />
         <CurrentWeather />
       </div>
-      <ListOfItemsToBuy />
+      <ListOfItemsToBuy itemsFromDB={itemsFromDB} />
     </div>
   );
 };

@@ -5,50 +5,16 @@ import styles from "src/styles/sass/styles-all.module.scss";
 import SingleItemToBuy from "./SingleItemToBuy";
 import { useState } from "react";
 
-const ListOfItemsToBuy = () => {
-  const [itemsToRender, setItemsToRender] = useState([
-    {
-      name: "mieso-photo",
-      title: "mieso",
-      "amount-current": 3,
-      "amount-wanted": 12,
-      "unit-of-measurment": "kg",
-    },
-    {
-      name: "jajko-photo",
-      title: "jajko",
-      "amount-current": 13,
-      "amount-wanted": 20,
-      "unit-of-measurment": "szt.",
-    },
-    {
-      name: "jajko-photo",
-      title: "jajko",
-      "amount-current": 13,
-      "amount-wanted": 20,
-      "unit-of-measurment": "szt.",
-    },
-    {
-      name: "jajko-photo",
-      title: "jajko",
-      "amount-current": 13,
-      "amount-wanted": 20,
-      "unit-of-measurment": "szt.",
-    },
-    {
-      name: "jajko-photo",
-      title: "jajko",
-      "amount-current": 13,
-      "amount-wanted": 20,
-      "unit-of-measurment": "szt.",
-    },
-  ]);
-
+const ListOfItemsToBuy = ({ itemsFromDB }) => {
   return (
     <ul className={styles["landing-page__list-of-items-container"]}>
-      {itemsToRender.map((item) => (
+      {itemsFromDB.map((item) => (
         <li key={item.name} className={styles["item-edit-view__container"]}>
-          <SingleItemToBuy variant="list-view" />
+          <SingleItemToBuy
+            variant="list-view"
+            itemAlreadyExists={true}
+            itemSingle={item}
+          />
         </li>
       ))}
     </ul>
