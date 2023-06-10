@@ -11,21 +11,17 @@
 
     display: grid;
     grid-template-rows: [r-0] 1fr [r-1];
-    grid-template-columns: [c-0] 0.68fr[c-1] 2fr[c-2] 1fr [c-3];
+    grid-template-columns: [c-0] 0.68fr [c-1] 2fr[c-2] 1fr [c-3];
     grid-auto-flow: column;
   }
   &__img {
     @include mixins.item-img;
     @include mixins.next-img-border-radius(1rem);
-    // grid-column: c-0/c-1;
-    width: 104%;
   }
   &__title {
     @include mixins.item-title;
     grid-column: c-1/c-2;
     width: 110%;
-
-    aspect-ratio: 3.1/1;
 
     padding: 0 20% 0 20%;
     justify-items: start;
@@ -40,7 +36,6 @@
     @include mixins.center-grid-items;
 
     width: 110%;
-    // aspect-ratio: 2.5/1;
 
     transform: translateX(-0.5rem);
   }

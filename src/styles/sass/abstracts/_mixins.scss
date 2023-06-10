@@ -8,9 +8,10 @@
 //       _._. Item necessary info component mixins
 //           _._._. Item container
 @mixin item-container {
-  width: max(
-    20rem,
-    100%
+  // \/ hook1 - make fonts responsive first, because they dont allow to shrink the container
+  width: min(
+    100%,
+    40rem
   ); //hook1 - VERY risky, sinze 20rem may overflow. clamp maybe?
   aspect-ratio: 6/1; // hoo1 trap1 - aspect ratio, combined with widti max20rem-100%, destroyed my modal size for somereason. understand why for the future
 
