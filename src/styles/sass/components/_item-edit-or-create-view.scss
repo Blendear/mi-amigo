@@ -89,7 +89,7 @@
       &__date {
         justify-self: end;
         padding: 0.5rem 0 0.5rem 1rem;
-        width: 12rem;
+        width: min(25vw, 16rem);
 
         border-radius: 1rem 0 0 1rem;
         background-color: colors.$sixth-light;
@@ -119,11 +119,13 @@
       height: 3.8rem;
 
       display: grid;
-      grid-template-columns: 8.5rem 6rem 6rem 1fr;
+      grid-template-columns: max-content 0.5fr 0.5fr 1fr;
 
       &__title {
         justify-self: start;
         align-self: center;
+        white-space: nowrap;
+        margin: 0 1rem 0 0;
       }
 
       &__amount {
