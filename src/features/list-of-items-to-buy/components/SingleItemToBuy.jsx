@@ -40,7 +40,10 @@ const SingleItemToBuy = ({
           />
         </button>
 
-        <button className={styles["item-edit-view__title"]}>
+        <button
+          onFocus={handleOnClick}
+          className={styles["item-edit-view__title"]}
+        >
           {itemAlreadyExists ? itemSingle.name : "Item name"}
         </button>
         <div className={styles["item-edit-view__amounts-container"]}>
