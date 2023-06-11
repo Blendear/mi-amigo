@@ -98,8 +98,8 @@
     grid-auto-rows: 6.5rem;
     @include mixins.center-grid-items;
 
-    @media screen and (min-width: 380px) {
-      row-gap: max(2rem);
+    @media screen and (min-width: 370px) {
+      row-gap: clamp(0.2rem, 1.2rem + 2vw, 3rem);
     }
   }
 }
