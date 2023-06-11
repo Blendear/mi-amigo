@@ -153,18 +153,30 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
           styles["item-create-or-edit-view__prices-in-shops__list-of-prices"]
         }
       >
-        {itemData.pricesInShops.map((item, index) => (
-          <li
-            key={index}
+        {itemData.pricesInShops ? (
+          itemData.pricesInShops.map((item, index) => (
+            <li
+              key={index}
+              className={
+                styles[
+                  "item-create-or-edit-view__prices-in-shops__list-of-prices__item"
+                ]
+              }
+            >
+              <ShopPrice shopData={item} />
+            </li>
+          ))
+        ) : (
+          <div
             className={
               styles[
-                "item-create-or-edit-view__prices-in-shops__list-of-prices__item"
+                "item-create-or-edit-view__prices-in-shops__list-of-prices__no-prices-text"
               ]
             }
           >
-            <ShopPrice shopData={item} />
-          </li>
-        ))}
+            No prices added yet
+          </div>
+        )}
       </ul>
       {/* //       _._. Delete & Save item (Buttons) */}
       <button
