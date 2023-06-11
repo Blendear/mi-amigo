@@ -17,6 +17,7 @@ const LandingPage = () => {
       imageURL:
         "https://cdn.shopify.com/s/files/1/0266/5817/7121/products/product-image-535342209_grande.jpg?v=1571720057",
       itemName: "Carrot",
+      numberOfMeasurement: "1",
       unitOfMeasurement: "szt.",
       amountCurrent: 3,
       amountMaxExpected: 12,
@@ -45,6 +46,7 @@ const LandingPage = () => {
       imageURL:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTppSddrPcB7SawpZJbtZnA6C5KqppS7YbGs8MQxzRDvPfqwNJ3Qcuyz7HwaAfq6KDIv9E&usqp=CAU",
       itemName: "Wata",
+      numberOfMeasurement: "1",
       unitOfMeasurement: "l",
       amountCurrent: 2,
       amountMaxExpected: 4,
@@ -72,6 +74,7 @@ const LandingPage = () => {
       imageURL:
         "https://i.etsystatic.com/29643476/r/il/50a04e/3121476700/il_fullxfull.3121476700_ayqm.jpg",
       itemName: "Watamala",
+      numberOfMeasurement: "500",
       unitOfMeasurement: "g",
       amountCurrent: 300,
       amountMaxExpected: 400,

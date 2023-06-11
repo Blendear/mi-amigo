@@ -120,13 +120,19 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
         </div>
         <input
           type="number"
-          placeholder="1"
+          defaultValue={
+            isCreatingNewItem === false ? itemData.numberOfMeasurement : ""
+          }
+          placeholder="0"
           className={
             styles["item-create-or-edit-view__prices-in-shops__header__amount"]
           }
         ></input>
         <input
           type="text"
+          defaultValue={
+            isCreatingNewItem === false ? itemData.unitOfMeasurement : ""
+          }
           placeholder="pc."
           className={
             styles[
