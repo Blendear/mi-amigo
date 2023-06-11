@@ -14,7 +14,10 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
   //
   const shopPricesToRender = [{ name: "A" }, { name: "B" }];
   const [photo, setPhoto] = useState("");
-
+  // hook1 - add this kind of state for eveyr single item data - so that its posible to change it and - with "CONFIRM" button, send iut to Firestore DB
+  const [isOpen, setIsOpen] = useState(
+    isCreatingNewItem ? false : openedItemData.isOpen
+  );
   // const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
   // console.log(reduxStateImageURL);
 
@@ -52,7 +55,14 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
       )}
 
       {/* //       _._. Repeatability type toggler (Button) */}
-      <select className={styles["item-create-or-edit-view__repeatability"]}>
+      <select
+        // hook2 - add to table of content - "checking if the item was opened because user ciced "add item" or "open this item" "
+        //hook2 - could this  whole conditional dcontent checker be refactored into a dynamic function? Would it make sense tho?
+        defaultValue={
+          isCreatingNewItem === false ? openedItemData.repeatability : ""
+        }
+        className={styles["item-create-or-edit-view__repeatability"]}
+      >
         <option
           value="Repeatability"
           style={{ "background-color": "#a8a8a8", color: "#4a4a4a" }}
@@ -69,12 +79,18 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
       </div>
       <div className={styles["item-create-or-edit-view__exp-date__inputs"]}>
         <input
+          defaultValue={
+            isCreatingNewItem === false ? openedItemData.expirationDateDay : ""
+          }
           type="date"
           className={styles["item-create-or-edit-view__exp-date__inputs__date"]}
         ></input>
         <input
           type="time"
           className={styles["item-create-or-edit-view__exp-date__inputs__time"]}
+          defaultValue={
+            isCreatingNewItem === false ? openedItemData.expirationDateTime : ""
+          }
         ></input>
         <button
           onClick={(e) => {
@@ -82,11 +98,13 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
           }}
           className={
             styles[
-              "item-create-or-edit-view__exp-date__inputs__btn-toggle-open"
+              `item-create-or-edit-view__exp-date__inputs__btn-toggle-open${
+                isOpen ? "--opened" : ""
+              }`
             ]
           }
         >
-          Unused
+          {isOpen ? "Opened" : "Unused"}
         </button>
       </div>
 

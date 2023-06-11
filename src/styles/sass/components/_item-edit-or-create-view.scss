@@ -102,11 +102,14 @@
         border-radius: 0 1rem 1rem 0;
         background-color: colors.$sixth-light;
       }
-      &__btn-toggle-open {
+      @mixin button-toggle-open {
         @include mixins.btn-with-border-radius("md");
         background-color: colors.$succes;
-
+      }
+      &__btn-toggle-open {
+        @include button-toggle-open();
         &--opened {
+          @include button-toggle-open();
           background-color: colors.$danger;
         }
       }

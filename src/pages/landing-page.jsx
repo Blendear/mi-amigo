@@ -16,27 +16,54 @@ const LandingPage = () => {
     {
       imageURL:
         "https://cdn.shopify.com/s/files/1/0266/5817/7121/products/product-image-535342209_grande.jpg?v=1571720057",
-      name: "Carrot",
+      itemName: "Carrot",
       unitOfMeasurement: "szt.",
       amountCurrent: 3,
       amountMaxExpected: 12,
+      repeatability: "Traditional",
+      expirationDateDay: "2023-01-01",
+      expirationDateTime: "13:13",
+      isOpen: false,
+      pricesInShops: [
+        { shopName: "Kaufland", price: 3.39 },
+        { shopName: "Aldi", price: 6.66 },
+      ],
+      cheapestInThisShop: "Kaufland",
     },
 
     {
       imageURL:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTppSddrPcB7SawpZJbtZnA6C5KqppS7YbGs8MQxzRDvPfqwNJ3Qcuyz7HwaAfq6KDIv9E&usqp=CAU",
-      name: "Wata",
+      itemName: "Wata",
       unitOfMeasurement: "l",
       amountCurrent: 2,
       amountMaxExpected: 4,
+      repeatability: "Traditional",
+      expirationDateDay: "2023-02-02",
+      expirationDateTime: "14:14",
+      isOpen: true,
+      pricesInShops: [
+        { shopName: "Lidl", price: 2 },
+        { shopName: "Kaufland", price: 8.88 },
+      ],
+      cheapestInThisShop: "Lidl",
     },
     {
       imageURL:
         "https://i.etsystatic.com/29643476/r/il/50a04e/3121476700/il_fullxfull.3121476700_ayqm.jpg",
-      name: "Watamala",
+      itemName: "Watamala",
       unitOfMeasurement: "g",
       amountCurrent: 300,
       amountMaxExpected: 400,
+      repeatability: "Unique",
+      expirationDateDay: "2023-03-03",
+      expirationDateTime: "15:15",
+      isOpen: false,
+      pricesInShops: [
+        { shopName: "Aldi", price: 21.37 },
+        { shopName: "Kaufland", price: 99.88 },
+      ],
+      cheapestInThisShop: "Aldi",
     },
   ]);
   return (

@@ -6,7 +6,7 @@ import { createSlice, configureStore, PayloadAction } from "@reduxjs/toolkit";
 //      _._. Initial states interfaces (expected properties and their types of values)
 type PriceInShopSingle = {
   imageURL: string; // hook1 - usert shuld be able to create "my shops list", so that he dont need to find url's eveyr time, but just choose an image url for the list
-  name: string;
+  shopName: string;
   price: number;
   // currency: string; - automatically gotten from settings
 };
@@ -14,13 +14,14 @@ type ItemDetails = {
   //hook1 - paste inetrfaces and types to dedicated folder - global or feature "types"
   _id: string; // hook1 - replace with "name" or is additional "_id" it necessary?  because I will need to filter out specific items without talking with the dataabse during each filtering process
   imageURL: string;
-  name: string;
+  itemName: string;
   unitOfMeasurement: string;
   amountNeeded: number;
   amountCurrent: number;
   amountMaxExpected: number;
   repeatability: string;
-  expirationDate: string; //hook1 how to format from / to string (locale string?)  &  how to get date and time separately - link : https://stackoverflow.com/questions/40526102/how-do-you-format-a-date-time-in-typescript
+  expirationDateDay: string; //hook1 how to format from / to string (locale string?)  &  how to get date and time separately - link : https://stackoverflow.com/questions/40526102/how-do-you-format-a-date-time-in-typescript
+  expirationDateTime: string;
   isOpen: boolean;
   pricesInShops: PriceInShopSingle[];
   cheapestInThisShop: string; //so that the app doesnt need to filter every time the user choses "cheap" shopping - it just reads this prop
