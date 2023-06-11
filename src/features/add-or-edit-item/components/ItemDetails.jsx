@@ -31,14 +31,14 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
   //hook2 - add this redux code to the table of contentd comments
   const dispatch = useAppDispatch();
 
-  //hook2 add this code to table of contents \/
+  //hook2 add this code to table of contents \/.
 
   // Get reference the document we want - by passing : databaseReference, collectionName, documentName
   const collectionReference = collection(
     db,
     "shopping-assistant", //col
     "test-user", // col.doc
-    "items" // col.doc.col
+    "items" // col.doc.col.
   );
   // (CRUD - Create)
   const createItemInsideDB = async (newItemData) => {
