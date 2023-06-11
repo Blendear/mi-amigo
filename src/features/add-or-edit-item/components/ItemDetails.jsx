@@ -9,7 +9,15 @@ import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
 import { urlSliceActions } from "../../../store/redux/store-redux";
 import { ImCheckmark } from "react-icons/im";
 import { MdDeleteForever } from "react-icons/md";
-
+import { db } from "../../../features/authentication/lib/init-firebase";
+import {
+  addDoc,
+  collection, // gets a reference to a chosen collection
+  getDocs,
+  updateDoc,
+  doc, // gets a reference to a chosen document
+  deleteDoc,
+} from "firebase/firestore";
 const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
   //
 
@@ -22,14 +30,45 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
 
   //hook2 - add this redux code to the table of contentd comments
   const dispatch = useAppDispatch();
-  //hook2 add this code to table of contents
+
+  //hook2 add this code to table of contents \/
+
+  // Get reference the document we want - by passing : databaseReference, collectionName, documentName
+  const collectionReference = collection(
+    db,
+    "shopping-assistant", //col
+    "test-user", // col.doc
+    "items" // col.doc.col
+  );
+  // (CRUD - Create)
+  const createItemInsideDB = async (newItemData) => {
+    await addDoc(collectionReference, newItemData);
+  };
+  //hook2 - \/ export this creat/eedit funcitons to separate files
+  const handleCreateNewItem = () => {
+    console.log("created item");
+    //     hook1 - (redux jednak?) check if a item with this name exisits - if yes, tell the user to change the name or chekc if the item isnt already inside of it
+
+    setItemData({ itemName: "carrot", test: "approved" }); // should be set with form data & TEST IF react-hook-form wil prevent the onSubmit to work, if the data isnt valid
+    console.log("item data: ", itemData);
+    createItemInsideDB(itemData);
+    //     hook1 - close itemDetails modal
+  };
+
+  const handleEditExistingItem = () => {
+    console.log("edited item ");
+  };
+
   const handleSubmitForm = (event) => {
+    isCreatingNewItem === false
+      ? handleEditExistingItem()
+      : handleCreateNewItem();
     event.preventDefault();
-    dispatch(
-      urlSliceActions.setURL({
-        newURL: photo,
-      })
-    );
+    // dispatch(
+    //   urlSliceActions.setURL({
+    //     newURL: photo,
+    //   })
+    // );
   };
 
   console.log(openedItemData ? itemData : "no data passed");

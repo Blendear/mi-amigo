@@ -4,6 +4,9 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 import { useState, useEffect } from "react";
 //       _._. Connect to Firestore DB ("db" is our custom name - we gave it inside "init-firebase.ts") - for making CRUD operation on our database   &   import neede funtions to operate on colections, documents etc.
+//hook2 - the firebase code should be in a differently amed folder imo, not authentication
+// &
+// every functino should be a separate component, dont you think?
 import { db } from "../features/authentication/lib/init-firebase";
 import {
   addDoc,
