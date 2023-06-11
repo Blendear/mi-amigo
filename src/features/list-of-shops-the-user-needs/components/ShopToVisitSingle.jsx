@@ -5,14 +5,14 @@ import styles from "src/styles/sass/styles-all.module.scss";
 import Image from "next/image";
 import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
 
-const ShopToVisitSingle = ({ isActive }) => {
+const ShopToVisitSingle = ({ isActive, shopURL }) => {
   //hook2 - add this redux code to the table of contentd comments
   const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
 
   return (
     isActive && (
       <Image
-        src={reduxStateImageURL.photoPlaceholderURL}
+        src={shopURL}
         alt={`nie pyklo zdjecie`}
         layout="fill"
         objectFit="cover"

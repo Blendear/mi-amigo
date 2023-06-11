@@ -25,8 +25,18 @@ const LandingPage = () => {
       expirationDateTime: "13:13",
       isOpen: false,
       pricesInShops: [
-        { shopName: "Kaufland", price: 3.39 },
-        { shopName: "Aldi", price: 6.66 },
+        {
+          shopName: "Kaufland",
+          imageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/6/65/Kaufland_Deutschland.png",
+          price: 3.39,
+        },
+        {
+          shopName: "Aldi",
+          imageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Aldi_Nord_201x_logo.svg/1200px-Aldi_Nord_201x_logo.svg.png",
+          price: 6.66,
+        },
       ],
       cheapestInThisShop: "Kaufland",
     },
@@ -43,8 +53,18 @@ const LandingPage = () => {
       expirationDateTime: "14:14",
       isOpen: true,
       pricesInShops: [
-        { shopName: "Lidl", price: 2 },
-        { shopName: "Kaufland", price: 8.88 },
+        {
+          shopName: "Lidl",
+          imageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Lidl-Logo.svg/2048px-Lidl-Logo.svg.png",
+          price: 2,
+        },
+        {
+          shopName: "Kaufland",
+          imageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/6/65/Kaufland_Deutschland.png",
+          price: 8.88,
+        },
       ],
       cheapestInThisShop: "Lidl",
     },
@@ -60,8 +80,12 @@ const LandingPage = () => {
       expirationDateTime: "15:15",
       isOpen: false,
       pricesInShops: [
-        { shopName: "Aldi", price: 21.37 },
-        { shopName: "Kaufland", price: 99.88 },
+        {
+          shopName: "Aldi",
+          imageURL:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Aldi_Nord_201x_logo.svg/1200px-Aldi_Nord_201x_logo.svg.png",
+          price: 21.37,
+        },
       ],
       cheapestInThisShop: "Aldi",
     },

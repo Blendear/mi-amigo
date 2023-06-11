@@ -155,6 +155,7 @@
       grid-column: c-0/c-2;
       margin: 1.25rem 0;
       padding: 1.75rem 0.75rem;
+      height: 12.5rem;
 
       background-color: colors.$sixth-light;
       border-radius: 1rem;
@@ -163,15 +164,20 @@
       display: grid;
       row-gap: 1.5rem;
 
+      overflow-y: scroll;
+
       &__item {
         justify-items: start;
-        align-items: center;
+        align-items: start;
 
         display: grid;
-        grid-auto-flow: column;
+        grid-template-columns: max-content 1fr 0.6fr;
+
+        grid-auto-rows: max-content;
 
         & * {
           font-size: typography.$font-size-md;
+          align-self: center;
         }
 
         &__shop-img {
@@ -185,13 +191,13 @@
         &__shop-name {
           padding: 0 2rem 0 0;
           justify-self: start;
-
-          border-right: 0.3rem solid colors.$grey-light;
         }
         &__price-value {
+          padding: 0 1rem 0 0;
           width: 100%;
-          text-align: center;
-          // padding: 0 0 0 2rem;
+          text-align: end;
+
+          border-left: 0.3rem solid colors.$grey-light;
         }
       }
     }

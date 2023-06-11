@@ -5,7 +5,7 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 import ShopToVisitSingle from "../../list-of-shops-the-user-needs/components/ShopToVisitSingle";
 
-const ShopPrice = ({ propA, propB }) => {
+const ShopPrice = ({ shopData }) => {
   return (
     <>
       <div
@@ -15,7 +15,7 @@ const ShopPrice = ({ propA, propB }) => {
           ]
         }
       >
-        <ShopToVisitSingle isActive={true} />
+        <ShopToVisitSingle shopURL={shopData.imageURL} isActive={true} />
       </div>
       <div
         className={
@@ -24,7 +24,7 @@ const ShopPrice = ({ propA, propB }) => {
           ]
         }
       >
-        Shop name
+        {shopData.shopName}
       </div>
       <div
         className={
@@ -33,7 +33,7 @@ const ShopPrice = ({ propA, propB }) => {
           ]
         }
       >
-        5,50 $
+        {`${shopData.price.toFixed(2)} $`}
       </div>
     </>
   );

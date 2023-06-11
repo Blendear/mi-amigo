@@ -12,11 +12,10 @@ import { MdDeleteForever } from "react-icons/md";
 
 const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
   //
-  const shopPricesToRender = [{ name: "A" }, { name: "B" }];
+
   const [photo, setPhoto] = useState("");
-  // hook1 - add this kind of state for eveyr single item data - so that its posible to change it and - with "CONFIRM" button, send iut to Firestore DB
-  const [isOpen, setIsOpen] = useState(
-    isCreatingNewItem ? false : openedItemData.isOpen
+  const [itemData, setItemData] = useState(
+    isCreatingNewItem ? {} : openedItemData
   );
   // const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
   // console.log(reduxStateImageURL);
@@ -33,7 +32,7 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
     );
   };
 
-  console.log(openedItemData ? openedItemData : "no data passed");
+  console.log(openedItemData ? itemData : "no data passed");
 
   return (
     <form
@@ -99,12 +98,12 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
           className={
             styles[
               `item-create-or-edit-view__exp-date__inputs__btn-toggle-open${
-                isOpen ? "--opened" : ""
+                itemData.isOpen ? "--opened" : ""
               }`
             ]
           }
         >
-          {isOpen ? "Opened" : "Unused"}
+          {itemData.isOpen ? "Opened" : "Unused"}
         </button>
       </div>
 
@@ -154,16 +153,16 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
           styles["item-create-or-edit-view__prices-in-shops__list-of-prices"]
         }
       >
-        {shopPricesToRender.map((item) => (
+        {itemData.pricesInShops.map((item, index) => (
           <li
-            key={item.name}
+            key={index}
             className={
               styles[
                 "item-create-or-edit-view__prices-in-shops__list-of-prices__item"
               ]
             }
           >
-            <ShopPrice />
+            <ShopPrice shopData={item} />
           </li>
         ))}
       </ul>

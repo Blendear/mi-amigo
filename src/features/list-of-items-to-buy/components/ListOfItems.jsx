@@ -22,8 +22,8 @@ const ListOfItemsToBuy = ({ itemsFromDB }) => {
   return (
     <>
       <ul className={styles["landing-page__list-of-items-container"]}>
-        {itemsFromDB.map((item) => (
-          <li key={item.name} className={styles["item-edit-view__container"]}>
+        {itemsFromDB.map((item, index) => (
+          <li key={index} className={styles["item-edit-view__container"]}>
             <SingleItemToBuy
               variant="list-view"
               itemAlreadyExists={true}
