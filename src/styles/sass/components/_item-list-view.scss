@@ -38,6 +38,7 @@
     width: 110%;
 
     transform: translateX(-0.5rem);
+    white-space: nowrap;
   }
   &__amount-to-buy {
     @include mixins.item-amounts-to-buy-container;

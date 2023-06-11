@@ -97,6 +97,9 @@
     display: grid;
     grid-auto-rows: 6.5rem;
     @include mixins.center-grid-items;
-    row-gap: 3rem;
+
+    @media screen and (min-width: 380px) {
+      row-gap: max(2rem);
+    }
   }
 }

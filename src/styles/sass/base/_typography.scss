@@ -3,10 +3,13 @@
 //
 $font-family-primary: "Gill Sans", "Gill Sans MT", "Calibri", sans-serif;
 
-$font-size-sm: 1.5rem;
-$font-size-md: 2rem;
+$font-size-sm: min(1.9rem, 4vw);
+// $font-size-md: 2rem;
+$font-size-md: min(2rem, 5vw);
 $font-size-lg: 2.5rem;
-$font-size-xl: 3.75rem;
+
+// $font-size-xl: 3.75rem;
+$font-size-xl: min(3.75rem, 7vw);
 
 $font-weight-normal: 300;
 $font-weight-bold: 600;
