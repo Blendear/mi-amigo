@@ -37,6 +37,7 @@ const Footer = () => {
 
       {showCreateNewItemModalAndBackdrop && (
         <>
+          {/* \/ hook2 - make a sub-component for modals dedicated for item details rendering. its used in 2 places, so its worht it */}
           <Modal variant="information">
             <button
               onClick={() => {

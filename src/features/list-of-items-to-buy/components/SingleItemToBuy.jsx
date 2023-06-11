@@ -9,7 +9,12 @@ const placeholderImageURL =
   "https://www.bjcconnect.com.au/hubfs/Placeholder%20Square.png";
 //hook2 - /\ add it to the table of  contents later
 
-const SingleItemToBuy = ({ variant, itemAlreadyExists, itemSingle }) => {
+const SingleItemToBuy = ({
+  variant,
+  itemAlreadyExists,
+  itemSingle,
+  handleOnClick,
+}) => {
   //hook2 - add this redux code to the table of contentd comments
   const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
 
@@ -21,7 +26,10 @@ const SingleItemToBuy = ({ variant, itemAlreadyExists, itemSingle }) => {
       <>
         {/* hook2 - change "item-edit-view" to "item-list-view". i misspelled the name at the beginning */}
 
-        <div className={styles["item-edit-view__img"]}>
+        <button
+          onFocus={handleOnClick}
+          className={styles["item-edit-view__img"]}
+        >
           <Image
             src={itemAlreadyExists ? itemSingle.imageURL : placeholderImageURL}
             alt={`nie pyklo zdjecie`}
@@ -30,11 +38,11 @@ const SingleItemToBuy = ({ variant, itemAlreadyExists, itemSingle }) => {
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPs+3j4PwAHmgNDkGNxigAAAABJRU5ErkJggg==" //hook2 - write this down, sweet placeholder technique
           />
-        </div>
+        </button>
 
-        <div className={styles["item-edit-view__title"]}>
+        <button className={styles["item-edit-view__title"]}>
           {itemAlreadyExists ? itemSingle.name : "Item name"}
-        </div>
+        </button>
         <div className={styles["item-edit-view__amounts-container"]}>
           <div className={styles["item-edit-view__amount-to-buy"]}>
             <div className={styles["item-edit-view__amount-to-buy__number"]}>

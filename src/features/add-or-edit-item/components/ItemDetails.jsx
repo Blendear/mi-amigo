@@ -10,7 +10,7 @@ import { urlSliceActions } from "../../../store/redux/store-redux";
 import { ImCheckmark } from "react-icons/im";
 import { MdDeleteForever } from "react-icons/md";
 
-const ItemDetails = ({ isCreatingNewItem }) => {
+const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
   //
   const shopPricesToRender = [{ name: "A" }, { name: "B" }];
   const [photo, setPhoto] = useState("");
@@ -30,15 +30,27 @@ const ItemDetails = ({ isCreatingNewItem }) => {
     );
   };
 
+  console.log(openedItemData ? openedItemData : "no data passed");
+
   return (
     <form
       onSubmit={handleSubmitForm}
       className={styles["item-create-or-edit-view__container"]}
     >
-      <SingleItemToBuy
-        variant="create-or-edit-view"
-        itemAlreadyExists={false}
-      />
+      {/* \/ hook2 - add to table of contents - "necwessary for using item detialsmodal separately for new item creation and separately for editing existing item" */}
+      {isCreatingNewItem === false ? (
+        <SingleItemToBuy
+          variant="create-or-edit-view"
+          itemAlreadyExists={true}
+          itemSingle={openedItemData}
+        />
+      ) : (
+        <SingleItemToBuy
+          variant="create-or-edit-view"
+          itemAlreadyExists={false}
+        />
+      )}
+
       {/* //       _._. Repeatability type toggler (Button) */}
       <select className={styles["item-create-or-edit-view__repeatability"]}>
         <option
