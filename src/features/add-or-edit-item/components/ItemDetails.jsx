@@ -10,72 +10,38 @@ import { urlSliceActions } from "../../../store/redux/store-redux";
 import { ImCheckmark } from "react-icons/im";
 import { MdDeleteForever } from "react-icons/md";
 
-import { db } from "../../../features/authentication/lib/init-firebase";
-import {
-  addDoc,
-  collection, // gets a reference to a chosen collection
-  getDoc,
-  getDocs,
-  updateDoc,
-  doc, // gets a reference to a chosen document
-  deleteDoc,
-  setDoc,
-} from "firebase/firestore";
 const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
-  //
-
-  const [photo, setPhoto] = useState("");
   const [itemData, setItemData] = useState(
     isCreatingNewItem ? {} : openedItemData
   );
-  // const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
-  // console.log(reduxStateImageURL);
 
-  //hook2 - add this redux code to the table of contentd comments
-  const dispatch = useAppDispatch();
-
-  //hook2 add this code to table of contents \/.
-
-  // Get reference the document we want - by passing : databaseReference, collectionName, documentName
-  // const collectionReference = collection(
-  //   db,
-  //   "shopping-assistant", //col
-  //   "test-user", // col.doc
-  //   "items" // col.doc.col.
-  // );
+  //                  _._._._. Check if items already exists in the DB - if it does, tell it to the user and dont create the item || if it doesnt exist, create it in the DB
   const collPathString = "shopping-assistant/test-user/items";
-  // (CRUD - Create)
-  // hook2 - save it into templates. this function updates a doc, OR CREATES, if it doesnt exist. inredibly versatile
-
-  //hook2 - \/ export this creat/eedit funcitons to separate files
-
   const handleCreateNewItem = async (collPathString, docID, newDocData) => {
-    //  check if a item with this name exisits
-    const docSnap = await getDoc(doc(db, collPathString, docID));
-
-    if (docSnap.exists()) {
-      alert(
-        "That item already exists! Change the name or edit the existing item c:",
-        docSnap.data()
-      );
-    } else {
-      // create the item in DB
-      // setItemData({ newProp: "newData" });
-      console.log("created item with item data: ", newDocData);
-
-      await setDoc(
-        doc(db, "shopping-assistant/test-user/items", docID),
-        newDocData
-      );
-      alert("Item succesfully created!");
-    }
-    //     hook1 - close itemDetails modal
+    //  hook1 - check if a item with this name exisits
+    //  hook1 - close itemDetails modal
+    const reqBody = {
+      collPathString: collPathString,
+      docID: docID,
+      newDocData: newDocData,
+    };
+    fetch("/api/items-manager/add-new-item", {
+      method: "POST",
+      body: JSON.stringify(reqBody),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      //hook2 - catch errors - should impement it, or is the code safe?
+      .then((response) => response.json())
+      .then((data) => console.log("response:", data));
   };
 
   const handleEditExistingItem = () => {
     console.log("edited item ");
   };
 
+  //                  _._._._. Collect data from the form
   const handleSaveFormDataAsObject = (e) => {
     console.log("form html element :", e.imageURL);
     let formData = new FormData();
@@ -103,14 +69,14 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
     console.log("form data : ", formDataObject);
 
     isCreatingNewItem === false
-      ? handleEditExistingItem()
-      : handleCreateNewItem(collPathString, "my-id8", formDataObject);
-
-    // dispatch(
-    //   urlSliceActions.setURL({
-    //     newURL: photo,
-    //   })
-    // );
+      ? //           _._._. Save (in "Edit" modal variant) = Try to create edit item, with its form data, inside the DB
+        handleEditExistingItem()
+      : //           _._._. Save (in "Create" modal variant) = Try to create the item, with its form data, to the DB
+        handleCreateNewItem(
+          collPathString,
+          formDataObject.itemName,
+          formDataObject
+        );
   };
 
   console.log(openedItemData ? itemData : "opened create item modal");
@@ -317,4 +283,14 @@ export default ItemDetails;
 //       _._. Prices in specific shops - by chosen amount and unit of measurment
 //
 //       _._. Delete & Save item (Buttons)
+//
+//           _._._. Save (in "Create" modal variant) = Try to create the item, with its form data, to the DB
+//
+//                  _._._._. Collect data from the form
+//
+//                  _._._._. Check if items already exists in the DB - if it does, tell it to the user and dont create the item || if it doesnt exist, create it in the DB
+//
+//           _._._. Save (in "Edit" modal variant) = Try to create edit item, with its form data, inside the DB
+//
+//                  _._._._. Collect data from the form
 //
