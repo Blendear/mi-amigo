@@ -77,11 +77,11 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
   };
 
   const handleSaveFormDataAsObject = (e) => {
-    console.log("form html element :", e);
+    console.log("form html element :", e.imageURL);
     let formData = new FormData();
 
-    // formData.append(e.imageURL.name, e.imageURL.value);
-    // formData.append(e.itemName.name, e.itemName.value);
+    formData.append(e.imageURL.name, e.imageURL.value); //hook2 reamke into separate component or add useref to save the "isURLInputOpen" state?
+    formData.append(e.itemName.name, e.itemName.value);
     // formData.append(e.amountCurrent.name, e.amountCurrent.value);
     // formData.append(e.amountMaxExpected.name, e.amountMaxExpected.value);
     formData.append(e.expirationDateDay.name, e.expirationDateDay.value);
@@ -104,7 +104,7 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
 
     isCreatingNewItem === false
       ? handleEditExistingItem()
-      : handleCreateNewItem(collPathString, "my-id7", formDataObject);
+      : handleCreateNewItem(collPathString, "my-id8", formDataObject);
 
     // dispatch(
     //   urlSliceActions.setURL({
@@ -294,9 +294,9 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
       <input
         type="text"
         name="imageURL"
-        onChange={(event) => {
-          setPhoto(event.target.value);
-        }}
+        // onChange={(event) => {
+        //   setPhoto(event.target.value);
+        // }}
         placeholder="paste new url here"
       ></input>
       {/* /\ hook1 - remake it into showing only after clikcing the image or image dedicated edit icon */}

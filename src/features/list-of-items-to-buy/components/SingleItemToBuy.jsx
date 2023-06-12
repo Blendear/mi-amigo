@@ -117,9 +117,25 @@ const SingleItemToBuy = ({
               styles["item-create-or-edit-view__amount-current-and-expected"]
             }
           >
-            {itemAlreadyExists ? itemSingle.amountCurrent : "?"}
-            {" / "}
-            {itemAlreadyExists ? itemSingle.amountMaxExpected : "?"}
+            <input
+              defaultValue={itemAlreadyExists ? itemSingle.amountCurrent : "?"}
+              className={
+                styles[
+                  "item-create-or-edit-view__amount-current-and-expected__current"
+                ]
+              }
+            ></input>
+            <div>/</div>
+            <input
+              defaultValue={
+                itemAlreadyExists ? itemSingle.amountMaxExpected : "?"
+              }
+              className={
+                styles[
+                  "item-create-or-edit-view__amount-current-and-expected__expected"
+                ]
+              }
+            ></input>
           </div>
         </div>
       </>

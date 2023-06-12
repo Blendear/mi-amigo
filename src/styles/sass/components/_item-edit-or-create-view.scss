@@ -62,6 +62,20 @@
 
   &__amount-current-and-expected {
     @include mixins.amounts-current-expected;
+
+    display: grid;
+    grid-auto-flow: column;
+
+    @mixin unset-amounts-input {
+      all: unset; //hook2 - useful prop to know
+      width: 2rem;
+    }
+    &__current {
+      @include unset-amounts-input;
+    }
+    &__expected {
+      @include unset-amounts-input;
+    }
   }
 
   //hook2--pieszczę - /\ & all other old scss files - remake all names into WHAT I DID EARLIER, S T A C K BEM names, like "so el_el--modifier_el"
