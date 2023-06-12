@@ -40,12 +40,13 @@ const SingleItemToBuy = ({
           />
         </button>
 
-        <button
+        <input
+          type="text"
+          name="itemName"
+          value={itemAlreadyExists ? itemSingle.itemName : "Item name"}
           onFocus={handleOnClick}
           className={styles["item-edit-view__title"]}
-        >
-          {itemAlreadyExists ? itemSingle.itemName : "Item name"}
-        </button>
+        ></input>
         <div className={styles["item-edit-view__amounts-container"]}>
           <div className={styles["item-edit-view__amount-to-buy"]}>
             <div className={styles["item-edit-view__amount-to-buy__number"]}>
@@ -82,9 +83,14 @@ const SingleItemToBuy = ({
             objectFit="cover"
           />
         </div>
-        <div className={styles["item-create-or-edit-view__title"]}>
-          {itemAlreadyExists ? itemSingle.itemName : "Item name"}
-        </div>
+        <input
+          type="text"
+          name="itemName"
+          defaultValue={itemAlreadyExists ? itemSingle.itemName : "Item name"}
+          // onFocus={handleOnClick}
+          className={styles["item-create-or-edit-view__title"]}
+        ></input>
+
         <div className={styles["item-create-or-edit-view__amounts-container"]}>
           <div className={styles["item-create-or-edit-view__amount-to-buy"]}>
             <div

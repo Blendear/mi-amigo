@@ -9,14 +9,17 @@ import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
 import { urlSliceActions } from "../../../store/redux/store-redux";
 import { ImCheckmark } from "react-icons/im";
 import { MdDeleteForever } from "react-icons/md";
+
 import { db } from "../../../features/authentication/lib/init-firebase";
 import {
   addDoc,
   collection, // gets a reference to a chosen collection
+  getDoc,
   getDocs,
   updateDoc,
   doc, // gets a reference to a chosen document
   deleteDoc,
+  setDoc,
 } from "firebase/firestore";
 const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
   //
@@ -34,24 +37,38 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
   //hook2 add this code to table of contents \/.
 
   // Get reference the document we want - by passing : databaseReference, collectionName, documentName
-  const collectionReference = collection(
-    db,
-    "shopping-assistant", //col
-    "test-user", // col.doc
-    "items" // col.doc.col.
-  );
+  // const collectionReference = collection(
+  //   db,
+  //   "shopping-assistant", //col
+  //   "test-user", // col.doc
+  //   "items" // col.doc.col.
+  // );
+  const collPathString = "shopping-assistant/test-user/items";
   // (CRUD - Create)
-  const createItemInsideDB = async (newItemData) => {
-    await addDoc(collectionReference, newItemData);
-  };
-  //hook2 - \/ export this creat/eedit funcitons to separate files
-  const handleCreateNewItem = () => {
-    console.log("created item");
-    //     hook1 - (redux jednak?) check if a item with this name exisits - if yes, tell the user to change the name or chekc if the item isnt already inside of it
+  // hook2 - save it into templates. this function updates a doc, OR CREATES, if it doesnt exist. inredibly versatile
 
-    setItemData({ itemName: "carrot", test: "approved" }); // should be set with form data & TEST IF react-hook-form wil prevent the onSubmit to work, if the data isnt valid
-    console.log("item data: ", itemData);
-    createItemInsideDB(itemData);
+  //hook2 - \/ export this creat/eedit funcitons to separate files
+
+  const handleCreateNewItem = async (collPathString, docID, newDocData) => {
+    //  check if a item with this name exisits
+    const docSnap = await getDoc(doc(db, collPathString, docID));
+
+    if (docSnap.exists()) {
+      alert(
+        "That item already exists! Change the name or edit the existing item c:",
+        docSnap.data()
+      );
+    } else {
+      // create the item in DB
+      // setItemData({ newProp: "newData" });
+      console.log("created item with item data: ", newDocData);
+
+      await setDoc(
+        doc(db, "shopping-assistant/test-user/items", docID),
+        newDocData
+      );
+      alert("Item succesfully created!");
+    }
     //     hook1 - close itemDetails modal
   };
 
@@ -59,11 +76,36 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
     console.log("edited item ");
   };
 
+  const handleSaveFormDataAsObject = (e) => {
+    console.log("form html element :", e);
+    let formData = new FormData();
+
+    // formData.append(e.imageURL.name, e.imageURL.value);
+    // formData.append(e.itemName.name, e.itemName.value);
+    // formData.append(e.amountCurrent.name, e.amountCurrent.value);
+    // formData.append(e.amountMaxExpected.name, e.amountMaxExpected.value);
+    formData.append(e.expirationDateDay.name, e.expirationDateDay.value);
+    formData.append(e.expirationDateTime.name, e.expirationDateTime.value);
+    formData.append(e.numberOfMeasurement.name, e.numberOfMeasurement.value);
+    formData.append(e.unitOfMeasurement.name, e.unitOfMeasurement.value);
+    formData.append(e.isOpen.name, e.isOpen.value);
+    formData.append(e.repeatability.name, e.repeatability.value);
+    // formData.append(e._.name, e._.value);
+
+    return Object.fromEntries(formData);
+  };
+
   const handleSubmitForm = (event) => {
+    event.preventDefault();
+
+    // hook2 - write it down in table fo cotnents - creating a object from saving the form data with FormData, by manually adding every input field etc to the object - (because just creating a "ref" with useRef doesnt save some of the fields)
+    const formDataObject = handleSaveFormDataAsObject(event.target);
+    console.log("form data : ", formDataObject);
+
     isCreatingNewItem === false
       ? handleEditExistingItem()
-      : handleCreateNewItem();
-    event.preventDefault();
+      : handleCreateNewItem(collPathString, "my-id7", formDataObject);
+
     // dispatch(
     //   urlSliceActions.setURL({
     //     newURL: photo,
@@ -71,7 +113,7 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
     // );
   };
 
-  console.log(openedItemData ? itemData : "no data passed");
+  console.log(openedItemData ? itemData : "opened create item modal");
 
   return (
     <form
@@ -96,6 +138,7 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
       <select
         // hook2 - add to table of content - "checking if the item was opened because user ciced "add item" or "open this item" "
         //hook2 - could this  whole conditional dcontent checker be refactored into a dynamic function? Would it make sense tho?
+        name="repeatability"
         defaultValue={
           isCreatingNewItem === false ? openedItemData.repeatability : ""
         }
@@ -117,20 +160,25 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
       </div>
       <div className={styles["item-create-or-edit-view__exp-date__inputs"]}>
         <input
+          type="date"
+          name="expirationDateDay"
           defaultValue={
             isCreatingNewItem === false ? openedItemData.expirationDateDay : ""
           }
-          type="date"
           className={styles["item-create-or-edit-view__exp-date__inputs__date"]}
         ></input>
         <input
           type="time"
+          name="expirationDateTime"
           className={styles["item-create-or-edit-view__exp-date__inputs__time"]}
           defaultValue={
             isCreatingNewItem === false ? openedItemData.expirationDateTime : ""
           }
         ></input>
         <button
+          // type="button"
+          name="isOpen"
+          // value={itemData.isOpen ? "Opened" : "Unused"}
           onClick={(e) => {
             e.preventDefault(), console.log("toggled opened/unused");
           }}
@@ -159,6 +207,7 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
         </div>
         <input
           type="number"
+          name="numberOfMeasurement"
           defaultValue={
             isCreatingNewItem === false ? itemData.numberOfMeasurement : ""
           }
@@ -169,6 +218,7 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
         ></input>
         <input
           type="text"
+          name="unitOfMeasurement"
           defaultValue={
             isCreatingNewItem === false ? itemData.unitOfMeasurement : ""
           }
@@ -243,6 +293,7 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
       {/*  // hook2 - add info about "only use free license images from  https://images.unsplash.com, */}
       <input
         type="text"
+        name="imageURL"
         onChange={(event) => {
           setPhoto(event.target.value);
         }}

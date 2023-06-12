@@ -38,8 +38,7 @@
     @include mixins.center-grid-items;
 
     border-radius: 1rem;
-
-    justify-items: center;
+    text-align: center;
   }
   &__amounts-container {
     @include mixins.item-amounts-container;
