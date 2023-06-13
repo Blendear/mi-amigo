@@ -120,7 +120,8 @@ const LandingPage = () => {
     // 3. And you NEED TO RETURN T W I C E - One for returning the whole fetch function & Second for returning the data inside a "then" INSIDE the fetch function
     const getItemsFromDB = async () => {
       const itemsFromDB = await getAllDocumentsFromColl();
-      console.log("useEffect gave us this items: ", itemsFromDB);
+      console.log("useEffect gave us this items: ", itemsFromDB.data);
+      setAllItemsFromDB(itemsFromDB.data);
     };
     getItemsFromDB();
   }, []);
@@ -131,7 +132,8 @@ const LandingPage = () => {
         <ShopsToVisitGallery />
         <CurrentWeather />
       </div>
-      <ListOfItemsToBuy itemsFromDB={itemsFromDB} />
+      <ListOfItemsToBuy itemsFromDB={allItemsFromDB} />
+      {/* <ListOfItemsToBuy itemsFromDB={itemsFromDB} /> */}
     </div>
   );
 };

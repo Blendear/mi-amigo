@@ -227,6 +227,11 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
       <input
         type="text"
         name="imageURL"
+        defaultValue={
+          isCreatingNewItem === false
+            ? openedItemData.imageURL
+            : "https://www.bjcconnect.com.au/hubfs/Placeholder%20Square.png"
+        }
         // onChange={(event) => {
         //   setPhoto(event.target.value);
         // }}

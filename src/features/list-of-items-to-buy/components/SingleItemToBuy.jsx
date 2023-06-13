@@ -32,7 +32,7 @@ const SingleItemToBuy = ({
         >
           <Image
             src={itemAlreadyExists ? itemSingle.imageURL : placeholderImageURL}
-            alt={`nie pyklo zdjecie`}
+            alt={`can't load image`}
             layout="fill"
             objectFit="cover"
             placeholder="blur"
@@ -65,6 +65,7 @@ const SingleItemToBuy = ({
           <div
             className={styles["item-edit-view__amount-current-and-expected"]}
           >
+            {console.log(itemSingle)}
             {itemAlreadyExists ? itemSingle.amountCurrent : "?"}
             {" / "}
             {itemAlreadyExists ? itemSingle.amountMaxExpected : "?"}
@@ -78,7 +79,7 @@ const SingleItemToBuy = ({
         <div className={styles["item-create-or-edit-view__img"]}>
           <Image
             src={itemAlreadyExists ? itemSingle.imageURL : placeholderImageURL}
-            alt={`nie pyklo zdjecie`}
+            alt={`can't load image`}
             layout="fill"
             objectFit="cover"
           />
@@ -118,6 +119,7 @@ const SingleItemToBuy = ({
             }
           >
             <input
+              name="amountCurrent"
               defaultValue={itemAlreadyExists ? itemSingle.amountCurrent : "?"}
               className={
                 styles[
@@ -127,6 +129,7 @@ const SingleItemToBuy = ({
             ></input>
             <div>/</div>
             <input
+              name="amountMaxExpected"
               defaultValue={
                 itemAlreadyExists ? itemSingle.amountMaxExpected : "?"
               }
