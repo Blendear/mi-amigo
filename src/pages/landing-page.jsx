@@ -107,13 +107,7 @@ const LandingPage = () => {
       cheapestInThisShop: "Aldi",
     },
   ]);
-  //ccc
-  // useEffect(() => {
-  //   // const collPathString = "shopping-assistant/test-user/items";
-  //   console.log("useEffect started");
-  //   // getAllDocumentsFromColl();
-  // }, []);
-
+  //hook2 - add to table fo content
   useEffect(() => {
     console.log("useEffect started");
 
