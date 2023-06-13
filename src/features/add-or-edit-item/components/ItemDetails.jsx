@@ -9,74 +9,41 @@ import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
 import { urlSliceActions } from "../../../store/redux/store-redux";
 import { ImCheckmark } from "react-icons/im";
 import { MdDeleteForever } from "react-icons/md";
+import {
+  handleAddDocToCollInDB,
+  handleSaveFormDataAsObject,
+} from "../../../utils";
+// import handleCreateNewItem from "../../../utils/universally-used-formatDate";
+
+const collPathString = "shopping-assistant/test-user/items";
 
 const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
   const [itemData, setItemData] = useState(
     isCreatingNewItem ? {} : openedItemData
   );
 
-  //                  _._._._. Check if items already exists in the DB - if it does, tell it to the user and dont create the item || if it doesnt exist, create it in the DB
-  const collPathString = "shopping-assistant/test-user/items";
-  const handleCreateNewItem = async (collPathString, docID, newDocData) => {
-    //  hook1 - check if a item with this name exisits
-    //  hook1 - close itemDetails modal
-    const reqBody = {
-      collPathString: collPathString,
-      docID: docID,
-      newDocData: newDocData,
-    };
-    fetch("/api/items-manager/add-new-item", {
-      method: "POST",
-      body: JSON.stringify(reqBody),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      //hook2 - catch errors - should impement it, or is the code safe?
-      .then((response) => response.json())
-      .then((data) => console.log("response:", data));
-  };
-
   const handleEditExistingItem = () => {
     console.log("edited item ");
   };
 
-  //                  _._._._. Collect data from the form
-  const handleSaveFormDataAsObject = (e) => {
-    console.log("form html element :", e.imageURL);
-    let formData = new FormData();
-
-    formData.append(e.imageURL.name, e.imageURL.value); //hook2 reamke into separate component or add useref to save the "isURLInputOpen" state?
-    formData.append(e.itemName.name, e.itemName.value);
-    // formData.append(e.amountCurrent.name, e.amountCurrent.value);
-    // formData.append(e.amountMaxExpected.name, e.amountMaxExpected.value);
-    formData.append(e.expirationDateDay.name, e.expirationDateDay.value);
-    formData.append(e.expirationDateTime.name, e.expirationDateTime.value);
-    formData.append(e.numberOfMeasurement.name, e.numberOfMeasurement.value);
-    formData.append(e.unitOfMeasurement.name, e.unitOfMeasurement.value);
-    formData.append(e.isOpen.name, e.isOpen.value);
-    formData.append(e.repeatability.name, e.repeatability.value);
-    // formData.append(e._.name, e._.value);
-
-    return Object.fromEntries(formData);
-  };
-
   const handleSubmitForm = (event) => {
     event.preventDefault();
-
-    // hook2 - write it down in table fo cotnents - creating a object from saving the form data with FormData, by manually adding every input field etc to the object - (because just creating a "ref" with useRef doesnt save some of the fields)
+    //                  _._._._. Collect data from the form
     const formDataObject = handleSaveFormDataAsObject(event.target);
     console.log("form data : ", formDataObject);
-
     isCreatingNewItem === false
       ? //           _._._. Save (in "Edit" modal variant) = Try to create edit item, with its form data, inside the DB
         handleEditExistingItem()
       : //           _._._. Save (in "Create" modal variant) = Try to create the item, with its form data, to the DB
-        handleCreateNewItem(
+        //                  _._._._. Check if items already exists in the DB - if it does, tell it to the user and dont create the item || if it doesnt exist, create it in the DB
+        handleAddDocToCollInDB(
           collPathString,
           formDataObject.itemName,
           formDataObject
         );
+
+    //  hook1 - check if a item with this name exisits
+    //  hook1 - close itemDetails modal
   };
 
   console.log(openedItemData ? itemData : "opened create item modal");

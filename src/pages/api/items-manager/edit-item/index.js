@@ -15,7 +15,14 @@ const handler = async (req, res) => {
   if (req.method === "PUT") {
     res.status(200).json({ testMessage: "Success, response is allright!" });
   } else {
-    res.status(400).json({ testMessage: "Request was wrong" });
+    res.status(400).json({
+      type: "incorrect-type-of-request",
+      title: "Incorrect type of request",
+      status: 400,
+      message:
+        "The request should be a PUT request. The user's request was of a different type.",
+      instance: "/item-manager/edit-item",
+    });
   }
 };
 

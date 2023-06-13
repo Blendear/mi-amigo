@@ -19,7 +19,6 @@ const handler = async (req, res) => {
     const docSnap = await getDoc(doc(db, collPathString, docID));
 
     if (docSnap.exists()) {
-      //hook2 implement real status numbers. 400 is too general
       res.status(400).json({
         a: req.body,
         message: `That item "${docID}" already exists! Change the name or edit the existing item c:`,
@@ -36,10 +35,25 @@ const handler = async (req, res) => {
     }
     // console.log(collPathString, docID, newDocData);
   } else {
-    res.status(400).json({ testMessage: "Request was wrong" });
+    res.status(400).json({
+      type: "incorrect-type-of-request",
+      title: "Incorrect type of request",
+      status: 400,
+      message:
+        "The request should be a POST request. The user's request was of a different type.",
+      instance: "/item-manager/add-item",
+    });
   }
 };
-
+/*
+{
+  "type": "incorrect-user-pass",
+  "title": "Incorrect username or password.",
+  "status": 401,
+  "message": "Authentication failed due to incorrect username or password.",
+  "instance": "/login/???/user-auth"
+}
+*/
 export default handler;
 
 //~~ _.  API Route for CRUD operations on user's items
