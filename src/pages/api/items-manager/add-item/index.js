@@ -20,8 +20,8 @@ const handler = async (req, res) => {
 
     if (docSnap.exists()) {
       res.status(400).json({
-        a: req.body,
         message: `That item "${docID}" already exists! Change the name or edit the existing item c:`,
+        reqData: { collPathString, docID, newDocData },
       });
     } else {
       await setDoc(

@@ -9,9 +9,23 @@ import {
 // import {} from "../features/current-weather/index";
 import { ListOfItemsToBuy } from "../features/list-of-items-to-buy/index";
 import { CurrentWeather } from "../features/current-weather/index";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import getAllDocumentsFromColl from "../utils/get-all-docs-from-coll-from-DB";
+
+import { db } from "../features/authentication/lib/init-firebase";
+import {
+  addDoc,
+  collection,
+  getDoc,
+  getDocs,
+  updateDoc,
+  doc,
+  deleteDoc,
+  setDoc,
+} from "firebase/firestore";
 
 const LandingPage = () => {
+  const [allItemsFromDB, setAllItemsFromDB] = useState([]);
   const [itemsFromDB, setItemsFromDB] = useState([
     {
       imageURL:
@@ -93,6 +107,29 @@ const LandingPage = () => {
       cheapestInThisShop: "Aldi",
     },
   ]);
+  //ccc
+  // useEffect(() => {
+  //   // const collPathString = "shopping-assistant/test-user/items";
+  //   console.log("useEffect started");
+  //   // getAllDocumentsFromColl();
+  // }, []);
+
+  useEffect(() => {
+    console.log("useEffect started");
+
+    // protip1 - IT WORKS. You NEED to :
+    //
+    // 1. Create and run an async function (async, so that we can use await in a second), which...
+    //
+    // 2. ... AWAITS and, afterwards, saves the return of the actual fetch function (imported from outside of thsi file, for clean code)
+    //
+    // 3. And you NEED TO RETURN T W I C E - One for returning the whole fetch function & Second for returning the data inside a "then" INSIDE the fetch function
+    const getItemsFromDB = async () => {
+      const itemsFromDB = await getAllDocumentsFromColl();
+      console.log("useEffect gave us this items: ", itemsFromDB);
+    };
+    getItemsFromDB();
+  }, []);
   return (
     <div className={styles["landing-page__container"]}>
       <div className={styles["landing-page__shops-and-weather-container"]}>

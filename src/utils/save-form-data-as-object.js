@@ -1,7 +1,7 @@
 // Util functions should be pure funciton - same input gives you the same output
 
 const handleSaveFormDataAsObject = (e) => {
-  console.log("form html element :", e.imageURL);
+  // console.log("form html element :", e.imageURL);
   let formData = new FormData();
 
   formData.append(e.imageURL.name, e.imageURL.value); //hook2 reamke into separate component or add useref to save the "isURLInputOpen" state?

@@ -46,7 +46,7 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
     //  hook1 - close itemDetails modal
   };
 
-  console.log(openedItemData ? itemData : "opened create item modal");
+  // console.log(openedItemData ? itemData : "opened create item modal");
 
   return (
     <form

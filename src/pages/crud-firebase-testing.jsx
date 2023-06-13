@@ -33,6 +33,7 @@ const LandingPage = () => {
   useEffect(() => {
     console.log("useEffect started");
     //hook1 - refacotr this into 3rd party component \/ it makes a lot of code in this index.ts file
+
     const getAllDocumentsFromASpecificCollection = async () => {
       const allDocuments = await getDocs(collectionReference);
       console.log("our data : ", allDocuments);
