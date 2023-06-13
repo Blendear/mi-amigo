@@ -26,87 +26,7 @@ import {
 
 const LandingPage = () => {
   const [allItemsFromDB, setAllItemsFromDB] = useState([]);
-  const [itemsFromDB, setItemsFromDB] = useState([
-    {
-      imageURL:
-        "https://cdn.shopify.com/s/files/1/0266/5817/7121/products/product-image-535342209_grande.jpg?v=1571720057",
-      itemName: "Carrot",
-      numberOfMeasurement: "1",
-      unitOfMeasurement: "szt.",
-      amountCurrent: 3,
-      amountMaxExpected: 12,
-      repeatability: "Traditional",
-      expirationDateDay: "2023-01-01",
-      expirationDateTime: "13:13",
-      isOpen: false,
-      pricesInShops: [
-        {
-          shopName: "Kaufland",
-          imageURL:
-            "https://upload.wikimedia.org/wikipedia/commons/6/65/Kaufland_Deutschland.png",
-          price: 3.39,
-        },
-        {
-          shopName: "Aldi",
-          imageURL:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Aldi_Nord_201x_logo.svg/1200px-Aldi_Nord_201x_logo.svg.png",
-          price: 6.66,
-        },
-      ],
-      cheapestInThisShop: "Kaufland",
-    },
 
-    {
-      imageURL:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTppSddrPcB7SawpZJbtZnA6C5KqppS7YbGs8MQxzRDvPfqwNJ3Qcuyz7HwaAfq6KDIv9E&usqp=CAU",
-      itemName: "Wata",
-      numberOfMeasurement: "1",
-      unitOfMeasurement: "l",
-      amountCurrent: 2,
-      amountMaxExpected: 4,
-      repeatability: "Traditional",
-      expirationDateDay: "2023-02-02",
-      expirationDateTime: "14:14",
-      isOpen: true,
-      pricesInShops: [
-        {
-          shopName: "Lidl",
-          imageURL:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Lidl-Logo.svg/2048px-Lidl-Logo.svg.png",
-          price: 2,
-        },
-        {
-          shopName: "Kaufland",
-          imageURL:
-            "https://upload.wikimedia.org/wikipedia/commons/6/65/Kaufland_Deutschland.png",
-          price: 8.88,
-        },
-      ],
-      cheapestInThisShop: "Lidl",
-    },
-    {
-      imageURL:
-        "https://i.etsystatic.com/29643476/r/il/50a04e/3121476700/il_fullxfull.3121476700_ayqm.jpg",
-      itemName: "Watamala",
-      numberOfMeasurement: "500",
-      unitOfMeasurement: "g",
-      amountCurrent: 300,
-      amountMaxExpected: 400,
-      repeatability: "Unique",
-      expirationDateDay: "2023-03-03",
-      expirationDateTime: "15:15",
-      isOpen: false,
-      pricesInShops: [
-        {
-          shopName: "Aldi",
-          imageURL:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Aldi_Nord_201x_logo.svg/1200px-Aldi_Nord_201x_logo.svg.png",
-          price: 21.37,
-        },
-      ],
-      cheapestInThisShop: "Aldi",
-    },
-  ]);
   //hook2 - add to table fo content
   useEffect(() => {
     console.log("useEffect started");
@@ -133,7 +53,6 @@ const LandingPage = () => {
         <CurrentWeather />
       </div>
       <ListOfItemsToBuy itemsFromDB={allItemsFromDB} />
-      {/* <ListOfItemsToBuy itemsFromDB={itemsFromDB} /> */}
     </div>
   );
 };
