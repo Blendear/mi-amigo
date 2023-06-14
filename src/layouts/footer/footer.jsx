@@ -1,7 +1,6 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 import { useState } from "react";
-import Modal from "../../components/Modal";
-import Backdrop from "../../components/Backdrop";
+import { Modal, Backdrop } from "../../components";
 import { ItemDetails } from "../../features/add-or-edit-item/index";
 
 const Footer = () => {

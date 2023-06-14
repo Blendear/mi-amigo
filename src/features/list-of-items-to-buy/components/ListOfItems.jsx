@@ -4,10 +4,7 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 import SingleItemToBuy from "./SingleItemToBuy";
 import { useState } from "react";
-// \/ hook2 - remake this separete imports into a singl index.js file export-import & corretc all modal/backdrop imports in other files
-import Modal from "../../../components/Modal";
-import Backdrop from "../../../components/Backdrop";
-//
+import { Modal, Backdrop } from "../../../components";
 import { ItemDetails } from "../../add-or-edit-item/index.js";
 
 const ListOfItemsToBuy = ({ itemsFromDB }) => {

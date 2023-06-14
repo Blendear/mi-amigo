@@ -7,7 +7,6 @@ import ReactDOM from "react-dom";
 
 const Backdrop = ({ onClose, variant, isStatic }) => {
   const backdropContent = isStatic ? (
-    //       _._. Backdrop container
     //           _._._. Traditional backdrop - onClick closes the modal
     <aside className={styles[`backdrop--${variant}`]} />
   ) : (
