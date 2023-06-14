@@ -5,7 +5,7 @@ import styles from "src/styles/sass/styles-all.module.scss";
 import SingleItemToBuy from "./SingleItemToBuy";
 import { useState } from "react";
 import { Modal, Backdrop } from "../../../components";
-import { ItemDetails } from "../../add-or-edit-item/index.js";
+import { ItemDetails } from "../../add-or-edit-item";
 import { ItemFromDB } from "../../../types/types";
 
 const ListOfItemsToBuy = ({ itemsFromDB }: ItemFromDB) => {
