@@ -1,11 +1,11 @@
 //
 // Table of content for this file is written at the bottom
 //
-
 import styles from "src/styles/sass/styles-all.module.scss";
 import ShopToVisitSingle from "../../list-of-shops-the-user-needs/components/ShopToVisitSingle";
+import { ShopFromDB } from "../../../types/types";
 
-const ShopPrice = ({ shopData }) => {
+const ShopPrice = ({ shopData }: ShopFromDB) => {
   return (
     <>
       <div

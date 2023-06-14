@@ -14,11 +14,16 @@ import {
   handleSaveFormDataAsObject,
 } from "../../../utils";
 // import handleCreateNewItem from "../../../utils/universally-used-formatDate";
+import { ItemDetailsProps } from "../types";
+import { ItemFromDB } from "../../../types/types";
 
-const collPathString = "shopping-assistant/test-user/items";
+const collPathString: string = "shopping-assistant/test-user/items";
 
-const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
-  const [itemData, setItemData] = useState(
+const ItemDetails = ({
+  isCreatingNewItem,
+  openedItemData,
+}: ItemDetailsProps) => {
+  const [itemData, setItemData] = useState<{} | ItemFromDB>(
     isCreatingNewItem ? {} : openedItemData
   );
 
@@ -26,10 +31,10 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
     console.log("edited item ");
   };
 
-  const handleSubmitForm = (event) => {
+  const handleSubmitForm = (event: React.FormEvent) => {
     event.preventDefault();
     //                  _._._._. Collect data from the form
-    const formDataObject = handleSaveFormDataAsObject(event.target);
+    const formDataObject = handleSaveFormDataAsObject(event.target); //hook2 - inferred type is enough, or what is the convention of "X amount of inferred / implicit tipes are enough/expected"?
     console.log("form data : ", formDataObject);
     isCreatingNewItem === false
       ? //           _._._. Save (in "Edit" modal variant) = Try to create edit item, with its form data, inside the DB
@@ -79,7 +84,7 @@ const ItemDetails = ({ isCreatingNewItem, openedItemData }) => {
       >
         <option
           value="Repeatability"
-          style={{ "background-color": "#a8a8a8", color: "#4a4a4a" }}
+          style={{ backgroundColor: "#a8a8a8", color: "#4a4a4a" }}
         >
           Repeatability
         </option>
