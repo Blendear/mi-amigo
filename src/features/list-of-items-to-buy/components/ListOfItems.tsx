@@ -6,11 +6,13 @@ import SingleItemToBuy from "./SingleItemToBuy";
 import { useState } from "react";
 import { Modal, Backdrop } from "../../../components";
 import { ItemDetails } from "../../add-or-edit-item/index.js";
+import { ItemFromDB } from "../../../types/types";
 
-const ListOfItemsToBuy = ({ itemsFromDB }) => {
+const ListOfItemsToBuy = ({ itemsFromDB }: ItemFromDB) => {
   //hook2 - comment this into thte table of cotnent \/
-  const [openedItem, setOpenedItem] = useState();
-  const [isItemDetailsModalOpen, setIsItemDetailsModalOpen] = useState(false);
+  const [openedItem, setOpenedItem] = useState<ItemFromDB>();
+  const [isItemDetailsModalOpen, setIsItemDetailsModalOpen] =
+    useState<boolean>(false);
 
   // const handleOpenItemDetailsModal = () => {
   //   setIsItemDetailsModalOpen(true);

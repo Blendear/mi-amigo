@@ -3,9 +3,10 @@
 //
 import styles from "src/styles/sass/styles-all.module.scss";
 import Image from "next/image";
-import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
+// import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
+import { SingleItemProps } from "../types";
 
-const placeholderImageURL =
+const placeholderImageURL: string =
   "https://www.bjcconnect.com.au/hubfs/Placeholder%20Square.png";
 //hook2 - /\ add it to the table of  contents later
 
@@ -14,9 +15,12 @@ const SingleItemToBuy = ({
   itemAlreadyExists,
   itemSingle,
   handleOnClick,
-}) => {
+}: SingleItemProps) => {
+  // variant="list-view"
+  // itemAlreadyExists={true}
+  // itemSingle={item}
   //hook2 - add this redux code to the table of contentd comments
-  const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
+  // const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
 
   //hook1 - remake this, because i have two nearly the same copies of JSX below. maybe its cleaner to waytch, bot iuts not DRY code
   return {

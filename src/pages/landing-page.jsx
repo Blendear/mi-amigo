@@ -25,8 +25,8 @@ import {
 } from "firebase/firestore";
 
 const LandingPage = () => {
+  const [loadingState, setLoadingState] = useState("fetching");
   const [allItemsFromDB, setAllItemsFromDB] = useState([]);
-
   //hook2 - add to table fo content
   useEffect(() => {
     console.log("useEffect started");
