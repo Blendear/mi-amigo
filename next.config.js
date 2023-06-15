@@ -26,6 +26,7 @@ const nextConfig = {
         pathname: "**",
       },
     ],
+    //hook2 - check if this remote patern is cybersecure
   },
 };
 

@@ -26,4 +26,6 @@
   "include": ["src", "next-env.d.ts"],
   "exclude": ["node_modules"]
 }
+
+//hook2 - check if there are "globally used" conventions for this file. I might be missing some helpful properties
 //hook2 create a table of content of explainign what you do here
