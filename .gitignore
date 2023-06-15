@@ -33,3 +33,5 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# hook2 - include here files with placeholder data, which you use for sandbox-testing
