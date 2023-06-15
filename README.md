@@ -1,6 +1,7 @@
 ## Technologies used in this app
 
 ▪ REST API
+▪ Firebase (for CRUD with a databse)
 ▪ Typescript
 ▪ Redux
 ▪ Next.js
