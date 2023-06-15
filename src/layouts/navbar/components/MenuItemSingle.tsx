@@ -6,8 +6,13 @@ import SVGItemsToBuy from "./SVGItemsToBuy";
 import SVGSettings from "./SVGSettings";
 import { MdSettings } from "react-icons/md";
 import { ImList } from "react-icons/im";
-
-const MenuItemSingle = ({ svg, title, isActive, handleClick }) => {
+import { MenuItemSingleProps } from "..";
+const MenuItemSingle = ({
+  svg,
+  title,
+  isActive,
+  handleClick,
+}: MenuItemSingleProps) => {
   return (
     <button
       onClick={handleClick}

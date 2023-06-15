@@ -5,11 +5,11 @@ import { ItemDetails } from "../../features/add-or-edit-item/index";
 
 const Footer = () => {
   const [showSavingModalAndBackdrop, setShowSavingModalAndBackdrop] =
-    useState(false);
+    useState<boolean>(false);
   const [
     showCreateNewItemModalAndBackdrop,
     setShowCreateNewItemModalAndBackdrop,
-  ] = useState(false);
+  ] = useState<boolean>(false);
 
   return (
     <div className={styles["footer__container"]}>
@@ -27,7 +27,7 @@ const Footer = () => {
             <h1>Saving to Firestore DB</h1>
           </Modal>
           <Backdrop
-            onClose={() => setShowModalAndBackdrop(false)}
+            onClose={() => setShowSavingModalAndBackdrop(false)}
             isStatic={true}
             variant="black-50-opacity"
           />
@@ -79,7 +79,7 @@ const Footer = () => {
 export default Footer;
 
 //
-//hook1 - stworz historyjke - jak warianty modali operuję etc.
+//hook2 - create table of contnet - how to i operate differnet variant of modals etc.
 //
 //       _._. Save all current users data, through API html request, to Firestore Database (Button)   &   show current progress of the request
 //      hook1 - OR HOW TO CHOOSE ONLY UPDATED DATA? PROPERTY WITH "THIS DATA CONTAINER SHOUDL BE UPDATED - BOOLEAN"

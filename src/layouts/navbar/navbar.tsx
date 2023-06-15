@@ -11,7 +11,7 @@ import { useState } from "react";
 import { MenuItemSingle } from "./index";
 
 const Navbar = () => {
-  const [showAsActive, setShowAsActive] = useState("itemsToBuy");
+  const [showAsActive, setShowAsActive] = useState<string>("itemsToBuy");
 
   return (
     <nav className={styles["navbar__container"]}>
