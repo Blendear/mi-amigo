@@ -6,7 +6,7 @@ import SingleItemToBuy from "./SingleItemToBuy";
 import { useState } from "react";
 import { Modal, Backdrop } from "../../../components";
 import { ItemDetails } from "../../add-or-edit-item";
-import { ItemFromDB } from "../../../types/types";
+import { ItemFromDB } from "../../../types";
 
 const ListOfItemsToBuy = ({ itemsFromDB }: ItemFromDB) => {
   //hook2 - comment this into thte table of cotnent \/

@@ -1,4 +1,4 @@
-import { ItemFromDB } from "../../../types/types";
+import { ItemFromDB } from "../../../types";
 
 export type ItemDetailsProps = {
   isCreatingNewItem: boolean;

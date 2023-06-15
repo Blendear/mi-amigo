@@ -3,12 +3,9 @@
 //
 import styles from "src/styles/sass/styles-all.module.scss";
 import Image from "next/image";
-import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
+import { ShopToVisitProps } from "../types";
 
-const ShopToVisitSingle = ({ isActive, shopURL }) => {
-  //hook2 - add this redux code to the table of contentd comments
-  const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
-
+const ShopToVisitSingle = ({ isActive, shopURL }: ShopToVisitProps) => {
   return (
     isActive && (
       <Image

@@ -3,7 +3,7 @@
 //
 import styles from "src/styles/sass/styles-all.module.scss";
 import ShopToVisitSingle from "../../list-of-shops-the-user-needs/components/ShopToVisitSingle";
-import { ShopFromDB } from "../../../types/types";
+import { ShopFromDB } from "../../../types";
 
 const ShopPrice = ({ shopData }: ShopFromDB) => {
   return (

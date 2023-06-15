@@ -14,8 +14,8 @@ import {
   handleSaveFormDataAsObject,
 } from "../../../utils";
 // import handleCreateNewItem from "../../../utils/universally-used-formatDate";
-import { ItemDetailsProps } from "../types";
-import { ItemFromDB } from "../../../types/types";
+import { ItemDetailsProps } from "..";
+import { ItemFromDB } from "../../../types";
 
 const collPathString: string = "shopping-assistant/test-user/items";
 
@@ -34,7 +34,7 @@ const ItemDetails = ({
   const handleSubmitForm = (event: React.FormEvent) => {
     event.preventDefault();
     //                  _._._._. Collect data from the form
-    const formDataObject = handleSaveFormDataAsObject(event.target); //hook2 - inferred type is enough, or what is the convention of "X amount of inferred / implicit tipes are enough/expected"?
+    const formDataObject: ItemFromDB = handleSaveFormDataAsObject(event.target); //hook2 - inferred type is enough, or what is the convention of "X amount of inferred / implicit tipes are enough/expected"?
     console.log("form data : ", formDataObject);
     isCreatingNewItem === false
       ? //           _._._. Save (in "Edit" modal variant) = Try to create edit item, with its form data, inside the DB

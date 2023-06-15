@@ -4,18 +4,21 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 import ShopToVisitSingle from "./ShopToVisitSingle";
 import { useState } from "react";
-
 import { BsArrowLeftSquareFill, BsArrowRightSquareFill } from "react-icons/bs";
-
+import { ShopFromDB } from "../../../types";
+// prettier-ignore
 const ShopsToVisitGallery = () => {
-  const [shopsToRender, setShopsToRender] = useState([
-    {
-      name: "Kaufland",
-    },
-    {
-      name: "Lidl",
-    },
-  ]);
+  //hook2 - TS - giving a type to this useState break my code, if I dont do {x, setX} instead of [x, setX]. Why? - link to discussion : https://stackoverflow.com/questions/42141393/react-js-error-invalid-attempt-to-destructure-non-iterable-instance
+  const [shopsToRender, setShopsToRender] =
+    useState<[] | ShopFromDB[]>(
+        [
+          {
+            name: "Kaufland",
+          },
+          {
+            name: "Lidl",
+          },
+        ]);
   // ONE is active, the rest is loaded, bu inactive. bacause we render only 1 logo
   return (
     <div className={styles["landing-page__shops-to-visit-container"]}>

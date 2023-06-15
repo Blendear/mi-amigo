@@ -4,7 +4,7 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 import Image from "next/image";
 // import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
-import { SingleItemProps } from "../types";
+import { SingleItemProps } from "..";
 
 const placeholderImageURL: string =
   "https://www.bjcconnect.com.au/hubfs/Placeholder%20Square.png";
