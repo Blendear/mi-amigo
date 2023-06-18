@@ -1,4 +1,3 @@
-// \/ niezbędny pod stworzenie absolute path w "output.path"
 const path = require("path");
 
 module.exports = {
