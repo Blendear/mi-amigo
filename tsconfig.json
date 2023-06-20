@@ -8,9 +8,14 @@
     "outDir": "./dist",
     // "noEmit": true,
     "removeComments": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true, // we use TS for a reason. No any's on default
+    "strictNullChecks": true, // catch null pointers at compile time, providing you with extra safety for your application.
+    "noImplicitThis": true, // raise error on ‘this’ expressions with an implied ‘any’ type. For example if you structure your class badly
     "noEmitOnError": true,
     "sourceMap": true,
     "moduleResolution": "node",
+
     "jsx": "preserve",
     "allowJs": true,
     "skipLibCheck": true,
