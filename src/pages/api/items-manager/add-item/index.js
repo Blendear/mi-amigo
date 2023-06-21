@@ -1,12 +1,7 @@
 import { db } from "../../../../features/authentication/lib/init-firebase";
 import {
-  addDoc,
-  collection, // gets a reference to a chosen collection
   getDoc,
-  getDocs,
-  updateDoc,
   doc, // gets a reference to a chosen document
-  deleteDoc,
   setDoc,
 } from "firebase/firestore";
 
