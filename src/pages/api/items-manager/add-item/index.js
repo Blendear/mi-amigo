@@ -45,15 +45,7 @@ const handler = async (req, res) => {
     });
   }
 };
-/*
-{
-  "type": "incorrect-user-pass",
-  "title": "Incorrect username or password.",
-  "status": 401,
-  "message": "Authentication failed due to incorrect username or password.",
-  "instance": "/login/???/user-auth"
-}
-*/
+
 export default handler;
 
 //~~ _.  API Route for CRUD operations on user's items
@@ -61,8 +53,4 @@ export default handler;
 //       _._. Handle request from the user - based on the type (GET, POST etc.)
 //
 //           _._._. POST = Check if items already exists in the DB - if it does, tell it to the user and dont create the item || if it doesnt exist, create it in the DB
-//
-//       _._. Declare the shape of the response from the server
-//
-//           _._._. AAA
 //
