@@ -9,7 +9,7 @@ import { ShopFromDB } from "../../../types";
 // prettier-ignore
 const ShopsToVisitGallery = () => {
   //hook2 - TS - giving a type to this useState break my code, if I dont do {x, setX} instead of [x, setX]. Why? - link to discussion : https://stackoverflow.com/questions/42141393/react-js-error-invalid-attempt-to-destructure-non-iterable-instance
-  const [shopsToRender, setShopsToRender] =
+  const [shopsToRender] =
     useState<[] | ShopFromDB[]>(
         [
           {
