@@ -2,8 +2,8 @@
 //~~ _.  Single menu item (Link, Image, Button)
 //
 import styles from "src/styles/sass/styles-all.module.scss";
-import SVGItemsToBuy from "./SVGItemsToBuy";
-import SVGSettings from "./SVGSettings";
+// import SVGItemsToBuy from "./SVGItemsToBuy";
+// import SVGSettings from "./SVGSettings";
 import { MdSettings } from "react-icons/md";
 import { ImList } from "react-icons/im";
 import { MenuItemSingleProps } from "..";
