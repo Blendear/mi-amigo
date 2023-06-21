@@ -1,9 +1,9 @@
 import exampleImage from "../../../../../public/images/examplePath.png";
 // hook1 - cut and paste this file to the original mi-amigo
-interface IToolTrapProtipObject {
-  poziom: number;
-  miejsce: string;
-}
+// interface IToolTrapProtipObject {
+//   poziom: number;
+//   miejsce: string;
+// }
 //hook1 - how to add type requirements ot given propety value inside of the data array "eventsData"?
 export const eventsData = [
   {

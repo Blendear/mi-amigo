@@ -1,13 +1,14 @@
 //
 // Table of content for this file is written at the bottom
 //
-import styles from "src/styles/sass/styles-all.module.scss";
+// import styles from "src/styles/sass/styles-all.module.scss";
 import Image from "next/image";
 import { ShopToVisitProps } from "../types";
 
 const ShopToVisitSingle = ({ isActive, shopURL }: ShopToVisitProps) => {
   return (
-    isActive && (
+    <>
+      ( isActive && (
       <Image
         src={
           shopURL
@@ -18,7 +19,8 @@ const ShopToVisitSingle = ({ isActive, shopURL }: ShopToVisitProps) => {
         layout="fill"
         objectFit="cover"
       />
-    )
+      ) )
+    </>
   );
 };
 export default ShopToVisitSingle;

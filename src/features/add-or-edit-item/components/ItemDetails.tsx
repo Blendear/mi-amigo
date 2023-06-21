@@ -5,8 +5,8 @@ import styles from "src/styles/sass/styles-all.module.scss";
 import SingleItemToBuy from "../../list-of-items-to-buy/components/SingleItemToBuy";
 import ShopPrice from "./ShopPrice";
 import { useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
-import { urlSliceActions } from "../../../store/redux/store-redux";
+// import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
+// import { urlSliceActions } from "../../../store/redux/store-redux";
 import { ImCheckmark } from "react-icons/im";
 import { MdDeleteForever } from "react-icons/md";
 import {
@@ -23,7 +23,7 @@ const ItemDetails = ({
   isCreatingNewItem,
   openedItemData,
 }: ItemDetailsProps) => {
-  const [itemData, setItemData] = useState<{} | ItemFromDB>(
+  const [itemData] = useState<{} | ItemFromDB>(
     isCreatingNewItem ? {} : openedItemData
   );
 
@@ -187,7 +187,7 @@ const ItemDetails = ({
         }
       >
         {itemData.pricesInShops ? (
-          itemData.pricesInShops.map((item, index) => (
+          itemData.pricesInShops.map((item: any, index: any) => (
             <li
               key={index}
               className={
