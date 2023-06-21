@@ -1,7 +1,6 @@
 //
 // Table of content for this file is written at the bottom
 //
-// import styles from "src/styles/sass/styles-all.module.scss";
 import Image from "next/image";
 import { ShopToVisitProps } from "../types";
 

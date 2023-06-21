@@ -82,7 +82,7 @@ const SingleItemToBuy = ({
                     styles["item-edit-view__amount-current-and-expected"]
                   }
                 >
-                  {console.log(itemSingle)}
+                  {/* {console.log(itemSingle)} */}
                   {itemAlreadyExists ? itemSingle.amountCurrent : "?"}
                   {" / "}
                   {itemAlreadyExists ? itemSingle.amountMaxExpected : "?"}

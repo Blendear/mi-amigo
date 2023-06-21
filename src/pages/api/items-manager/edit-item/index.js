@@ -1,19 +1,31 @@
 import { db } from "../../../../features/authentication/lib/init-firebase";
-import {
-  addDoc,
-  collection,
-  getDoc,
-  getDocs,
-  updateDoc,
-  doc,
-  deleteDoc,
-  setDoc,
-} from "firebase/firestore";
+import { getDoc, updateDoc, doc } from "firebase/firestore";
 
 const handler = async (req, res) => {
-  //           _._._. PUT =
+  //           _._._. PUT = If item exists, update it
   if (req.method === "PUT") {
-    res.status(200).json({ testMessage: "Success, response is allright!" });
+    const collPathString = req.body.collPathString;
+    const docID = req.body.docID;
+    const newDocData = req.body.newDocData;
+    const docSnap = doc(db, collPathString, docID);
+
+    if (docSnap) {
+      await updateDoc(docSnap, newDocData);
+      res.status(200).json({
+        itemData: newDocData,
+        message: `Item with id : ${docID} was succesfully updated!`,
+      });
+    } else {
+      res.status(404).json({
+        type: "item-doesnt-exist",
+        title:
+          "The updated item doesn't exist! There must a error with our database!",
+        status: 404,
+        message:
+          "Please contact the developer. If you clicked an item to edit, then the item should crearly exist and the problem is on our side.",
+        instance: "/item-manager/edit-item",
+      });
+    }
   } else {
     res.status(400).json({
       type: "incorrect-type-of-request",
@@ -32,9 +44,5 @@ export default handler;
 //
 //       _._. Handle request from the user - based on the type (GET, POST etc.)
 //
-//           _._._. PUT =
-//
-//       _._. Declare the shape of the response from the server
-//
-//           _._._. AAA
+//           _._._. PUT = If item exists, update it
 //

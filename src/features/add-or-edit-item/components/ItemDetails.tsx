@@ -11,6 +11,7 @@ import { ImCheckmark } from "react-icons/im";
 import { MdDeleteForever } from "react-icons/md";
 import {
   handleAddDocToCollInDB,
+  handleUpdateDocInCollInDB,
   handleSaveFormDataAsObject,
 } from "../../../utils";
 // import handleCreateNewItem from "../../../utils/universally-used-formatDate";
@@ -27,10 +28,6 @@ const ItemDetails = ({
     isCreatingNewItem ? {} : openedItemData
   );
 
-  const handleEditExistingItem = () => {
-    console.log("edited item ");
-  };
-
   const handleSubmitForm = (event: React.FormEvent) => {
     event.preventDefault();
     //                  _._._._. Collect data from the form
@@ -38,7 +35,11 @@ const ItemDetails = ({
     console.log("form data : ", formDataObject);
     isCreatingNewItem === false
       ? //           _._._. Save (in "Edit" modal variant) = Try to create edit item, with its form data, inside the DB
-        handleEditExistingItem()
+        handleUpdateDocInCollInDB(
+          collPathString,
+          formDataObject.itemName,
+          formDataObject
+        )
       : //           _._._. Save (in "Create" modal variant) = Try to create the item, with its form data, to the DB
         //                  _._._._. Check if items already exists in the DB - if it does, tell it to the user and dont create the item || if it doesnt exist, create it in the DB
         handleAddDocToCollInDB(
