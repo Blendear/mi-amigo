@@ -5,7 +5,7 @@
 import Image from "next/image";
 import { ShopToVisitProps } from "../types";
 
-const ShopToVisitSingle = ({ isActive, shopURL }: ShopToVisitProps) => {
+const ShopToVisitSingle = ({ shopURL }: ShopToVisitProps) => {
   return (
     <>
       ( isActive && (
