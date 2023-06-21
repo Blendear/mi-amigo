@@ -12,8 +12,8 @@
     "noImplicitAny": false, // hook2-  change it after getting more used to weriting types - we use TS for a reason. No any's on default
     "strictNullChecks": true, // catch null pointers at compile time, providing you with extra safety for your application.
     "noImplicitThis": true, // raise error on ‘this’ expressions with an implied ‘any’ type. For example if you structure your class badly
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false, // hook2-  change it after getting more used to weriting cleanly
+    "noUnusedParameters": false, // hook2-  change it after getting more used to weriting cleanly
     "noImplicitReturns": true, //
     "noFallthroughCasesInSwitch": true,
     "noEmitOnError": true,
