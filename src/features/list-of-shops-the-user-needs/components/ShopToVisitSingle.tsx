@@ -5,10 +5,9 @@
 import Image from "next/image";
 import { ShopToVisitProps } from "../types";
 
-const ShopToVisitSingle = ({ shopURL }: ShopToVisitProps) => {
+const ShopToVisitSingle = ({ isActive, shopURL }: ShopToVisitProps) => {
   return (
-    <>
-      ( isActive && (
+    isActive && (
       <Image
         src={
           shopURL
@@ -19,8 +18,7 @@ const ShopToVisitSingle = ({ shopURL }: ShopToVisitProps) => {
         layout="fill"
         objectFit="cover"
       />
-      ) )
-    </>
+    )
   );
 };
 export default ShopToVisitSingle;
