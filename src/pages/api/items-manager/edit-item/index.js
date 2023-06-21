@@ -1,5 +1,5 @@
 import { db } from "../../../../features/authentication/lib/init-firebase";
-import { getDoc, updateDoc, doc } from "firebase/firestore";
+import { updateDoc, doc } from "firebase/firestore";
 
 const handler = async (req, res) => {
   //           _._._. PUT = If item exists, update it
