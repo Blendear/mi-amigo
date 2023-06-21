@@ -2,4 +2,5 @@
 
 export { default as handleAddDocToCollInDB } from "./create-doc-in-coll-in-DB";
 export { default as handleUpdateDocInCollInDB } from "./update-doc-in-coll-in-DB";
+export { default as handleDeleteDocFromCollInDB } from "./delete-doc-from-coll-in-DB";
 export { default as handleSaveFormDataAsObject } from "./save-form-data-as-object";

@@ -12,6 +12,7 @@ import { MdDeleteForever } from "react-icons/md";
 import {
   handleAddDocToCollInDB,
   handleUpdateDocInCollInDB,
+  handleDeleteDocFromCollInDB,
   handleSaveFormDataAsObject,
 } from "../../../utils";
 // import handleCreateNewItem from "../../../utils/universally-used-formatDate";
@@ -24,9 +25,18 @@ const ItemDetails = ({
   isCreatingNewItem,
   openedItemData,
 }: ItemDetailsProps) => {
+  //
   const [itemData] = useState<{} | ItemFromDB>(
     isCreatingNewItem ? {} : openedItemData
   );
+
+  const handleDeleteItem = (event: React.FormEvent) => {
+    event.preventDefault();
+    //           _._._. Delete this item
+    console.log("deleting this item : ", openedItemData.itemName);
+    // openedItemData.itemName
+    handleDeleteDocFromCollInDB(collPathString, openedItemData.itemName);
+  };
 
   const handleSubmitForm = (event: React.FormEvent) => {
     event.preventDefault();
@@ -214,9 +224,7 @@ const ItemDetails = ({
       </ul>
       {/* //       _._. Delete & Save item (Buttons) */}
       <button
-        onClick={(e) => {
-          e.preventDefault(), console.log("deleted");
-        }}
+        onClick={handleDeleteItem}
         className={styles["item-create-or-edit-view__btn-delete"]}
       >
         <MdDeleteForever />
@@ -272,3 +280,4 @@ export default ItemDetails;
 //
 //                  _._._._. Collect data from the form
 //
+//           _._._. Delete this item
