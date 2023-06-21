@@ -33,8 +33,7 @@ const ItemDetails = ({
   const handleDeleteItem = (event: React.FormEvent) => {
     event.preventDefault();
     //           _._._. Delete this item
-    console.log("deleting this item : ", openedItemData.itemName);
-    // openedItemData.itemName
+
     handleDeleteDocFromCollInDB(collPathString, openedItemData.itemName);
   };
 
