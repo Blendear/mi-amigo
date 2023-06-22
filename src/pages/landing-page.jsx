@@ -27,6 +27,9 @@ import {
 const LandingPage = () => {
   const [loadingState, setLoadingState] = useState("fetching");
   const [allItemsFromDB, setAllItemsFromDB] = useState([]);
+
+  const [filterCurrent, setFilterCurrent] = useState("");
+  // itemSingle.amountCurrent > itemSingle.amountMaxExpected * 0.66
   //hook2 - add to table fo content
   useEffect(() => {
     console.log("useEffect started");
@@ -52,7 +55,35 @@ const LandingPage = () => {
         <ShopsToVisitGallery />
         <CurrentWeather />
       </div>
-      <ListOfItemsToBuy itemsFromDB={allItemsFromDB} />
+      {/* <div>Make this non-green filter active when user toggles the filter </div>
+      <div>& filter the shop data into different shops </div> */}
+
+      {/* <button
+        onClick={() => {
+          setFilterCurrent("all");
+        }}
+      >
+        {"[ All items - green included ]"}
+      </button>
+      <button
+        onClick={() => {
+          setFilterCurrent("red-yellow");
+        }}
+      >
+        {"[ only red and yellow ]"}
+      </button> */}
+
+      {/* <div>{filterCurrent}</div> */}
+      <ListOfItemsToBuy
+        itemsFromDB={
+          filterCurrent === "red-yellow"
+            ? allItemsFromDB.filter(
+                (itemSingle) =>
+                  itemSingle.amountCurrent < itemSingle.amountMaxExpected * 0.66
+              )
+            : allItemsFromDB
+        }
+      />
     </div>
   );
 };
