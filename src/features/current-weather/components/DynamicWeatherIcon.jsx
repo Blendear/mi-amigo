@@ -3,7 +3,7 @@
 //
 import styles from "src/styles/sass/styles-all.module.scss";
 
-import { TiWeatherPartlySunny } from "react-icons/ti";
+import { TiWeatherSunny, TiWeatherPartlySunny } from "react-icons/ti";
 
 const DynamicWeatherIcon = () => {
   return <TiWeatherPartlySunny size="80%" color="#c08285" />;

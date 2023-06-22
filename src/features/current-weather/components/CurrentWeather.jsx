@@ -14,23 +14,27 @@ const CurrentWeather = () => {
       feels_like: 29.49,
     },
   });
-  const [locationCurrent, setLocationCurrent] = useState({});
 
   useEffect(() => {
-    // console.log("weather");
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${locationCurrent.latitude}&lon=${locationCurrent.longitude}&units=metric&appid=895284fb2d2c50a520ea537456963d9c`;
-    // hook1 - swap this /\ with this (my own API key)\/, when my API key will be accepted (should be on 23 of June)
-    // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${locationCurrent.latitude}&lon=${locationCurrent.longitude}&appid=079efb8bdec028c18644ef2e63ad721e`;
-    // console.log(url);
-    getLocation(setLocationCurrent);
-    getWeatherCurrent(url, setWeatherData);
+    const handleShowWeather = async () => {
+      const locationCurrent = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject); //hook2 - write down why creating a promise was needed
+      });
+
+      console.log("current location :", locationCurrent);
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${locationCurrent.coords.latitude}&lon=${locationCurrent.coords.longitude}&units=metric&appid=895284fb2d2c50a520ea537456963d9c`;
+      // hook1 - swap this /\ with this (my own API key)\/, when my API key will be accepted (should be on 23 of June)
+      // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${locationCurrent.latitude}&lon=${locationCurrent.longitude}&appid=079efb8bdec028c18644ef2e63ad721e`;
+
+      getWeatherCurrent(url, setWeatherData);
+    };
+    handleShowWeather();
   }, []);
 
   return (
     <div className={styles["landing-page__weather-container"]}>
       <DynamicWeatherIcon />
-
-      <div>{weatherData && weatherData.main.temp.toFixed(1)} &#8451;</div>
+      <div>{weatherData.main.temp.toFixed(1)} &#8451;</div>
     </div>
   );
 };
