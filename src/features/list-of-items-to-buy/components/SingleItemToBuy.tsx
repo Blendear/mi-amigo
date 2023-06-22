@@ -66,10 +66,10 @@ const SingleItemToBuy = ({
                 type="text"
                 name="itemName"
                 value={itemAlreadyExists ? itemSingle.itemName : "Item name"}
-                onFocus={handleOnClick}
+                onClick={handleOnClick}
                 className={styles["item-edit-view__title"]}
               ></input>
-              {/* ccc */}
+
               <div
                 className={`${styles[`item-edit-view__amounts-container`]} ${
                   styles[`${colorOfAmountToBuy}`]

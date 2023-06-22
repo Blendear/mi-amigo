@@ -21,7 +21,6 @@
   &__title {
     @include mixins.item-title;
     grid-column: c-1/c-2;
-    width: 110%;
 
     padding: 0 20% 0 20%;
     justify-items: start;
@@ -29,6 +28,7 @@
     transform: translateX(-1.2rem);
 
     border-radius: 0 1rem 1rem 0;
+    width: 110%;
   }
 
   &__amounts-container {
