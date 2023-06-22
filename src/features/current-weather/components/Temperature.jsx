@@ -7,7 +7,7 @@ const Temperature = ({ temperature, isDefault }) => {
   console.log(isDefault);
   return isDefault ? (
     <div style={{ fontSize: "1.25rem", textAlign: "center" }}>
-      {"GPS is turned off"}
+      {"Loading GPS data..."}
     </div>
   ) : (
     <div>{temperature} &#8451; </div>
