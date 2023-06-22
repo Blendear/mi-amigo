@@ -9,7 +9,6 @@
   }
   &__shops-and-weather-container {
     display: grid;
-
     grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr[c-3];
     // @include mixins.center-grid-items;
     justify-items: center;

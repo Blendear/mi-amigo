@@ -9,6 +9,7 @@
 //           _._._. Item container
 @mixin item-container {
   // \/ hook1 - make fonts responsive first, because they dont allow to shrink the container
+
   width: min(
     100%,
     40rem
