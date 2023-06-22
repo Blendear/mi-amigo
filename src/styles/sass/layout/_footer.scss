@@ -30,8 +30,10 @@
     }
   }
   &__svg-button {
-    width: 7rem;
-    aspect-ratio: 1/1.2;
+    width: 5rem;
+    height: 5rem;
+    padding: 1.1rem;
+
     justify-self: end;
 
     background-color: colors.$secondary-light;

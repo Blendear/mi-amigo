@@ -2,7 +2,7 @@ import styles from "src/styles/sass/styles-all.module.scss";
 import { useState } from "react";
 import { Modal, Backdrop } from "../../components";
 import { ItemDetails } from "../../features/add-or-edit-item/index";
-
+import { MdAddShoppingCart } from "react-icons/md";
 const Footer = () => {
   const [showSavingModalAndBackdrop, setShowSavingModalAndBackdrop] =
     useState<boolean>(false);
@@ -10,7 +10,7 @@ const Footer = () => {
     showCreateNewItemModalAndBackdrop,
     setShowCreateNewItemModalAndBackdrop,
   ] = useState<boolean>(false);
-
+  //hook2 - refactor the footer into separate files. It isn't a clean, readable code right now
   return (
     <div className={styles["footer__container"]}>
       {showSavingModalAndBackdrop && (
@@ -55,24 +55,14 @@ const Footer = () => {
           />
         </>
       )}
-      <button
-        className={styles["footer__svg-button"]}
-        onClick={() => {
-          setShowSavingModalAndBackdrop(true),
-            (document.body.style.overflow = "hidden"); // disables page-scrolling
-        }}
-      >
-        save
-      </button>
-      <button
+
+      <MdAddShoppingCart
         className={styles["footer__svg-button"]}
         onClick={() => {
           setShowCreateNewItemModalAndBackdrop(true),
             (document.body.style.overflow = "hidden"); // disables page-scrolling
         }}
-      >
-        add item
-      </button>
+      />
     </div>
   );
 };
