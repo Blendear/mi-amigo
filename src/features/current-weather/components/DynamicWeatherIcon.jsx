@@ -12,8 +12,11 @@ import {
   TiWeatherSnow,
 } from "react-icons/ti";
 
+import { MdLocationOff } from "react-icons/md";
+
 const DynamicWeatherIcon = ({ weatherDescription }) => {
   return {
+    default: <MdLocationOff size="80%" color="#c08285" />,
     "clear sky": <TiWeatherSunny size="80%" color="#c08285" />,
     "few clouds": <TiWeatherPartlySunny size="80%" color="#c08285" />,
     "scattered clouds": <TiWeatherCloudy size="80%" color="#c08285" />,

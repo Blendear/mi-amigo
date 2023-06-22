@@ -9,11 +9,12 @@ import { getWeatherCurrent } from "../../../utils";
 
 const CurrentWeather = () => {
   const [weatherData, setWeatherData] = useState({
+    isDefault: true,
     main: {
-      temp: 29.05,
-      feels_like: 29.49,
+      temp: 0.0,
+      feels_like: 0.0,
     },
-    weather: [{ description: "asdads" }],
+    weather: [{ description: "default" }],
   }); // placeholder, needed before the actual data gets fetched
 
   useEffect(() => {
@@ -27,7 +28,10 @@ const CurrentWeather = () => {
       />
       {console.log(weatherData.weather[0].description)}
       {/* <div>{weatherData.weather[0].description}</div> */}
-      <Temperature temperature={weatherData.main.temp.toFixed(1)} />
+      <Temperature
+        temperature={weatherData.main.temp.toFixed(1)}
+        isDefault={weatherData.isDefault ? true : false}
+      />
     </div>
   );
 };

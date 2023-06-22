@@ -3,8 +3,15 @@
 //
 import styles from "src/styles/sass/styles-all.module.scss";
 
-const Temperature = ({ temperature }) => {
-  return <div>{temperature} &#8451; </div>;
+const Temperature = ({ temperature, isDefault }) => {
+  console.log(isDefault);
+  return isDefault ? (
+    <div style={{ fontSize: "1.25rem", textAlign: "center" }}>
+      {"GPS is turned off"}
+    </div>
+  ) : (
+    <div>{temperature} &#8451; </div>
+  );
 };
 export default Temperature;
 
