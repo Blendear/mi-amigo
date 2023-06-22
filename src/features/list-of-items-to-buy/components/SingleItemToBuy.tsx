@@ -62,13 +62,15 @@ const SingleItemToBuy = ({
                 />
               </button>
 
-              <input
-                type="text"
-                name="itemName"
-                value={itemAlreadyExists ? itemSingle.itemName : "Item name"}
+              <div
+                // type="text"
+                // name="itemName"
+                // value={itemAlreadyExists ? itemSingle.itemName : "Item name"}
                 onClick={handleOnClick}
                 className={styles["item-edit-view__title"]}
-              ></input>
+              >
+                {itemAlreadyExists ? itemSingle.itemName : "Item name"}
+              </div>
 
               <div
                 className={`${styles[`item-edit-view__amounts-container`]} ${
