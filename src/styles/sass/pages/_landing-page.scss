@@ -8,6 +8,8 @@
     background-color: colors.$primary-light;
   }
   &__shops-and-weather-container {
+    margin: 0 0 2rem 0;
+
     display: grid;
     grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr[c-3];
     // @include mixins.center-grid-items;
