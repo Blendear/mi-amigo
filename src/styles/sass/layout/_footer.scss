@@ -11,7 +11,10 @@
   &__container {
     // position: fixed; //hook1 - should be fixed to the bottom. why is this error happening?
     // bottom: 0;
-
+    // position: fixed;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     padding: 2rem 3rem 2rem 3rem;
 
     background-color: colors.$primary-light;
@@ -30,13 +33,21 @@
     }
   }
   &__svg-button {
-    width: 5rem;
-    height: 5rem;
-    padding: 1.1rem;
+    @mixin btn {
+      width: 6rem;
+      height: 6rem;
+      padding: 1.1rem;
 
-    justify-self: end;
-
-    background-color: colors.$secondary-light;
-    border-radius: 2rem;
+      background-color: colors.$secondary-light;
+      border-radius: 2rem;
+    }
+    &--left {
+      @include btn();
+      justify-self: start;
+    }
+    &--right {
+      @include btn();
+      justify-self: end;
+    }
   }
 }
