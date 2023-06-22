@@ -21,13 +21,18 @@ const SingleItemToBuy = ({
   // itemSingle={item}
   //hook2 - add this redux code to the table of contentd comments
   // const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
-  const amountToBuy = itemSingle.amountMaxExpected - itemSingle.amountCurrent;
+  const amountToBuy =
+    itemAlreadyExists &&
+    itemSingle.amountMaxExpected - itemSingle.amountCurrent;
+
   const colorOfAmountToBuy =
-    itemSingle.amountCurrent > itemSingle.amountMaxExpected * 0.66
+    itemAlreadyExists &&
+    (itemSingle.amountCurrent > itemSingle.amountMaxExpected * 0.66
       ? "bg-color--success"
       : itemSingle.amountCurrent > itemSingle.amountMaxExpected * 0.15
       ? "bg-color--warning"
-      : "bg-color--danger";
+      : "bg-color--danger");
+
   //hook1 - remake this, because i have two nearly the same copies of JSX below. maybe its cleaner to waytch, bot iuts not DRY code
   return (
     <>
@@ -125,9 +130,17 @@ const SingleItemToBuy = ({
               ></input>
 
               <div
-                className={
-                  styles["item-create-or-edit-view__amounts-container"]
-                }
+                className={`${
+                  styles[`item-create-or-edit-view__amounts-container`]
+                } ${
+                  styles[
+                    `${
+                      itemAlreadyExists
+                        ? colorOfAmountToBuy
+                        : "bg-color--success"
+                    }`
+                  ]
+                }`}
               >
                 <div
                   className={styles["item-create-or-edit-view__amount-to-buy"]}
