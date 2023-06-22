@@ -21,7 +21,13 @@ const SingleItemToBuy = ({
   // itemSingle={item}
   //hook2 - add this redux code to the table of contentd comments
   // const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
-
+  const amountToBuy = itemSingle.amountMaxExpected - itemSingle.amountCurrent;
+  const colorOfAmountToBuy =
+    itemSingle.amountCurrent > itemSingle.amountMaxExpected * 0.66
+      ? "bg-color--success"
+      : itemSingle.amountCurrent > itemSingle.amountMaxExpected * 0.15
+      ? "bg-color--warning"
+      : "bg-color--danger";
   //hook1 - remake this, because i have two nearly the same copies of JSX below. maybe its cleaner to waytch, bot iuts not DRY code
   return (
     <>
@@ -58,14 +64,17 @@ const SingleItemToBuy = ({
                 onFocus={handleOnClick}
                 className={styles["item-edit-view__title"]}
               ></input>
-              <div className={styles["item-edit-view__amounts-container"]}>
+              {/* ccc */}
+              <div
+                className={`${styles[`item-edit-view__amounts-container`]} ${
+                  styles[`${colorOfAmountToBuy}`]
+                }`}
+              >
                 <div className={styles["item-edit-view__amount-to-buy"]}>
                   <div
                     className={styles["item-edit-view__amount-to-buy__number"]}
                   >
-                    {itemAlreadyExists
-                      ? itemSingle.amountMaxExpected - itemSingle.amountCurrent
-                      : "?"}
+                    {itemAlreadyExists ? amountToBuy : "?"}
                   </div>
                   <div
                     className={
@@ -128,9 +137,7 @@ const SingleItemToBuy = ({
                       styles["item-create-or-edit-view__amount-to-buy__number"]
                     }
                   >
-                    {itemAlreadyExists
-                      ? itemSingle.amountMaxExpected - itemSingle.amountCurrent
-                      : "?"}
+                    {itemAlreadyExists ? amountToBuy : "?"}
                   </div>
                   <div
                     className={

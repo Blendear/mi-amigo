@@ -45,7 +45,6 @@
   z-index: 5;
 
   border-radius: 0 1rem 1rem 0;
-  background-color: colors.$succes;
 
   display: grid;
   grid-template-rows: [r-0] 1.75fr [r-1] 1fr[r-2];
@@ -53,6 +52,19 @@
   row-gap: 0.5rem;
   & div {
     display: grid;
+  }
+}
+@mixin bg-color-conditional {
+  .bg-color {
+    &--success {
+      background-color: colors.$succes;
+    }
+    &--warning {
+      background-color: colors.$warning;
+    }
+    &--danger {
+      background-color: colors.$danger;
+    }
   }
 }
 //                  _._._._. Amount-to-buy container
