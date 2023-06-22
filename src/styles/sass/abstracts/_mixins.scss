@@ -39,6 +39,9 @@
   display: grid;
 }
 //           _._._. Amounts container
+@mixin placeholder-amount-color {
+  color: colors.$seventh-light;
+}
 @mixin item-amounts-container {
   padding: 0 10% 0 10%;
 
@@ -52,6 +55,22 @@
   row-gap: 0.5rem;
   & div {
     display: grid;
+  }
+
+  ::placeholder {
+    @include placeholder-amount-color;
+  }
+  ::-webkit-input-placeholder {
+    @include placeholder-amount-color;
+  }
+  :-moz-placeholder {
+    @include placeholder-amount-color;
+  }
+  ::-moz-placeholder {
+    @include placeholder-amount-color;
+  }
+  :-ms-input-placeholder {
+    @include placeholder-amount-color;
   }
 }
 @mixin bg-color-conditional {

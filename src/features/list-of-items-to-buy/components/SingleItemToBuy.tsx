@@ -171,8 +171,9 @@ const SingleItemToBuy = ({
                 >
                   <input
                     name="amountCurrent"
+                    placeholder="?"
                     defaultValue={
-                      itemAlreadyExists ? itemSingle.amountCurrent : "?"
+                      itemAlreadyExists ? itemSingle.amountCurrent : ""
                     }
                     className={
                       styles[
@@ -183,8 +184,9 @@ const SingleItemToBuy = ({
                   <div>/</div>
                   <input
                     name="amountMaxExpected"
+                    placeholder="?"
                     defaultValue={
-                      itemAlreadyExists ? itemSingle.amountMaxExpected : "?"
+                      itemAlreadyExists ? itemSingle.amountMaxExpected : ""
                     }
                     className={
                       styles[
