@@ -13,7 +13,7 @@ const CurrentWeather = () => {
       temp: 29.05,
       feels_like: 29.49,
     },
-  });
+  }); // placeholder, needed before the actual data gets fetched
 
   useEffect(() => {
     getWeatherCurrent(setWeatherData);
