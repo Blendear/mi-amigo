@@ -12,6 +12,7 @@ const handler = async (req, res) => {
     if (docSnap) {
       await deleteDoc(docSnap);
       res.status(200).json({
+        status: 200,
         message: `Item with id : ${docID} was succesfully deleted!`,
       });
       //hook2 - create a dedicated file for responses data. code wil be cleaner, and some do repeat themselves

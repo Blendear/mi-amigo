@@ -52,7 +52,7 @@ input,
 select,
 div {
   @include fontStylingGlobal();
-  color: colors.$forth-light;
+  color: colors.$forth-light; // hook1 - change that from global to local inside specific styles   &   trap1 - NEVER do this. Its hard to overwrite it in a local file afterwise
   border: none;
   // width: 100%;
   // height: 100%;

@@ -29,11 +29,11 @@ const ItemDetails = ({
   const [itemData] = useState<{} | ItemFromDB>(
     isCreatingNewItem ? {} : openedItemData
   );
+  // const notify = (message) => toast(`${message}`);
 
   const handleDeleteItem = (event: React.FormEvent) => {
     event.preventDefault();
     //           _._._. Delete this item
-
     handleDeleteDocFromCollInDB(collPathString, openedItemData.itemName);
   };
 
@@ -62,7 +62,7 @@ const ItemDetails = ({
   };
 
   // console.log(openedItemData ? itemData : "opened create item modal");
-
+  // return <button onClick={notify}>notify!</button>;
   return (
     <form
       onSubmit={handleSubmitForm}

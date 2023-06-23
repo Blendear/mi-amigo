@@ -8,6 +8,7 @@ import { SessionProvider } from "next-auth/react";
 import store from "../store/redux/store-redux";
 import { Provider } from "react-redux";
 import Layout from "../layouts/layout/layout";
+import { ToastContainer } from "react-toastify";
 
 function MyApp({
   Component,
@@ -26,6 +27,8 @@ function MyApp({
           <Component {...pageProps} />
         </Layout>
       </SessionProvider>
+      {/* //       _._. Allows rendering of toasts in the whole app */}
+      <ToastContainer />
     </Provider>
   );
 }
@@ -42,4 +45,6 @@ export default MyApp;
 //       _._. "Redux"
 //
 //       _._. "Layout" - components visible on every single page (footer, navbar etc.)
+//
+//       _._. Allows rendering of toasts in the whole app
 //

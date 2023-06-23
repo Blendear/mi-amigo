@@ -1,0 +1,14 @@
+//
+//~~ _.  Globally used backdrops - locally used backdrops are in their specific files, where they are used
+//
+@use "../../../styles/sass/abstracts/mixins";
+@use "../../../styles/sass/abstracts/colors";
+@use "../../../styles/sass/abstracts/variables";
+@use "../../../styles/sass/base/typography";
+
+//hook1 - add grouping of css properties   &   get variables etc fro "base" or "abstracts"
+
+.toast {
+  // color: none;
+  color: rgb(200, 227, 65) !important;
+}

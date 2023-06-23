@@ -48,6 +48,7 @@ const LandingPage = () => {
     };
     getItemsFromDB();
   }, []);
+
   return (
     <div className={styles["landing-page__container"]}>
       <div className={styles["landing-page__shops-and-weather-container"]}>
@@ -74,6 +75,7 @@ const LandingPage = () => {
       </button> */}
 
       {/* <div>{filterCurrent}</div> */}
+
       <ListOfItemsToBuy
         itemsFromDB={
           filterCurrent === "red-yellow"

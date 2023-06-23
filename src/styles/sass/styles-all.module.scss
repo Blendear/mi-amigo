@@ -6,6 +6,7 @@
 @use "./base/reset";
 @use "./base/typography";
 
+@use "./components/toast";
 @use "./components/backdrop";
 @use "./components/modal";
 @use "./components/item-list-view";

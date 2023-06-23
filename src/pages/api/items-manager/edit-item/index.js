@@ -12,6 +12,7 @@ const handler = async (req, res) => {
     if (docSnap) {
       await updateDoc(docSnap, newDocData);
       res.status(200).json({
+        status: 200,
         itemData: newDocData,
         message: `Item with id : ${docID} was succesfully updated!`,
       });
