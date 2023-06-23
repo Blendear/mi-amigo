@@ -28,6 +28,9 @@ const LandingPage = () => {
   const [loadingState, setLoadingState] = useState("fetching");
   const [allItemsFromDB, setAllItemsFromDB] = useState([]);
 
+  const [isGreen, setIsGreen] = useState(false);
+  const [isYellow, setIsYellow] = useState(false);
+  const [isRed, setIsRed] = useState(false);
   const [filterCurrent, setFilterCurrent] = useState("");
   // itemSingle.amountCurrent > itemSingle.amountMaxExpected * 0.66
   //hook2 - add to table fo content
@@ -66,13 +69,73 @@ const LandingPage = () => {
       >
         {"[ All items - green included ]"}
       </button>
-      <button
-        onClick={() => {
-          setFilterCurrent("red-yellow");
-        }}
-      >
+      
         {"[ only red and yellow ]"}
       </button> */}
+      <div className={styles["landing-page__filters-container"]}>
+        <div
+          className={
+            styles["landing-page__filters-container__by-name-container"]
+          }
+        >
+          <input
+            className={styles["hook1"]}
+            name="by-name"
+            placeholder="Name to filter by"
+            type="text"
+            // onClick={() => {
+            //   setFilterCurrent("red-yellow");
+            // }}
+          ></input>
+        </div>
+
+        <div
+          className={
+            styles["landing-page__filters-container__checkboxes-container"]
+          }
+        >
+          <input
+            className={
+              styles[
+                "landing-page__filters-container__checkboxes-container--green"
+              ]
+            }
+            name="green"
+            type="checkbox"
+            // onClick={() => {
+            //   setFilterCurrent("red-yellow");
+            // }}
+          ></input>
+          <input
+            className={
+              styles[
+                "landing-page__filters-container__checkboxes-container--yellow"
+              ]
+            }
+            name="yellow"
+            type="checkbox"
+            // onClick={() => {
+            //   setFilterCurrent("red-yellow");
+            // }}
+          ></input>
+          <input
+            className={
+              styles[
+                "landing-page__filters-container__checkboxes-container--red"
+              ]
+            }
+            name="red"
+            type="checkbox"
+            // onChange={() => {
+            //   setIsRed((prev) => {
+            //     return !prev;
+            //   });
+            // }}
+            //hook1 - herehere - /\ change to a way of saving th state, so it doesnt renrender the whole landing opage. mayeb just add the usestate and filters as part of "list of items"?
+          ></input>
+          {/* {console.log(isRed)} */}
+        </div>
+      </div>
 
       {/* <div>{filterCurrent}</div> */}
       {

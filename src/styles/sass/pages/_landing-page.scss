@@ -89,6 +89,41 @@
       display: grid;
     }
   }
+  @mixin filter-related-containers {
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  &__filters-container {
+    @include filter-related-containers();
+    &__by-name-container {
+      @include filter-related-containers();
+    }
+    &__checkboxes-container {
+      @include filter-related-containers();
+      // border-width: 1rem;
+      & input {
+        width: 2rem;
+
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.5rem;
+        &:checked {
+          border-width: 1rem;
+        }
+      }
+      &--green {
+        border: solid colors.$succes;
+      }
+      &--yellow {
+        border: solid colors.$warning;
+      }
+      &--red {
+        border: solid colors.$danger;
+      }
+    }
+  }
   &__list-of-items-container {
     padding: 0.5rem 3.5rem 0 3.5rem;
     margin: 0 0 11rem 0;
