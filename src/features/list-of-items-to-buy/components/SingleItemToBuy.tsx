@@ -23,7 +23,9 @@ const SingleItemToBuy = ({
   // const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
   const amountToBuy =
     itemAlreadyExists &&
-    itemSingle.amountMaxExpected - itemSingle.amountCurrent;
+    (itemSingle.amountMaxExpected - itemSingle.amountCurrent < 0
+      ? 0
+      : itemSingle.amountMaxExpected - itemSingle.amountCurrent);
 
   const colorOfAmountToBuy =
     itemAlreadyExists &&
