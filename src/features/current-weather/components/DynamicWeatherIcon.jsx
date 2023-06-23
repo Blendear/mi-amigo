@@ -13,7 +13,7 @@ import {
 } from "react-icons/ti";
 
 import { MdLocationOff } from "react-icons/md";
-
+//hook2 - add a universal classname insteaad of inline styling the ame props into the icons
 const DynamicWeatherIcon = ({ weatherDescription }) => {
   return {
     default: <MdLocationOff size="80%" color="#c08285" />,
