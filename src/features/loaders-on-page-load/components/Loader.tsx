@@ -8,7 +8,7 @@ import { LoaderProps } from "../types/index";
 const Loader = ({ loadingState }: LoaderProps) => {
   return (
     //       _._. AA
-    <div className={styles["container__loader"]}>
+    <div className={styles["loader__container"]}>
       {/* // _._._.AAA */}
       {
         {
@@ -28,14 +28,13 @@ const Loader = ({ loadingState }: LoaderProps) => {
       }
 
       <ColorRing
-        // className={styles["child__css-class-name"]}
         visible={true}
-        height="80"
-        width="80"
+        height="20rem"
+        width="20rem"
         ariaLabel="blocks-loading"
         wrapperStyle={{}}
         wrapperClass="blocks-wrapper"
-        colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        colors={["#d17676", "#f47e60", "#f8b26a", "#9ed176", "#849b87"]}
       />
     </div>
   );

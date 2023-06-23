@@ -26,6 +26,7 @@ const handler = async (req, res) => {
       }));
 
       res.status(200).json({
+        status: 200,
         data: dataFromDB,
         coll: "shopping-assistant/test-user/items",
         testMessage: "Success, response is allright!",

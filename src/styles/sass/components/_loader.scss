@@ -1,0 +1,21 @@
+//
+//~~ _.  Globally used backdrops - locally used backdrops are in their specific files, where they are used
+//
+@use "../../../styles/sass/abstracts/mixins";
+@use "../../../styles/sass/abstracts/colors";
+@use "../../../styles/sass/abstracts/variables";
+@use "../../../styles/sass/base/typography";
+
+//hook1 - add grouping of css properties   &   get variables etc fro "base" or "abstracts"
+
+.loader {
+  &__container {
+    height: 60dvw;
+    // width: 200%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+  &__spinner {
+  }
+}

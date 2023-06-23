@@ -1,6 +1,15 @@
 // Util functions should be pure funciton - same input gives you the same output
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const getAllDocumentsFromColl = async () => {
+const toastProps = {
+  theme: "colored",
+  hideProgressBar: true,
+  closeOnClick: true,
+  autoClose: 1500,
+};
+
+const getAllDocumentsFromColl = async (setLoadingState) => {
   return (
     fetch("/api/items-manager/get-item", {
       method: "GET",
@@ -8,12 +17,12 @@ const getAllDocumentsFromColl = async () => {
       //hook2 - catch errors - should impement it, or is the code safe?
       .then((response) => response.json())
       .then((data) => {
-        //   // return data;
-        // console.log("GET response data:", data);
+        data.status === 200
+          ? setLoadingState("finished")
+          : toast.error(`Error occured`, toastProps);
         return data;
       })
   );
-  // .then((data) => console.log("response:", data));
 };
 
 export default getAllDocumentsFromColl;

@@ -11,7 +11,7 @@ import { ListOfItemsToBuy } from "../features/list-of-items-to-buy/index";
 import { CurrentWeather } from "../features/current-weather/index";
 import { useState, useEffect } from "react";
 import getAllDocumentsFromColl from "../utils/get-all-docs-from-coll-from-DB";
-
+import { Loader } from "../features/loaders-on-page-load";
 import { db } from "../features/authentication/lib/init-firebase";
 import {
   addDoc,
@@ -42,7 +42,7 @@ const LandingPage = () => {
     //
     // 3. And you NEED TO RETURN T W I C E - One for returning the whole fetch function & Second for returning the data inside a "then" INSIDE the fetch function
     const getItemsFromDB = async () => {
-      const itemsFromDB = await getAllDocumentsFromColl();
+      const itemsFromDB = await getAllDocumentsFromColl(setLoadingState);
       console.log("useEffect gave us this items: ", itemsFromDB.data);
       setAllItemsFromDB(itemsFromDB.data);
     };
@@ -75,17 +75,25 @@ const LandingPage = () => {
       </button> */}
 
       {/* <div>{filterCurrent}</div> */}
-
-      <ListOfItemsToBuy
-        itemsFromDB={
-          filterCurrent === "red-yellow"
-            ? allItemsFromDB.filter(
-                (itemSingle) =>
-                  itemSingle.amountCurrent < itemSingle.amountMaxExpected * 0.66
-              )
-            : allItemsFromDB
-        }
-      />
+      {
+        {
+          fetching: <Loader />,
+          finished: (
+            // <Loader />,
+            <ListOfItemsToBuy
+              itemsFromDB={
+                filterCurrent === "red-yellow"
+                  ? allItemsFromDB.filter(
+                      (itemSingle) =>
+                        itemSingle.amountCurrent <
+                        itemSingle.amountMaxExpected * 0.66
+                    )
+                  : allItemsFromDB
+              }
+            />
+          ),
+        }[loadingState]
+      }
     </div>
   );
 };
