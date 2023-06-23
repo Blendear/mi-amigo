@@ -23,10 +23,8 @@ const CurrentWeather = () => {
 
   return (
     <div className={styles["landing-page__weather-container"]}>
-      <DynamicWeatherIcon
-        weatherDescription={weatherData.weather[0].description}
-      />
-      {console.log(weatherData.weather[0].description)}
+      <DynamicWeatherIcon weatherDescription={weatherData.weather[0].main} />
+      {console.log(weatherData.weather[0].main)}
       {/* <div>{weatherData.weather[0].description}</div> */}
       <Temperature
         temperature={weatherData.main.temp.toFixed(1)}

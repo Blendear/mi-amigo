@@ -17,15 +17,14 @@ import { MdLocationOff } from "react-icons/md";
 const DynamicWeatherIcon = ({ weatherDescription }) => {
   return {
     default: <MdLocationOff size="80%" color="#c08285" />,
-    "clear sky": <TiWeatherSunny size="80%" color="#c08285" />,
-    "few clouds": <TiWeatherPartlySunny size="80%" color="#c08285" />,
-    "scattered clouds": <TiWeatherCloudy size="80%" color="#c08285" />,
-    "broken clouds": <TiWeatherCloudy size="80%" color="#c08285" />,
-    "shower rain": <TiWeatherShower size="80%" color="#c08285" />,
-    rain: <TiWeatherShower size="80%" color="#c08285" />,
-    thunderstorm: <TiWeatherStormy size="80%" color="#c08285" />,
-    snow: <TiWeatherSnow size="80%" color="#c08285" />,
-    mist: <TiWeatherCloudy size="80%" color="#c08285" />,
+    Clear: <TiWeatherSunny size="80%" color="#c08285" />,
+    Clouds: <TiWeatherCloudy size="80%" color="#c08285" />,
+    Mist: <TiWeatherCloudy size="80%" color="#c08285" />,
+    Drizzle: <TiWeatherShower size="80%" color="#c08285" />,
+    Rain: <TiWeatherShower size="80%" color="#c08285" />,
+    Extreme: <TiWeatherShower size="80%" color="#c08285" />,
+    Thunderstorm: <TiWeatherStormy size="80%" color="#c08285" />,
+    Snow: <TiWeatherSnow size="80%" color="#c08285" />,
   }[weatherDescription];
 };
 export default DynamicWeatherIcon;
