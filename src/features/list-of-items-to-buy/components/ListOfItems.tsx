@@ -34,7 +34,7 @@ const ListOfItemsToBuy = ({ itemsFromDB }: ItemFromDB) => {
       <div>{nameToFilterBy}</div>
       <ul className={styles["landing-page__list-of-items-container"]}>
         {itemsFromDB
-          .filter((item) => item.amountCurrent < item.amountMaxExpected * 0.66)
+          // .filter((item) => item.amountCurrent < item.amountMaxExpected * 0.66)
           .map((item, index) => (
             <li key={index} className={styles["item-edit-view__container"]}>
               {/* //       _._. Single item, clickable container - onClick opens "ItemDetails" modal as "variant : edit-item" */}
