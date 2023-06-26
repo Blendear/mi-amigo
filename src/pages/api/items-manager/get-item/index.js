@@ -37,7 +37,7 @@ const handler = async (req, res) => {
   } else {
     res.status(400).json({
       type: "incorrect-type-of-request",
-      title: "Incorrect type of request",
+      name: "Incorrect type of request",
       status: 400,
       message:
         "The request should be a GET request. The user's request was of a different type.",

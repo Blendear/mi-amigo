@@ -10,19 +10,22 @@ const toastProps = {
 };
 
 const getAllDocumentsFromColl = async (setLoadingState) => {
-  return (
-    fetch("/api/items-manager/get-item", {
+  try {
+    const response = await fetch("/api/items-manager/get-item", {
       method: "GET",
-    })
-      //hook2 - catch errors - should impement it, or is the code safe?
-      .then((response) => response.json())
-      .then((data) => {
-        data.status === 200
-          ? setLoadingState("finished")
-          : toast.error(`Error occured`, toastProps);
-        return data;
-      })
-  );
+    });
+
+    const data = await response.json();
+    if (data.status !== 200) {
+      throw data;
+    } else {
+      setLoadingState("finished");
+      return data;
+    }
+  } catch (err) {
+    console.error(err);
+    toast.error(`${err.name} | ${err.message}`, toastProps);
+  }
 };
 
 export default getAllDocumentsFromColl;

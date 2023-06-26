@@ -16,7 +16,7 @@ const handler = async (req, res) => {
     if (docSnap.exists()) {
       res.status(400).json({
         type: "item-already-exists",
-        title: `An item with the name "${docID}" already exists!`,
+        name: `An item with the name "${docID}" already exists!`,
         status: 400,
         message: `Change the name or edit the existing item c:`,
         instance: "/item-manager/add-item",
@@ -36,7 +36,7 @@ const handler = async (req, res) => {
   } else {
     res.status(400).json({
       type: "incorrect-type-of-request",
-      title: "Incorrect type of request",
+      name: "Incorrect type of request",
       status: 400,
       message:
         "The request should be a POST request. The user's request was of a different type.",

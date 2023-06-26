@@ -20,24 +20,25 @@ const handleUpdateDocInCollInDB = async (collPathString, docID, newDocData) => {
     newDocData: newDocData,
   };
 
-  fetch("/api/items-manager/edit-item", {
-    method: "PUT",
-    body: JSON.stringify(reqBody),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    //hook2 - catch errors - should impement it, or is the code safe?
-    .then((response) => response.json())
-    .then(
-      (data) => (
-        console.log("PUT response:", data),
-        data.status === 200
-          ? toast.success(`Updated ${docID} successfully!`, toastProps)
-          : toast.error(`Error occured`, toastProps)
-      )
-    );
-  //hook2 - how to send this response data to the future toast - through save and get in redux?
+  try {
+    const response = await fetch("/api/items-manager/edit-item", {
+      method: "PUT",
+      body: JSON.stringify(reqBody),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+    if (data.status !== 200) {
+      throw data;
+    } else {
+      toast.success(data.message, toastProps);
+    }
+  } catch (err) {
+    console.error(err);
+    toast.error(`${err.name} | ${err.message}`, toastProps);
+  }
 };
 
 export default handleUpdateDocInCollInDB;

@@ -11,26 +11,29 @@ const toastProps = {
 
 const handleDeleteDocFromCollInDB = async (collPathString, docID) => {
   //                  _._._._. Get reference the document we want to update - by passing : databaseReference, collectionName, documentName
-  const reqBody = {
-    collPathString: collPathString,
-    docID: docID,
-  };
+  try {
+    const reqBody = {
+      collPathString: collPathString,
+      docID: docID,
+    };
+    const response = await fetch("/api/items-manager/delete-item", {
+      method: "DELETE",
+      body: JSON.stringify(reqBody),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  fetch("/api/items-manager/delete-item", {
-    method: "DELETE",
-    body: JSON.stringify(reqBody),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    //hook2 - catch errors - should impement it, or is the code safe?
-    .then((response) => response.json())
-    .then((data) =>
-      data.status === 200
-        ? toast.success(`Deleted ${docID} successfully!`, toastProps)
-        : toast.error(`Error occured`, toastProps)
-    );
-  //hook2 - how to send this response data to the future toast - through save and get in redux?
+    const data = await response.json();
+    if (data.status !== 200) {
+      throw data;
+    } else {
+      toast.success(data.message, toastProps);
+    }
+  } catch (err) {
+    console.error(err);
+    toast.error(`${err.name} | ${err.message}`, toastProps);
+  }
 };
 
 export default handleDeleteDocFromCollInDB;

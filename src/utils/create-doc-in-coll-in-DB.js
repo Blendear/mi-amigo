@@ -9,29 +9,30 @@ const toastProps = {
   autoClose: 1500,
 };
 const handleAddDocToCollInDB = async (collPathString, docID, newDocData) => {
-  const reqBody = {
-    collPathString: collPathString,
-    docID: docID,
-    newDocData: newDocData,
-  };
-  fetch("/api/items-manager/add-item", {
-    method: "POST",
-    body: JSON.stringify(reqBody),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    //hook2 - catch errors - should impement it, or is the code safe?
-    .then((response) => response.json())
-    .then(
-      (data) =>
-        // console.log("response:", data.status)
-        data.status === 400
-          ? toast.error(`${docID} already exists!`, toastProps)
-          : toast.success(`Added ${docID} successfully!`, toastProps)
-      //
-    );
-  //hook2 - how to send this response data to the future toast - through save and get in redux?
+  try {
+    const reqBody = {
+      collPathString: collPathString,
+      docID: docID,
+      newDocData: newDocData,
+    };
+    const response = await fetch("/api/items-manager/add-item", {
+      method: "POST",
+      body: JSON.stringify(reqBody),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    //hook2 - too much repeating code for error handlers inside "utils" files - find a way to make the error handling from every api-requesting function (4+) into an importable component.
+    const data = await response.json();
+    if (data.status !== 200) {
+      throw data;
+    } else {
+      toast.success(data.message, toastProps);
+    }
+  } catch (err) {
+    console.error(err);
+    toast.error(`${err.name} | ${err.message}`, toastProps);
+  }
 };
 
 export default handleAddDocToCollInDB;
