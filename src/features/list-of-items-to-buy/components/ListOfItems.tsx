@@ -30,13 +30,13 @@ const ListOfItemsToBuy = ({ itemsFromDB }: ItemFromDB) => {
   console.log("rerender list of items");
   return (
     <>
-      <button
+      {/* <button
         onClick={() => {
           console.log("state current : ", colorsToFilterBy);
         }}
       >
         console log
-      </button>
+      </button> */}
       {/* //       _._. Filters for the user*/}
       <FiltersForItems handlers={{ setNameToFilterBy, setColorsToFilterBy }} />
       <ul className={styles["landing-page__list-of-items-container"]}>
