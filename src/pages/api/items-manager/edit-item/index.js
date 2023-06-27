@@ -14,15 +14,15 @@ const handler = async (req, res) => {
       res.status(200).json({
         status: 200,
         itemData: newDocData,
-        message: `Item with id : ${docID} was succesfully updated!`,
+        message: `Updated "${docID}" successfully!`,
       });
     } else {
       res.status(404).json({
         type: "item-doesnt-exist",
-        name: "The updated item doesn't exist! There must a error with our database!",
+        name: "The updated item doesn't exist!",
         status: 404,
         message:
-          "Please contact the developer. If you clicked an item to edit, then the item should crearly exist and the problem is on our side.",
+          "There must a error with our database. Please contact the developer. If you clicked an item to edit, then the item should crearly exist and the problem is on our side.",
         instance: "/item-manager/edit-item",
       });
     }

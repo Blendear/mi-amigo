@@ -16,7 +16,7 @@ const handler = async (req, res) => {
     if (docSnap.exists()) {
       res.status(400).json({
         type: "item-already-exists",
-        name: `An item with the name "${docID}" already exists!`,
+        name: `"${docID}" already exists!`,
         status: 400,
         message: `Change the name or edit the existing item c:`,
         instance: "/item-manager/add-item",
@@ -29,7 +29,7 @@ const handler = async (req, res) => {
       res.status(200).json({
         status: 200,
         itemData: newDocData,
-        message: `Item with id : ${docID} was succesfully created!`,
+        message: `Added "${docID}" successfully!`,
       });
     }
     // console.log(collPathString, docID, newDocData);
