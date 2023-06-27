@@ -18,16 +18,9 @@ const FiltersForItems = ({ handlers }: any) => {
   const handleToggleCheckbox = (event) => {
     const colorName = event.target.name;
     handlers.setColorsToFilterBy((prev) => {
-      // deconstruct an object
-
-      let temp = { ...prev };
-      Object.defineProperty(temp, colorName, {
+      return Object.defineProperty({ ...prev }, colorName, {
         value: event.target.checked === true ? colorName : "__",
       });
-      // return Object.defineProperty(prev, colorName, {
-      //   value: event.target.checked === true ? colorName : "__",
-      // });
-      return temp;
     });
   };
 
