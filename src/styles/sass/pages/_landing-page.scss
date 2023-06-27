@@ -94,30 +94,32 @@
 
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: max-content;
   }
 
   &__filters-container {
     @include filter-related-containers();
     margin: 2.5rem 1rem;
     height: 2rem;
-    column-gap: 1.8rem;
 
-    &__by-name {
+    &__by-name-container {
       all: unset;
       @include filter-related-containers();
-      justify-self: start;
+      justify-items: center;
       padding: 1rem;
-      // margin: 0 1.8rem 0 0;
-      width: 12rem;
 
       background-color: colors.$sixth-light;
       border-radius: variables.$border-radius-sm;
+
+      & svg {
+        width: 2rem;
+        height: 2rem;
+        fill: colors.$third-light;
+      }
     }
 
     &__checkboxes-container {
       @include filter-related-containers();
-      column-gap: 1rem;
+      column-gap: 1.5rem;
       // border-width: 1rem;
       & input {
         height: 2rem;
@@ -140,11 +142,6 @@
       &--red {
         border: solid colors.$danger;
       }
-    }
-    &__search-btn {
-      width: 2rem;
-      height: 2rem;
-      fill: colors.$third-light;
     }
   }
   &__list-of-items-container {

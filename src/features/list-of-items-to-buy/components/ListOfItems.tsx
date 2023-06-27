@@ -55,7 +55,7 @@ const ListOfItemsToBuy = ({ itemsFromDB }: ItemFromDB) => {
               colorsToFilterBy.warning === "__" &&
               colorsToFilterBy.danger === "__"
             ) {
-              return false;
+              return true;
             } else if (
               item.colorOfCurrentAmount.includes(colorsToFilterBy.success)
             ) {

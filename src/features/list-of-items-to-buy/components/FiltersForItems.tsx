@@ -18,21 +18,33 @@ const FiltersForItems = ({ handlers }: any) => {
   const handleToggleCheckbox = (event) => {
     const colorName = event.target.name;
     handlers.setColorsToFilterBy((prev) => {
-      return Object.defineProperty(prev, colorName, {
+      // deconstruct an object
+
+      let temp = { ...prev };
+      Object.defineProperty(temp, colorName, {
         value: event.target.checked === true ? colorName : "__",
       });
+      // return Object.defineProperty(prev, colorName, {
+      //   value: event.target.checked === true ? colorName : "__",
+      // });
+      return temp;
     });
   };
 
   return (
     <div className={styles["landing-page__filters-container"]}>
-      <input
-        className={styles["landing-page__filters-container__by-name"]}
-        id="byName"
-        placeholder="Name to filter by"
-        type="text"
-        onChange={handleChangeTextValue}
-      ></input>
+      <div
+        className={styles["landing-page__filters-container__by-name-container"]}
+      >
+        <input
+          // className={styles["landing-page__filters-container__by-name"]}
+          id="byName"
+          placeholder="Name to filter by"
+          type="text"
+          onChange={handleChangeTextValue}
+        ></input>
+        <FaSearch onClick={handleFilterByName} />
+      </div>
 
       <div
         className={
@@ -70,10 +82,6 @@ const FiltersForItems = ({ handlers }: any) => {
           //hook1 - herehere - /\ change to a way of saving th state, so it doesnt renrender the whole landing opage. mayeb just add the usestate and filters as part of "list of items"?
         ></input>
       </div>
-      <FaSearch
-        className={styles["landing-page__filters-container__search-btn"]}
-        onClick={handleFilterByName}
-      />
     </div>
   );
 };
