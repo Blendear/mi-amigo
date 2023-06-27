@@ -3,7 +3,6 @@
 //
 import styles from "src/styles/sass/styles-all.module.scss";
 import Image from "next/image";
-// import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
 import { SingleItemProps } from "..";
 
 const placeholderImageURL: string =
@@ -16,24 +15,12 @@ const SingleItemToBuy = ({
   itemSingle,
   handleOnClick,
 }: SingleItemProps) => {
-  // variant="list-view"
-  // itemAlreadyExists={true}
-  // itemSingle={item}
-  //hook2 - add this redux code to the table of contentd comments
-  // const reduxStateImageURL = useAppSelector((state) => state.urlReducer);
+  //
   const amountToBuy =
     itemAlreadyExists &&
     (itemSingle.amountMaxExpected - itemSingle.amountCurrent < 0
       ? 0
       : itemSingle.amountMaxExpected - itemSingle.amountCurrent);
-
-  const colorOfAmountToBuy =
-    itemAlreadyExists &&
-    (itemSingle.amountCurrent > itemSingle.amountMaxExpected * 0.66
-      ? "bg-color--success"
-      : itemSingle.amountCurrent > itemSingle.amountMaxExpected * 0.15
-      ? "bg-color--warning"
-      : "bg-color--danger");
 
   //hook1 - remake this, because i have two nearly the same copies of JSX below. maybe its cleaner to waytch, bot iuts not DRY code
   return (
@@ -76,7 +63,7 @@ const SingleItemToBuy = ({
 
               <div
                 className={`${styles[`item-edit-view__amounts-container`]} ${
-                  styles[`${colorOfAmountToBuy}`]
+                  styles[`${itemSingle.colorOfCurrentAmount}`]
                 }`}
               >
                 <div className={styles["item-edit-view__amount-to-buy"]}>
@@ -100,7 +87,6 @@ const SingleItemToBuy = ({
                     styles["item-edit-view__amount-current-and-expected"]
                   }
                 >
-                  {/* {console.log(itemSingle)} */}
                   {itemAlreadyExists ? itemSingle.amountCurrent : "?"}
                   {" / "}
                   {itemAlreadyExists ? itemSingle.amountMaxExpected : "?"}
@@ -129,10 +115,8 @@ const SingleItemToBuy = ({
                 defaultValue={
                   itemAlreadyExists ? itemSingle.itemName : "Item name"
                 }
-                // onFocus={handleOnClick}
                 className={styles["item-create-or-edit-view__title"]}
               ></input>
-
               <div
                 className={`${
                   styles[`item-create-or-edit-view__amounts-container`]
@@ -140,7 +124,7 @@ const SingleItemToBuy = ({
                   styles[
                     `${
                       itemAlreadyExists
-                        ? colorOfAmountToBuy
+                        ? itemSingle.colorOfCurrentAmount
                         : "bg-color--success"
                     }`
                   ]

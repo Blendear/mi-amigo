@@ -90,19 +90,37 @@
     }
   }
   @mixin filter-related-containers {
+    @include mixins.center-grid-items;
+
     display: grid;
     grid-auto-flow: column;
+    grid-auto-columns: max-content;
   }
 
   &__filters-container {
     @include filter-related-containers();
-    &__by-name-container {
+    margin: 2.5rem 1rem;
+    height: 2rem;
+    column-gap: 1.8rem;
+
+    &__by-name {
+      all: unset;
       @include filter-related-containers();
+      justify-self: start;
+      padding: 1rem;
+      // margin: 0 1.8rem 0 0;
+      width: 12rem;
+
+      background-color: colors.$sixth-light;
+      border-radius: variables.$border-radius-sm;
     }
+
     &__checkboxes-container {
       @include filter-related-containers();
+      column-gap: 1rem;
       // border-width: 1rem;
       & input {
+        height: 2rem;
         width: 2rem;
 
         -webkit-appearance: none;
@@ -122,6 +140,11 @@
       &--red {
         border: solid colors.$danger;
       }
+    }
+    &__search-btn {
+      width: 2rem;
+      height: 2rem;
+      fill: colors.$third-light;
     }
   }
   &__list-of-items-container {

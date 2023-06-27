@@ -9,32 +9,71 @@ import { ItemDetails } from "../../add-or-edit-item";
 import { ItemFromDB } from "../../../types";
 import FiltersForItems from "./FiltersForItems";
 
+//hook2 - export to "types" folder
+type checkboxesStates = {
+  success: string;
+  warning: string;
+  danger: string;
+};
+
 const ListOfItemsToBuy = ({ itemsFromDB }: ItemFromDB) => {
-  //hook2 - comment this into thte table of cotnent \/
   const [openedItem, setOpenedItem] = useState<ItemFromDB>();
   const [isItemDetailsModalOpen, setIsItemDetailsModalOpen] =
     useState<boolean>(false);
   const [nameToFilterBy, setNameToFilterBy] = useState<string>("");
-  const [isGreen, setIsGreen] = useState<boolean>(false);
-  const [isYellow, setIsYellow] = useState<boolean>(false);
-  const [isRed, setIsRed] = useState<boolean>(false);
+  const [colorsToFilterBy, setColorsToFilterBy] = useState<checkboxesStates>({
+    success: "__",
+    warning: "__",
+    danger: "__",
+  });
 
-  // 1. - nameToFilterBy.length > 0? = filter by name (and check step 2. for colors - becausy i might have 10 items weith "kitchen" string-part and want to noly see the red ones)
-  //
-  // 2. - filter by colors:
-  //      a) no colors chcecked = dont filter
-  //      b) 1,2 or 3 colors checked = filter by those colors
   console.log("rerender list of items");
   return (
     <>
-      {/* //       _._. Filters - name and/or color-checkbox'es for filtering the list of items */}
-      <FiltersForItems
-        handlers={{ setNameToFilterBy, setIsGreen, setIsYellow, setIsRed }}
-      />
-      <div>{nameToFilterBy}</div>
+      <button
+        onClick={() => {
+          console.log("state current : ", colorsToFilterBy);
+        }}
+      >
+        console log
+      </button>
+      {/* //       _._. Filters for the user*/}
+      <FiltersForItems handlers={{ setNameToFilterBy, setColorsToFilterBy }} />
       <ul className={styles["landing-page__list-of-items-container"]}>
         {itemsFromDB
-          // .filter((item) => item.amountCurrent < item.amountMaxExpected * 0.66)
+          //           _._._. Filter by string of text input
+          .filter((item) => {
+            return nameToFilterBy.length > 0
+              ? item.itemName.toLowerCase().includes(nameToFilterBy)
+              : true;
+          })
+
+          //           _._._. Filter by colors of active chechboxes
+          .filter((item) => {
+            if (
+              colorsToFilterBy.success === "__" &&
+              colorsToFilterBy.warning === "__" &&
+              colorsToFilterBy.danger === "__"
+            ) {
+              return false;
+            } else if (
+              item.colorOfCurrentAmount.includes(colorsToFilterBy.success)
+            ) {
+              return true;
+            } else if (
+              item.colorOfCurrentAmount.includes(colorsToFilterBy.warning)
+            ) {
+              return true;
+            } else if (
+              item.colorOfCurrentAmount.includes(colorsToFilterBy.danger)
+            ) {
+              return true;
+            }
+            return false;
+
+            //trap1 - || STOPS after first "true" case - for example "return item, if item.name.includes("a" || "b")" will ONLY RETURN items with "a", SINCE it wont need to check if "b" is also good
+          })
+
           .map((item, index) => (
             <li key={index} className={styles["item-edit-view__container"]}>
               {/* //       _._. Single item, clickable container - onClick opens "ItemDetails" modal as "variant : edit-item" */}
@@ -44,6 +83,7 @@ const ListOfItemsToBuy = ({ itemsFromDB }: ItemFromDB) => {
                 itemSingle={item}
                 handleOnClick={() => {
                   setOpenedItem(item), setIsItemDetailsModalOpen(true);
+                  console.log(item);
                 }}
               />
             </li>
@@ -82,7 +122,11 @@ export default ListOfItemsToBuy;
 //
 //~~ _.  List of items to buy in the currently active shop || all shops - depends on the chosen image
 //
-//       _._. Filters - name and/or color-checkbox'es for filtering the list of items
+//       _._. Filters for the user
+//
+//           _._._. Filter by colors of active chechboxes
+//
+//           _._._. Filter by string of text input
 //
 //       _._. Single item, clickable container - onClick opens "ItemDetails" modal as "variant : edit-item"
 //

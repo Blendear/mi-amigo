@@ -1,32 +1,38 @@
 import styles from "src/styles/sass/styles-all.module.scss";
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
+
 //hook2 - add types
-// setNameToFilterBy, setIsGreen, setIsYellow, setIsRed
 
 const FiltersForItems = ({ handlers }: any) => {
+  const [filterValue, setFilterValue] = useState<string>("");
+
+  const handleChangeTextValue = (event) => {
+    setFilterValue(event.target.value);
+  };
+
   const handleFilterByName = () => {
-    const filterValue = (document.getElementById("byName") as HTMLInputElement)
-      .value;
-    console.log(filterValue);
     handlers.setNameToFilterBy(filterValue);
+  };
+
+  const handleToggleCheckbox = (event) => {
+    const colorName = event.target.name;
+    handlers.setColorsToFilterBy((prev) => {
+      return Object.defineProperty(prev, colorName, {
+        value: event.target.checked === true ? colorName : "__",
+      });
+    });
   };
 
   return (
     <div className={styles["landing-page__filters-container"]}>
-      <div
-        className={styles["landing-page__filters-container__by-name-container"]}
-      >
-        <input
-          className={styles["hook1"]}
-          id="byName"
-          placeholder="Name to filter by"
-          type="text"
-          // onClick={() => {
-          //   setFilterCurrent("red-yellow");
-          // }}
-        ></input>
-        <button onClick={handleFilterByName}>\/</button>
-      </div>
+      <input
+        className={styles["landing-page__filters-container__by-name"]}
+        id="byName"
+        placeholder="Name to filter by"
+        type="text"
+        onChange={handleChangeTextValue}
+      ></input>
 
       <div
         className={
@@ -39,11 +45,9 @@ const FiltersForItems = ({ handlers }: any) => {
               "landing-page__filters-container__checkboxes-container--green"
             ]
           }
-          name="green"
+          name="success"
           type="checkbox"
-          // onClick={() => {
-          //   setFilterCurrent("red-yellow");
-          // }}
+          onChange={handleToggleCheckbox}
         ></input>
         <input
           className={
@@ -51,27 +55,25 @@ const FiltersForItems = ({ handlers }: any) => {
               "landing-page__filters-container__checkboxes-container--yellow"
             ]
           }
-          name="yellow"
+          name="warning"
           type="checkbox"
-          // onClick={() => {
-          //   setFilterCurrent("red-yellow");
-          // }}
+          onChange={handleToggleCheckbox}
         ></input>
         <input
           className={
             styles["landing-page__filters-container__checkboxes-container--red"]
           }
-          name="red"
+          name="danger"
           type="checkbox"
-          // onChange={() => {
-          //   setIsRed((prev) => {
-          //     return !prev;
-          //   });
-          // }}
+          onChange={handleToggleCheckbox}
+
           //hook1 - herehere - /\ change to a way of saving th state, so it doesnt renrender the whole landing opage. mayeb just add the usestate and filters as part of "list of items"?
         ></input>
-        {/* {console.log(isRed)} */}
       </div>
+      <FaSearch
+        className={styles["landing-page__filters-container__search-btn"]}
+        onClick={handleFilterByName}
+      />
     </div>
   );
 };
