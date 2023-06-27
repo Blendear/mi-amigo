@@ -12,7 +12,7 @@ const FiltersForItems = ({ handlers }: any) => {
   };
 
   const handleFilterByName = () => {
-    handlers.setNameToFilterBy(filterValue);
+    handlers.setNameToFilterBy(filterValue.toLowerCase());
   };
 
   const handleToggleCheckbox = (event) => {
