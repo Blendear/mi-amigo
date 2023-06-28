@@ -55,7 +55,7 @@ const LandingPage = () => {
 
   return (
     <>
-      {isLoading && <div>Logging in...</div>}
+      {isLoading && <Loader />}
       {user && (
         <div className={styles["landing-page__container"]}>
           <div style={{ textAlign: "center", margin: "2rem  0 0.5rem 0" }}>
