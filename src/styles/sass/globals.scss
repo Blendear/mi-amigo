@@ -44,6 +44,10 @@ li {
 
 body {
   background-color: colors.$primary-light;
+  width: min(
+    100%,
+    50rem
+  ); //hook2 - change before adding media queries - temporary, placeholder styling solution for cleaner styling on desktop screen sizes.
 }
 
 body,
