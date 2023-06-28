@@ -58,9 +58,8 @@ const LandingPage = () => {
       {isLoading && <div>Logging in...</div>}
       {user && (
         <div className={styles["landing-page__container"]}>
-          {/* <Link href="/api/auth/logout">Logout</Link> */}
           <div style={{ textAlign: "center", margin: "2rem  0 0.5rem 0" }}>
-            <div>{`Hey ${user.name}!`}</div>
+            {`Hey ${user.name}!`}
           </div>
 
           <div className={styles["landing-page__shops-and-weather-container"]}>
