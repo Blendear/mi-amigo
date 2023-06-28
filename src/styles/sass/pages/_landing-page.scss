@@ -8,7 +8,7 @@
     background-color: colors.$primary-light;
   }
   &__shops-and-weather-container {
-    margin: 0 0 2rem 0;
+    margin: 0 0 1.5rem 0;
     padding: 1.5rem 0 0 0;
 
     display: grid;
@@ -102,7 +102,7 @@
 
   &__filters-container {
     @include filter-related-containers();
-    margin: 2.5rem 1rem;
+    margin: 0 1rem 2.75rem 1rem;
     height: 2rem;
 
     &__by-name-container {
