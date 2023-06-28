@@ -24,6 +24,7 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import Link from "next/link";
 
 const LandingPage = () => {
   const { user, isLoading } = useUser();
@@ -57,8 +58,8 @@ const LandingPage = () => {
       {isLoading && <div>Logging in...</div>}
       {user && (
         <div className={styles["landing-page__container"]}>
-          <a href="/api/auth/logout">Logout</a>
-          <img
+          <Link href="/api/auth/logout">Logout</Link>
+          {/* <img
             src={user.picture}
             alt="Profile"
             className="nav-user-profile rounded-circle"
@@ -66,7 +67,7 @@ const LandingPage = () => {
             height="50"
             decode="async"
             data-testid="navbar-picture-desktop"
-          />
+          /> */}
           <div className={styles["landing-page__shops-and-weather-container"]}>
             <ToggleShopsFilterMethodList />
             <ShopsToVisitGallery />
