@@ -9,17 +9,18 @@
   }
   &__shops-and-weather-container {
     margin: 0 0 2rem 0;
-    padding: 3rem 0 0 0;
+    padding: 1.5rem 0 0 0;
 
     display: grid;
     grid-template-columns: [c-0] 1fr [c-1] 1fr[c-2] 1fr[c-3];
-    // @include mixins.center-grid-items;
     justify-items: center;
   }
   &__shops-to-visit-container {
     grid-column: c-1 / c-2;
     padding: 1rem 0.5rem;
+    height: 11rem;
     aspect-ratio: 1/1;
+    align-self: center;
 
     background-color: colors.$secondary-light;
     box-shadow: colors.$shadow-sharp-right-down-close;
@@ -28,8 +29,10 @@
     display: grid;
     grid-template-rows: [r-0] 0.5fr [r-1] 1.5fr [r-2];
     grid-template-columns: [c-0] 0.5fr [c-1] 1fr [c-2] 0.5fr [c-3];
+    column-gap: 0.5rem;
     @include mixins.center-grid-items;
     & svg {
+      // width: 3rem;
       :hover {
         filter: saturate(2.5);
       }
@@ -46,7 +49,7 @@
     aspect-ratio: 1/1;
 
     border-radius: 1.5rem; //hook1 - add border radius sizes to global "_variables.scss". used a lot. 2-3 vriants max, so worth it
-    box-shadow: 0.25rem 0.25rem 0rem 0 rgba(0, 0, 0, 0.4); //hook1 - worth adding as global varibl, like other box shadows ?
+    box-shadow: 0.15rem 0.15rem 0rem 0 rgba(0, 0, 0, 0.4); //hook1 - worth adding as global varibl, like other box shadows ?
     & img {
       border-radius: 1.5rem;
     }
@@ -62,8 +65,9 @@
     @include mixins.center-grid-items;
 
     & button {
-      width: 10rem;
-      height: 4rem;
+      width: 8rem;
+      aspect-ratio: 2.3/1;
+      // margin: 0 1rem;
 
       background-color: colors.$third-light;
       color: colors.$primary-light;
@@ -78,8 +82,8 @@
     }
   }
   &__weather-container {
+    @include mixins.center-grid-items;
     grid-column: c-2 / c-3;
-    height: 14rem;
     display: grid;
     grid-template-rows: [r-0] 1.5fr [r-1] 0.5fr [r-2];
 
