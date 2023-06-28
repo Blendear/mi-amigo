@@ -63,7 +63,13 @@ const SingleItemToBuy = ({
 
               <div
                 className={`${styles[`item-edit-view__amounts-container`]} ${
-                  styles[`${itemSingle.colorOfCurrentAmount}`]
+                  styles[
+                    `${
+                      itemAlreadyExists
+                        ? itemSingle.colorOfCurrentAmount
+                        : "bg-color--success"
+                    }`
+                  ]
                 }`}
               >
                 <div className={styles["item-edit-view__amount-to-buy"]}>
