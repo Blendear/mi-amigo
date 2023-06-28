@@ -1,11 +1,12 @@
 ## Technologies used in this app
 
 ▪ REST API
-▪ Firebase (for CRUD with a databse)
+▪ Firebase
 ▪ Typescript
 ▪ Redux
 ▪ Next.js
 ▪ React
+▪ Auth0
 ▪ Javascript ES6
 ▪ Sass
 ▪ CSS3
@@ -13,5 +14,6 @@
 
 ## Disclaimer about a better understanding of the code-flow
 
-There are tables of content inside every file (at the bottom of the file).
+There is a table of content inside every file (at the bottom of the file).
+It contains the main purpose of this file & a list sub-steps (only, if the code isn't readable enough through variable names)
 You can use "Ctrl + F" to easily find specific chapters of it inside the file.
