@@ -15,9 +15,5 @@ const ToggleShopsFilterMethodList = () => {
 export default ToggleShopsFilterMethodList;
 
 //
-//~~ _.  A
-//
-//       _._. AA
-//
-//           _._._.AAA
+//~~ _.  Choose method for filtering which shops you need to visit (Buttons)
 //
