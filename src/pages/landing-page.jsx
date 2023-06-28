@@ -23,8 +23,11 @@ import {
   deleteDoc,
   setDoc,
 } from "firebase/firestore";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 const LandingPage = () => {
+  const { user, isLoading } = useUser();
+
   const [loadingState, setLoadingState] = useState("fetching");
   const [allItemsFromDB, setAllItemsFromDB] = useState([]);
 
@@ -50,19 +53,34 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className={styles["landing-page__container"]}>
-      <div className={styles["landing-page__shops-and-weather-container"]}>
-        <ToggleShopsFilterMethodList />
-        <ShopsToVisitGallery />
-        <CurrentWeather />
-      </div>
-      {
-        {
-          fetching: <Loader />,
-          finished: <ListOfItemsToBuy itemsFromDB={allItemsFromDB} />,
-        }[loadingState]
-      }
-    </div>
+    <>
+      {isLoading && <div>Logging in...</div>}
+      {user && (
+        <div className={styles["landing-page__container"]}>
+          <a href="/api/auth/logout">Logout</a>
+          <img
+            src={user.picture}
+            alt="Profile"
+            className="nav-user-profile rounded-circle"
+            width="50"
+            height="50"
+            decode="async"
+            data-testid="navbar-picture-desktop"
+          />
+          <div className={styles["landing-page__shops-and-weather-container"]}>
+            <ToggleShopsFilterMethodList />
+            <ShopsToVisitGallery />
+            <CurrentWeather />
+          </div>
+          {
+            {
+              fetching: <Loader />,
+              finished: <ListOfItemsToBuy itemsFromDB={allItemsFromDB} />,
+            }[loadingState]
+          }
+        </div>
+      )}
+    </>
   );
 };
 export default LandingPage;

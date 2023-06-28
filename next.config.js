@@ -9,7 +9,8 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/landing-page",
+        // destination: "/landing-page",
+        destination: "/api/auth/login",
         permanent: true,
       },
     ];

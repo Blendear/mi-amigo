@@ -10,6 +10,7 @@
     "compile:sass": "sass --watch src/styles/sass/styles-all.module.scss src/styles/css/styles-all.css"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "2.6.3",
     "@reduxjs/toolkit": "1.9.2",
     "@sendgrid/mail": "7.7.0",
     "@types/firebase": "3.2.1",
