@@ -60,7 +60,7 @@ const LandingPage = () => {
         <div className={styles["landing-page__container"]}>
           {/* <Link href="/api/auth/logout">Logout</Link> */}
           <div
-            style={{ textAlign: "center", margin: "1rem  0 0 0" }}
+            style={{ textAlign: "center", margin: "2rem  0 0.5rem 0" }}
           >{`Hey ${user.name}!`}</div>
           {/* <img
             src={user.picture}
