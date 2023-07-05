@@ -6,8 +6,6 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { MdSettings } from "react-icons/md";
 
 const Footer = () => {
-  const [showSavingModalAndBackdrop, setShowSavingModalAndBackdrop] =
-    useState<boolean>(false);
   const [
     showCreateNewItemModalAndBackdrop,
     setShowCreateNewItemModalAndBackdrop,
@@ -16,21 +14,21 @@ const Footer = () => {
   //hook2 - refactor the footer into separate files. It isn't a clean, readable code right now
   return (
     <div className={styles["footer__container"]}>
-      {showSavingModalAndBackdrop && (
+      {showSettingsModal && (
         <>
           <Modal variant="information">
             <button
               onClick={() => {
-                setShowSavingModalAndBackdrop(false),
+                setShowSettingsModal(false),
                   (document.body.style.overflow = "unset"); // enables page-scrolling
               }}
             >
               x
             </button>
-            <h1>Saving to Firestore DB</h1>
+            <h1>Placeholder for settings</h1>
           </Modal>
           <Backdrop
-            onClose={() => setShowSavingModalAndBackdrop(false)}
+            onClose={() => setShowSettingsModal(false)}
             isStatic={true}
             variant="black-50-opacity"
           />
@@ -60,12 +58,14 @@ const Footer = () => {
       )}
 
       <MdSettings
+        role="button-settings"
         className={styles["footer__svg-button--left"]}
         onClick={() => {
           setShowSettingsModal(true), (document.body.style.overflow = "hidden"); // disables page-scrolling
         }}
       />
       <MdAddShoppingCart
+        role="button-new-item"
         className={styles["footer__svg-button--right"]}
         onClick={() => {
           setShowCreateNewItemModalAndBackdrop(true),
