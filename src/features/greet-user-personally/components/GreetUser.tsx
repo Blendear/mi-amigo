@@ -5,9 +5,9 @@ import styles from "src/styles/sass/styles-all.module.scss";
 
 const GreetUser = ({ user }) => {
   return (
-    <div style={{ textAlign: "center", margin: "2rem  0 0.5rem 0" }}>
+    <h4 style={{ textAlign: "center", margin: "2rem  0 0.5rem 0" }}>
       {`Hey ${user.name}!`}
-    </div>
+    </h4>
   );
 };
 export default GreetUser;
