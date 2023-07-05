@@ -20,9 +20,13 @@ const CurrentWeather = () => {
 
   return (
     <div className={styles["landing-page__weather-container"]}>
-      <DynamicWeatherIcon weatherDescription={weatherData.weather[0].main} />
-      {console.log(weatherData.weather[0].main)}
-      {/* <div>{weatherData.weather[0].description}</div> */}
+      <DynamicWeatherIcon
+        weatherDescription={
+          weatherData.isDefault
+            ? weatherData.weather[0].description
+            : weatherData.weather[0].main
+        }
+      />
       <Temperature
         temperature={weatherData.main.temp.toFixed(1)}
         isDefault={weatherData.isDefault ? true : false}
