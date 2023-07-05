@@ -13,7 +13,7 @@ describe("Greet User component", () => {
 
   test("renders a greeting", () => {
     render(<GreetUser user="Blendear" />);
-    // hook2 - make a mock of the user, so that i also test if the correct name is displayed alongisde "Hey..."
+    // hook2 - make a mock of the user,  so that i also test if the correct name is displayed alongisde "Hey..."
     const greetingText = screen.getByRole("heading", {
       name: /Hey/i,
     });
