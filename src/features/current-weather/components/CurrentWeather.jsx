@@ -27,7 +27,6 @@ const CurrentWeather = () => {
             : weatherData.weather[0].main
         }
       />
-
       <Temperature
         temperature={weatherData.main.temp.toFixed(1)}
         isDefault={weatherData.isDefault ? true : false}
