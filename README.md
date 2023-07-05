@@ -1,5 +1,7 @@
 ## Technologies used in this app
 
+▪ CI/CD - Github Actions
+▪ Testing - Jest & RTL
 ▪ REST API
 ▪ Firebase
 ▪ Typescript
