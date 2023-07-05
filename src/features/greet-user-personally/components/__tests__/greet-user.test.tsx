@@ -20,3 +20,5 @@ describe("Greet User component", () => {
     expect(greetingText).toBeInTheDocument();
   });
 });
+
+// main
