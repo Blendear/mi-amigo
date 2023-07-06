@@ -27,3 +27,6 @@ export default Modal;
 //
 //       _._. Container (empty) & Custom body - content is taken from the parent, through the "children" prop
 //
+
+// how to test this modal with jest
+// https://stackoverflow.com/questions/58017801/how-to-test-react-portals-with-jest-and-enzyme
